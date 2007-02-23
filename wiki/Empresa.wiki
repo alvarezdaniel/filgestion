@@ -1,18 +1,12 @@
-#Definición de una empresa.
 
-= Introduction =
+= Definición de una empresa =
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
-
-Una empresa es el ejercicio profesional de una actividad económica planificada, con la finalidad o el objetivo de intermediar en el mercado de bienes o servicios, y con una unidad economica organizada en la cual ejerce su actividad profesional el empresario por sí mismo o por medio de sus representantes.
+Una empresa es el ejercicio profesional de una actividad [http://es.wikipedia.org/wiki/Econ%C3%B3mica económica] planificada, con la finalidad o el objetivo de intermediar en el mercado de bienes o servicios, y con una unidad economica organizada en la cual ejerce su actividad profesional el empresario por sí mismo o por medio de sus representantes.
 La empresa es la unidad económico-social en la que el capital, el trabajo y la dirección se coordinan para realizar una producción socialmente útil, de acuerdo con las exigencias del bien común. Los elementos necesarios para formar una empresa son: capital, trabajo y recursos materiales.
 En economía, la empresa es la unidad económica básica encargada de satisfacer las necesidades del mercado mediante la utilización de recursos materiales y humanos. Se encarga, por tanto, de la organización de los factores de producción, capital y trabajo.
 Se entiende por empresa al organismo social integrado por elementos humanos, técnicos y materiales cuyo objetivo natural y principal es la obtención de utilidades, o bien, la prestación de servicios a la comunidad, coordinados por un administrador que toma decisiones en forma oportuna para la consecución de los objetivos para los que fueron creadas. Para cumplir con este objetivo la empresa combina naturaleza y capital.
+
+
+= Comentario =
+
+Tomado de la Wikipedia
