@@ -3,3 +3,32 @@
 == Participantes ==
 NombreParticipante1, NombreParticipante2, NombreParticipanteN
 
+== Temario de la reunión ==
+  # Tema 1
+
+  # Tema 2
+
+  # Tema 3
+
+  # Tema n
+
+== Temas tratados ==
+  # Tema 1
+    * Detalle
+
+  # Tema 3
+    * Detalle
+
+  # Tema n
+    * Detalle
+
+== Temas pendientes ==
+  # Tema 2
+
+== Resoluciones adoptadas ==
+  # Descripción
+
+  # Descripción
+
+== Próxima reunión ==
+2-3-2007
