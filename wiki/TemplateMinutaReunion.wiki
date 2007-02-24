@@ -5,11 +5,8 @@ NombreParticipante1, NombreParticipante2, NombreParticipanteN
 
 == Temario de la reunión ==
   # Tema 1
-
   # Tema 2
-
   # Tema 3
-
   # Tema n
 
 == Temas tratados ==
