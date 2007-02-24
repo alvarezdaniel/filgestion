@@ -12,10 +12,8 @@ NombreParticipante1, NombreParticipante2, NombreParticipanteN
 == Temas tratados ==
   # Tema 1
     * Detalle
-
   # Tema 3
     * Detalle
-
   # Tema n
     * Detalle
 
@@ -24,7 +22,6 @@ NombreParticipante1, NombreParticipante2, NombreParticipanteN
 
 == Resoluciones adoptadas ==
   # Descripción
-
   # Descripción
 
 == Próxima reunión ==
