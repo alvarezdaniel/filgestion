@@ -24,7 +24,7 @@ O también puede representar a la casa central y a las diferentes sucursales. Es
 
 = Propiedades de una empresa =
   * [RazonSocial Razón social]
-  * Tipo de identificación legal
-  * Identificación legal
-  * Responsabilidad frente al IVA
-  * Localización
+  * [TipoIdentificacionLegal Tipo de identificación legal]
+  * [IdentificacionLegal Identificación legal]
+  * [CategoriaIva Responsabilidad frente al Impuesto al Valor Agregado]
+  * [Localizacion Localización]
