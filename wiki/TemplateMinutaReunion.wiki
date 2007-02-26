@@ -1,4 +1,4 @@
-= Reunión General 16-2-2007 =
+= Reunión General dd-mm-aaaa =
 
 == Participantes ==
 NombreParticipante1, NombreParticipante2, NombreParticipanteN
@@ -25,4 +25,4 @@ NombreParticipante1, NombreParticipante2, NombreParticipanteN
   # Descripción
 
 == Próxima reunión ==
-2-3-2007
+dd-mm-aaaa
