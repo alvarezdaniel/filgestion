@@ -22,9 +22,9 @@ En el mundo real puede representar a una unidad de negocio que una empresa quier
 O también puede representar a la casa central y a las diferentes sucursales. Es decir, una empresa será casa central, otra será la sucursal 1, otra la sucursal 2, etc.
 
 
-= Propiedades de una empresa
-  * Razón social,
-  * Tipo de identificación legal,
-  * Identificación legal,
-  * Responsabilidad frente al IVA,
-  * Localización,
+= Propiedades de una empresa =
+  * [Razón social]
+  * Tipo de identificación legal
+  * Identificación legal
+  * Responsabilidad frente al IVA
+  * Localización
