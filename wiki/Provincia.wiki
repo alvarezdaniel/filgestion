@@ -1,3 +1,9 @@
+= Definición =
+
+= Definición para el Sistema =
+
+= Propiedades =
+
   * Código
   * Nombre
   * [Pais País]
