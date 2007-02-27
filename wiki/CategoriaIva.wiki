@@ -1,0 +1,17 @@
+= Definición =
+Posición frente al Impuesto al Valor Agregado de la persona física o jurídica.
+Las categorías de IVA existentes hoy son:
+Responsable Inscripto
+Responsable No Inscripto (prácticamente inexistente)
+Responsable Monotributo (o adherido al régimen simplificado)
+Responsable Exento
+Consumidor Final
+Sujeto no Categorizado
+
+== Links ==
+http://www.uflo.edu.ar/academica/deportes/dist/dis_art/mod_III_2%BAparte.htm
+http://www.southlink.com.ar/vap/facturacion.htm
+
+= Definición para el Sistema ==
+Representa lo mismo que su definición general.
+El sistema deberá mantener la colección de categorías de IVA legalmente vigente, con todas las características que se consideren relevantes para el desarrollo de las funcionalidades del sistema.
