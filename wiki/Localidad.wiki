@@ -1,8 +1,11 @@
 = Definición =
-== Incompleto ==
+Localidad es una división territorial y administrativa genérica para cualquier núcleo urbano habitado y con identidad propia. La unión de una o varias localidades es lo que forma una entidad política o juridisccional.
+
+== Comentario ==
+Tomado de la [http://es.wikipedia.org/wiki/Localidad Wikipedia].
 
 = Definición para el Sistema =
-== Incompleto ==
+Representa un municipio o ciudad.
 
 = Propiedades =
 
