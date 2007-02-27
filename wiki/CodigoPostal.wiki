@@ -1,0 +1,23 @@
+= Definición =
+El código postal es una serie de letras o cifras que, añadidas a la dirección postal, sirven para ordenar efectivamente el correo.
+
+El sistema de Código Postal Argentino (CPA) comprende una serie de códigos de ciudades utilizados para el servicio postal. Su implementación comenzó en 1998 y es un complemento de los códigos utilizados hasta ese momento. Este código es utilizado indistintamente por cualquier compañía postal que opere en la Argentina y sigue conviviendo con el sistema anterior.
+
+El CPA está compuesto por ocho caracteres:
+
+una letra identificatoria de la provincia, de acuerdo a la norma ISO 3166-2:AR; 
+un número de 4 dígitos que identifica la localidad, ciudad o barrio; 
+una combinación de tres letras que identifican la calle y la manzana. 
+Los cuatro dígitos que identifican la localidad mantienen en su gran mayoría la numeración que ya se utilizaba anteriormente. Aquellas localidades con menos de 500 habitantes poseen un CPA único. Un ejemplo de CPA es C1064AAB, correspondiente a la Casa Rosada, Balcarce 50, Capital Federal.
+
+
+== Comentario ==
+Tomado de la [http://es.wikipedia.org/wiki/C%C3%B3digo_postal Wikipedia].
+Y también lo referente a [http://es.wikipedia.org/wiki/C%C3%B3digo_Postal_Argentino Código Postal Argentino].
+
+= Definición para el sistema =
+
+Es el código postal argentino que se detalla en la definición general.
+
+
+= Propiedades =
