@@ -2,7 +2,7 @@
 Conjunto de datos que permiten localizar o comunicarse con una persona o empresa.
 
 = Propiedades =
-Domicilios: colección de [domicilio] que pertenecen a una persona o empresa.
+Domicilios: colección de [Domicilio] que pertenecen a una persona o empresa.
 
 Teléfonos: colección de [Telefono teléfono]que pertenecen a una persona o empresa.
 
