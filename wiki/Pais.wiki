@@ -1,6 +1,8 @@
 = Definición =
+La palabra país puede referirse a un estado, una nación o a una región. Es el principal sinónimo de estado nacional: un área geográfica y una entidad políticamente independiente con su propio gobierno, administración, leyes, la mayor parte de las veces una constitución, policía, fuerzas armadas, leyes tributarias y un grupo humano.
 
 = Definición para el Sistema =
+Para el sistema es lo mismo que lo explicado en la difinición. El país para el sistema contiene un conjunto de [Provincia provincias].
 
 = Propiedades =
   * Código
