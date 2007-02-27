@@ -4,6 +4,6 @@ Conjunto de datos que permiten localizar o comunicarse con una persona o empresa
 = Propiedades =
 [Domicilios]: colección de domicilios que pertenecen a una persona o empresa.
 
-[Teléfonos]: colección de teléfonos que pertenecen a una persona o empresa.
+[Telefonos Teléfonos]: colección de teléfonos que pertenecen a una persona o empresa.
 
 [Internet]: colección de [http://es.wikipedia.org/wiki/URL urls] de una persona o empresa.
