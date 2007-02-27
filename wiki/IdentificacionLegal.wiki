@@ -1,0 +1,3 @@
+= Definición para el Sistema =
+
+Código o número correspondiente a un tipo de documento legal por medio del cual puede identificarse unívocamente a una persona física o jurídica.
