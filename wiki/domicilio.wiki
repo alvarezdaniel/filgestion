@@ -6,7 +6,7 @@ Para las persona jurídicas, tanto de derecho público como las de derecho priva
 La importancia del domicilio estriba en que fija la competencia territorial del tribunal y la legislación aplicable (nacional o extranjera). También tiene importancia a la hora de hacer notificaciones oficiales a una persona, dado que deben ir dirigidas a su domicilio.
 
 == Comentario ==
-Tomado de la [http://code.google.com/p/filgestion/w/edit/domicilio Wikipedia].
+Tomado de la [http://es.wikipedia.org/wiki/Domicilio Wikipedia].
 
 = Definición para el sistema =
 Lugar donde recide una persona o empresa identificable por una conjunto de datos que se enumeran en las propiedades.
