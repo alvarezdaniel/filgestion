@@ -1,0 +1,12 @@
+= Definición =
+== Incompleto ==
+
+= Definición para el Sistema =
+== Incompleto ==
+
+= Propiedades =
+
+  * Código
+  * Nombre
+  * Códigos postales: colección de [CodigoPostal código postal].
+  * [Provincia]
