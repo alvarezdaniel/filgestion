@@ -1,0 +1,19 @@
+= Definición =
+El domicilio es un atributo de la personalidad, que consiste en el lugar donde la persona (física o jurídica) tiene su residencia con el ánimo real o presunto de permanecer en ella.
+
+Para las persona jurídicas, tanto de derecho público como las de derecho privado, el domicilio es primeramente el local de su sede. Teniendo la persona jurídica varios establecimientos, cada una de ellas será considerada como domicilio para los actos practicados en cada uno de ellos.
+
+La importancia del domicilio estriba en que fija la competencia territorial del tribunal y la legislación aplicable (nacional o extranjera). También tiene importancia a la hora de hacer notificaciones oficiales a una persona, dado que deben ir dirigidas a su domicilio.
+
+== Comentario ==
+Tomado de la [http://code.google.com/p/filgestion/w/edit/domicilio Wikipedia].
+
+= Definición para el sistema =
+Lugar donde recide una persona o empresa identificable por una conjunto de datos que se enumeran en las propiedades.
+
+= Propiedades =
+  * Calle
+  * Número
+  * Piso
+  * Departamento
+  * [Localidad]
