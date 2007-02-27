@@ -1,3 +1,4 @@
+#labels Phase-Requirements
 = Definición =
 
 Una empresa es el ejercicio profesional de una actividad [http://es.wikipedia.org/wiki/Econ%C3%B3mica económica] planificada, con la finalidad o el objetivo de intermediar en el mercado de bienes o servicios, y con una unidad economica organizada en la cual ejerce su actividad profesional el empresario por sí mismo o por medio de sus representantes.
