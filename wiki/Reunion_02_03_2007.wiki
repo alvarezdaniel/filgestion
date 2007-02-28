@@ -1,18 +1,37 @@
-#summary One-sentence summary of this page.
 #labels ARQUITECTURA
+#Reunión de arquitectura
 
-= Introduction =
+= Reunión de Arquitectura 02-03-2007 =
 
-Add your content here.
+== Participantes ==
+Diego Masini 
+Esteban Calabria
+Javier Feldman
+Nacho
+Francisco Heker
+Martín Viegas
+Vero Zacarias
 
+== Temario de la reunión ==
+  # Seguridad: usuarios, permisos funcionales, permisos sobre la información.
+  # Prototipo: comenzar con el relevamiento de un prototipo que pruebe la interfaz de usuario, modelo de negocios y la base de datos, utilizando el framework MVC y N-Hibernate.
+  # Opciones por defecto - parametrización particular: como tener predefinido para todo las opciones por defecto más usuales y tener disponible la parametrización particular para los usuarios que lo requieran. Rapidez y sencillez - Flexibilidad y amplitud.
+  # Mantenimiento de la consistencia de la información histórica ante los cambios en las características esenciales de un objeto a lo largo del tiempo. Ejemplo: un artículo que no trabajó con lotes y pasa en determinado momento a trabajar, esto suele traer inconsistencia en el stock.
 
-= Details =
+== Temas tratados ==
+  # Tema 1
+    * Detalle
+  # Tema 3
+    * Detalle
+  # Tema n
+    * Detalle
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Temas pendientes ==
+  # Tema 2
 
+== Resoluciones adoptadas ==
+  # Descripción
+  # Descripción
 
-
-
+== Próxima reunión ==
+dd-mm-aaaa
