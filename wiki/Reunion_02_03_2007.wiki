@@ -1,5 +1,5 @@
 #labels ARQUITECTURA
-#Reunión de arquitectura
+#Summary: Reunión de arquitectura
 
 = Reunión de Arquitectura 02-03-2007 =
 
