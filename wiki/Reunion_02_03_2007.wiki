@@ -18,6 +18,10 @@ Vero Zacarias
   # Claves primarias.
   # Opciones por defecto - parametrización particular: como tener predefinido para todo las opciones por defecto más usuales y tener disponible la parametrización particular para los usuarios que lo requieran. Rapidez y sencillez - Flexibilidad y amplitud.
   # Mantenimiento de la consistencia de la información histórica ante los cambios en las características esenciales de un objeto a lo largo del tiempo. Ejemplo: un artículo que no trabajó con lotes y pasa en determinado momento a trabajar, esto suele traer inconsistencia en el stock.
+  # Autorizaciones y estados de las transacciones
+  # Manejo de estructuras jerárquicas (árboles): como presentar rápidamente descripciones que tienen que armarse recorriendo estructuras de árbol, etc.
+  # Campos adicionales: para comenzar con artículos.
+  # Manejo de una registry propia para guardar últimas configuraciones
 
 == Temas tratados ==
   # Tema 1
