@@ -1,3 +1,4 @@
+#labels Phase-Requirements,Phase-Design
 = Definición =
 Localidad es una división territorial y administrativa genérica para cualquier núcleo urbano habitado y con identidad propia. La unión de una o varias localidades es lo que forma una entidad política o juridisccional.
 
