@@ -1,3 +1,4 @@
+#labels DOCUMENTACION,TEMPLATE
 = Reunión General dd-mm-aaaa =
 
 == Participantes ==
