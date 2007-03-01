@@ -15,6 +15,7 @@ Vero Zacarias
 == Temario de la reunión ==
   # Seguridad: usuarios, permisos funcionales, permisos sobre la información.
   # Prototipo: comenzar con el relevamiento de un prototipo que pruebe la interfaz de usuario, modelo de negocios y la base de datos, utilizando el framework MVC y N-Hibernate.
+  # Claves primarias.
   # Opciones por defecto - parametrización particular: como tener predefinido para todo las opciones por defecto más usuales y tener disponible la parametrización particular para los usuarios que lo requieran. Rapidez y sencillez - Flexibilidad y amplitud.
   # Mantenimiento de la consistencia de la información histórica ante los cambios en las características esenciales de un objeto a lo largo del tiempo. Ejemplo: un artículo que no trabajó con lotes y pasa en determinado momento a trabajar, esto suele traer inconsistencia en el stock.
 
