@@ -7,7 +7,10 @@ Link a la [http://es.wikipedia.org/wiki/N%C3%BAmero_de_tel%C3%A9fono Wikipedia].
 Número de teléfono.
 
 = Propiedades =
-[http://es.wikipedia.org/wiki/Lista_de_prefijos_telef%C3%B3nicos#Zona_5_-_M.C3.A9xico.2C_Am.C3.A9rica_Central_y_Sur Codigo de Pais] (numerico) 
-[http://www.datacraft.com.ar/ddn.html Codigo de Area] (numerico) 
-Numero (numerico) 
+[http://es.wikipedia.org/wiki/Lista_de_prefijos_telef%C3%B3nicos#Zona_5_-_M.C3.A9xico.2C_Am.C3.A9rica_Central_y_Sur Codigo de Pais]
+
+[http://www.datacraft.com.ar/ddn.html Codigo de Area]
+
+Numero
+
 Tipo: Hogar, Trabajo, Móvil, Fax.
