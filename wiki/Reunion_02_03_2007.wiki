@@ -18,7 +18,7 @@ Gustavo Ortiz
 
 == Temario de la reunión ==
   * Seguridad: usuarios, permisos funcionales, permisos sobre la información.
-  * Prototipo: comenzar con el relevamiento de un prototipo que pruebe la interfaz de usuario, modelo de negocios y la base de datos, utilizando el [framework MVC] y [NHibernate].
+  * Prototipo: comenzar con el relevamiento de un prototipo que pruebe la interfaz de usuario, modelo de negocios y la base de datos, utilizando el [http://es.wikipedia.org/wiki/Arquitectura_de_tres_niveles framework MVC] y [http://es.wikipedia.org/wiki/NHibernate NHibernate].
   * Claves primarias.
   * Opciones por defecto - parametrización particular: como tener predefinido para todo las opciones por defecto más usuales y tener disponible la parametrización particular para los usuarios que lo requieran. Rapidez y sencillez - Flexibilidad y amplitud.
   * Mantenimiento de la consistencia de la información histórica ante los cambios en las características esenciales de un objeto a lo largo del tiempo. Ejemplo: un artículo que no trabajó con lotes y pasa en determinado momento a trabajar, esto suele traer inconsistencia en el stock.
@@ -46,7 +46,7 @@ Gustavo Ortiz
       * Clase MOVIMIENTO_DE_INVENTARIO
         * Propiedades: NUMERO: integer, ITEMS_MOVIMIENTO_DE_INVENTARIO: items_movimiento_de_inventario.
     * Lo que se pretende evaluar en una primer iteración es lo siguiente:
-      * Interfaz de usuario. Uso de [WinForm] y de [WebForm]. Determinar si es conveniente el uso de WebForm en todo el sistema. Se presume que para la mayor parte de las funcionalidades los WinForms serán más aptos para los usuarios de un [ERP] que los WebForms.
+      * Interfaz de usuario. Uso de [http://es.wikipedia.org/wiki/Interfaz_gr%C3%A1fica_de_usuario WinForm] y de [WebForm]. Determinar si es conveniente el uso de WebForm en todo el sistema. Se presume que para la mayor parte de las funcionalidades los WinForms serán más aptos para los usuarios de un [http://es.wikipedia.org/wiki/Planeaci%C3%B3n_de_Recursos_Empresariales ERP] que los WebForms.
       * Probar el uso del [framework MVC Spring] para separar y conectar la capa de interfaz con el modelo de negocios. Evaluarlo.
       * Probar el uso del framework de persistencia NHibernate para separar y conectar el modelo de negocios de la capa de base de datos.
       * Analizar, probar y evaluar distintas formas de realizar consultas sobre la información y la forma de presentarla al usuario.
@@ -58,7 +58,7 @@ Gustavo Ortiz
       * Consultas: artículos, depósitos, stock, movimientos de inventario.
     * Se decide también desarrollar el prototipo dentro de la capacitación en C#.
   * Claves primarias
-    * Se habla sobre la conveniencia de utilizar [GUID], para resolver conflictos de replicación. Hay que ver cómo lo maneja el framework de persistencia. El tema está en debate y se puede probar en el prototipo.
+    * Se habla sobre la conveniencia de utilizar [http://es.wikipedia.org/wiki/GUID GUID], para resolver conflictos de replicación. Hay que ver cómo lo maneja el framework de persistencia. El tema está en debate y se puede probar en el prototipo.
   * Manejo de una registry interna
     * Todos coinciden en que las opciones de configuración, opciones por defecto, que tienen que ver con las preferencias del su usuario sobre su interfaz gráfica en conveniente guardarlas internamente en el sistema, más específicamente se habló de guardar esos datos dentro de la base de datos.
   * Opciones por defecto - parametrización particular
@@ -77,7 +77,7 @@ Gustavo Ortiz
   # Realización de un prototipo para prueba de la arquitectura del sistema.
   # Modelo de clases del prototipo
   # Utilización del framework Spring y NHibernate en el prototipo para su estudio y evaluación.
-  # Desarrollar el prototipo como parte de la capacitación en C#. También nos estaremos capacitando en Spring y NHibernate.
+  # Desarrollar el prototipo como parte de la capacitación en [http://es.wikipedia.org/wiki/C_Sharp C#]. También nos estaremos capacitando en Spring y NHibernate.
   # Guardar internamente en el sistema las preferencias del usuario (registry propia).
 
 == Próxima reunión ==
