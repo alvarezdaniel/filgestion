@@ -32,7 +32,7 @@ Gustavo Ortiz
     * Se habla sobre la conveniencia de desarrollar un prototipo simple donde se puedan probar todas las cuestiones relacionadas con la arquitectura. La idea es integrar en el prototipo la capa de usuario, la capa de negocios y la capa de base de datos implementando un modelo de clases.
     * Se piensa en un modelo de clases simples para que sea fácil de implementar y de diseñar las pruebas y que al mismo tiempo tenga el alcance suficiente para poder evaluar todos los temas necesarios.
     * En lugar de utilizar clases abstractas (como clase_a, clase_b, etc.) se utilizarán clases significativas del dominio en el que nos ocuparemos. Se aclara que estas clases 
-_no pretenden representar una solución real del dominio_, sólo sirven para probar la arquitectura y con clase más significativo, claras y comprensibles, lo que va a facilitar analizar los resultados.
+no pretenden representar una solución real del dominio, sólo sirven para probar la arquitectura y con clase más significativo, claras y comprensibles, lo que va a facilitar analizar los resultados.
     * El modelo será el siguiente:
       * Clase ARTICULO
         * Propiedades: CODIGO: string, NOMBRE: string.
@@ -58,11 +58,11 @@ _no pretenden representar una solución real del dominio_, sólo sirven para pro
       * Transacción de Movimiento de inventario
       * Consultas: artículos, depósitos, stock, movimientos de inventario.
     * Se decide también desarrollar el prototipo dentro de la capacitación en C#.
-  # Claves primarias
+  * Claves primarias
     * Se habla sobre la conveniencia de utilizar GUID, para resolver conflictos de replicación. Hay que ver cómo lo maneja el framework de persistencia. El tema está en debate y se puede probar en el prototipo.
-  # Manejo de una registry interna
+  * Manejo de una registry interna
     * Todos coinciden en que las opciones de configuración, opciones por defecto, que tienen que ver con las preferencias del su usuario sobre su interfaz gráfica en conveniente guardarlas internamente en el sistema.
-  # Opciones por defecto - parametrización particular
+  * Opciones por defecto - parametrización particular
     * Se habló en particular sobre esta necesidad no funcional para que sea tenida en cuenta por la arquitectura del sistema. El sistema tiene que ser por un lado muy flexible ya que no está dirigido a ninguna empresa en particular si no a la gestión de cualquier emmpresa. Por lo cual la flexibilidad y adaptabilidad es un requisito para el éxito comercial del producto. Este requisito se contrapone con otro que demanda simplicidad y facilidad de uso del sistema. Que un usuario sólo tenga que utilizar (ver, configurar, interactuar) con aquellos datos y parámetros que necesita, sin verse obligado a configurar infinidad de parámetros y variables que no le interesan. Para esto se menciona como posible camino de solución manejar inteligentemente las opciones por defecto, de la parametrización particular (demandada específicamente por un usuario), tanto en la predefinición interna del sistema como en su presentación gráfica.
 
 == Temas pendientes ==
