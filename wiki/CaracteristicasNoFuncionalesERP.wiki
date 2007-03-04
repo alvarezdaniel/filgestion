@@ -1,4 +1,6 @@
+#summary Características no funcionales del ERP
 #labels ARQUITECTURA
+
 = Caracteristicas no funcionales del ERP =
 
   * Base de datos
