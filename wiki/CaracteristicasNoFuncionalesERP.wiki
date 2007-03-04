@@ -1,5 +1,5 @@
 #labels ARQUITECTURA
-= Características no funcionales del ERP
+= Caracteristicas no funcionales del ERP =
 
   * Base de datos
     *Independiente del motor (importante)
