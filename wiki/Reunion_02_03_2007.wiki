@@ -1,5 +1,5 @@
 #summary Reunión de arquitectura
-#labels ARQUITECTURA
+#labels ARQUITECTURA,Reuniones
 
 = Reunión de Arquitectura 02-03-2007 =
 
@@ -18,7 +18,7 @@ Gustavo Ortiz
 
 == Temario de la reunión ==
   * Seguridad: usuarios, permisos funcionales, permisos sobre la información.
-  * Prototipo: comenzar con el relevamiento de un prototipo que pruebe la interfaz de usuario, modelo de negocios y la base de datos, utilizando el framework MVC y N-Hibernate.
+  * Prototipo: comenzar con el relevamiento de un prototipo que pruebe la interfaz de usuario, modelo de negocios y la base de datos, utilizando el [framework MVC] y [NHibernate].
   * Claves primarias.
   * Opciones por defecto - parametrización particular: como tener predefinido para todo las opciones por defecto más usuales y tener disponible la parametrización particular para los usuarios que lo requieran. Rapidez y sencillez - Flexibilidad y amplitud.
   * Mantenimiento de la consistencia de la información histórica ante los cambios en las características esenciales de un objeto a lo largo del tiempo. Ejemplo: un artículo que no trabajó con lotes y pasa en determinado momento a trabajar, esto suele traer inconsistencia en el stock.
@@ -46,8 +46,8 @@ Gustavo Ortiz
       * Clase MOVIMIENTO_DE_INVENTARIO
         * Propiedades: NUMERO: integer, ITEMS_MOVIMIENTO_DE_INVENTARIO: items_movimiento_de_inventario.
     * Lo que se pretende evaluar en una primer iteración es lo siguiente:
-      * Interfaz de usuario. Uso de WinForm y de WebForm. Determinar si es conveniente el uso de WebForm en todo el sistema. Se presume que para la mayor parte de las funcionalidades los WinForms serán más aptos para los usuarios de un ERP que los WebForms.
-      * Probar el uso del framework MVC Spring para separar y conectar la capa de interfaz con el modelo de negocios. Evaluarlo.
+      * Interfaz de usuario. Uso de [WinForm] y de [WebForm]. Determinar si es conveniente el uso de WebForm en todo el sistema. Se presume que para la mayor parte de las funcionalidades los WinForms serán más aptos para los usuarios de un [ERP] que los WebForms.
+      * Probar el uso del [framework MVC Spring] para separar y conectar la capa de interfaz con el modelo de negocios. Evaluarlo.
       * Probar el uso del framework de persistencia NHibernate para separar y conectar el modelo de negocios de la capa de base de datos.
       * Analizar, probar y evaluar distintas formas de realizar consultas sobre la información y la forma de presentarla al usuario.
       * Lista de [CaracteristicasNoFuncionalesERP características no funcionales del ERP]. Ver cuáles se pueden ir evaluando sobre el prototipo o cómo tenerlas en cuenta para el desarrollo de prototipo.
@@ -58,11 +58,13 @@ Gustavo Ortiz
       * Consultas: artículos, depósitos, stock, movimientos de inventario.
     * Se decide también desarrollar el prototipo dentro de la capacitación en C#.
   * Claves primarias
-    * Se habla sobre la conveniencia de utilizar GUID, para resolver conflictos de replicación. Hay que ver cómo lo maneja el framework de persistencia. El tema está en debate y se puede probar en el prototipo.
+    * Se habla sobre la conveniencia de utilizar [GUID], para resolver conflictos de replicación. Hay que ver cómo lo maneja el framework de persistencia. El tema está en debate y se puede probar en el prototipo.
   * Manejo de una registry interna
-    * Todos coinciden en que las opciones de configuración, opciones por defecto, que tienen que ver con las preferencias del su usuario sobre su interfaz gráfica en conveniente guardarlas internamente en el sistema.
+    * Todos coinciden en que las opciones de configuración, opciones por defecto, que tienen que ver con las preferencias del su usuario sobre su interfaz gráfica en conveniente guardarlas internamente en el sistema, más específicamente se habló de guardar esos datos dentro de la base de datos.
   * Opciones por defecto - parametrización particular
     * Se habló en particular sobre esta necesidad no funcional para que sea tenida en cuenta por la arquitectura del sistema. El sistema tiene que ser por un lado muy flexible ya que no está dirigido a ninguna empresa en particular si no a la gestión de cualquier emmpresa. Por lo cual la flexibilidad y adaptabilidad es un requisito para el éxito comercial del producto. Este requisito se contrapone con otro que demanda simplicidad y facilidad de uso del sistema. Que un usuario sólo tenga que utilizar (ver, configurar, interactuar) con aquellos datos y parámetros que necesita, sin verse obligado a configurar infinidad de parámetros y variables que no le interesan. Para esto se menciona como posible camino de solución manejar inteligentemente las opciones por defecto, de la parametrización particular (demandada específicamente por un usuario), tanto en la predefinición interna del sistema como en su presentación gráfica.
+  * Base de datos - Esquemas
+    * Se habló de tener la base de datos separada en distintos esquemas con sus tablas; hasta ahora se habló de hasta tres esquemas. Uno para las tablas usadas en el sistema, otro esquema para tablas que tendrán datos usados para consultas y reportes, y un tercer esquema para contener los datos de las opciones de configuración por usuario.
 
 == Temas pendientes ==
   * Seguridad: usuarios, permisos funcionales, permisos sobre la información.
