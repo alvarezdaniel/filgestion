@@ -51,21 +51,34 @@ _no pretenden representar una solución real del dominio_, sólo sirven para pro
       * Probar el uso del framework MVC Spring para separar y conectar la capa de interfaz con el modelo de negocios. Evaluarlo.
       * Probar el uso del framework de persistencia NHibernate para separar y conectar el modelo de negocios de la capa de base de datos.
       * Analizar, probar y evaluar distintas formas de realizar consultas sobre la información y la forma de presentarla al usuario.
-
-
-
+      * Lista de [CaracteristicasNoFuncionalesERP características no funcionales del ERP]. Ver cuáles se pueden ir evaluando sobre el prototipo o cómo tenerlas en cuenta para el desarrollo de prototipo.
+    * Las funcionalidades que tendrá el prototipo para poder realizar las pruebas de arquitectura serán:
+      * ABM de artículos
+      * ABM de depósitos
+      * Transacción de Movimiento de inventario
+      * Consultas: artículos, depósitos, stock, movimientos de inventario.
+    * Se decide también desarrollar el prototipo dentro de la capacitación en C#.
   # Claves primarias
-    * Detalle
+    * Se habla sobre la conveniencia de utilizar GUID, para resolver conflictos de replicación. Hay que ver cómo lo maneja el framework de persistencia. El tema está en debate y se puede probar en el prototipo.
   # Manejo de una registry interna
-    * Detalle
+    * Todos coinciden en que las opciones de configuración, opciones por defecto, que tienen que ver con las preferencias del su usuario sobre su interfaz gráfica en conveniente guardarlas internamente en el sistema.
   # Opciones por defecto - parametrización particular
+    * Se habló en particular sobre esta necesidad no funcional para que sea tenida en cuenta por la arquitectura del sistema. El sistema tiene que ser por un lado muy flexible ya que no está dirigido a ninguna empresa en particular si no a la gestión de cualquier emmpresa. Por lo cual la flexibilidad y adaptabilidad es un requisito para el éxito comercial del producto. Este requisito se contrapone con otro que demanda simplicidad y facilidad de uso del sistema. Que un usuario sólo tenga que utilizar (ver, configurar, interactuar) con aquellos datos y parámetros que necesita, sin verse obligado a configurar infinidad de parámetros y variables que no le interesan. Para esto se menciona como posible camino de solución manejar inteligentemente las opciones por defecto, de la parametrización particular (demandada específicamente por un usuario), tanto en la predefinición interna del sistema como en su presentación gráfica.
 
 == Temas pendientes ==
-  # Tema 2
+  * Seguridad: usuarios, permisos funcionales, permisos sobre la información.
+  * Mantenimiento de la consistencia de la información histórica ante los cambios en las características esenciales de un objeto a lo largo del tiempo. Ejemplo: un artículo que no trabajó con lotes y pasa en determinado momento a trabajar, esto suele traer inconsistencia en el stock.
+  * Autorizaciones y estados de las transacciones
+  * Manejo de estructuras jerárquicas (árboles): como presentar rápidamente descripciones que tienen que armarse recorriendo estructuras de árbol, etc.
+  * Campos adicionales.
 
 == Resoluciones adoptadas ==
-  # Descripción
-  # Descripción
+  # Realización de un prototipo para prueba de la arquitectura del sistema.
+  # Modelo de clases del prototipo
+  # Utilización del framework Spring y NHibernate en el prototipo para su estudio y evaluación.
+  # Desarrollar el prototipo como parte de la capacitación en C#. También nos estaremos capacitando en Spring y NHibernate.
+  # Guardar internamente en el sistema las preferencias del usuario (registry propia).
 
 == Próxima reunión ==
-dd-mm-aaaa
+Sin definir próxima reunión de arquitectura
+Se define capacitación para el sábado 17 de marzo de 2007 en La Plata de 9:00 hasta las ...
