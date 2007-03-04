@@ -1,0 +1,33 @@
+#labels ARQUITECTURA
+= Características no funcionales del ERP
+
+  * Base de datos
+    *Independiente del motor (importante)
+    * Manejo de gran volumen de información (imprescindible)
+    * Buena performance (importante)
+    * Número variable de accesos y transacciones simultáneas (entre 1 y 100 usuarios realizando peticiones simultáneas) (imprescindible).
+    * Base de datos centralizada o distribuida (importante).
+    * Administración de Seguridad: permisos de usuarios, encriptación de la información, etc. (importante).
+  * Reglas de negocio. Funcionalidades.
+    * Producto con funcionalidades estándar (en principio no a medida). (imprescindible)
+    * Debe preverse la posibilidad de realizar excepcionalmente desarrollos a medida. (deseable).
+    * Conviven funcionalidades bastante estables, que sufren poco o ninguna variación en el tiempo y otras sumamente variables tanto a lo largo del tiempo para todo usuario (disposiciones legales nuevas), como reglas de negocio variables por usuarios (políticas de bonificaciones de precios, descuentos, comisiones, etc.). Si bien el producto es estándar, es importante la mayor flexibilidad y adaptabilidad posible del mismo a estas variaciones. (Importante).
+    * También los datos requeridos por los usuarios suelen ser muy variables. Es deseable que el sistema permita agregar y adaptar en forma simple y efectiva, datos particulares de los usuarios que están fuera del estándar. (Deseable).
+    * Los cálculos que realiza la aplicación tienen un nivel de dificultad mínimo (todo cálculo se resuelve prácticamente con las 4 operaciones básicas).
+  * Interfaz
+    * En un sistema ERP, la mayor parte de las funcionalidades requieren una constante interacción del usuario con el sistema a través de interfaces gráficas. Existen pocas funcionalidades donde el usuario dispara un largo proceso batch.
+    * Que los usuarios puedan interactuar con el sistema a través de diferentes medios:
+      * PCs en redes locales (imprescindible)
+      * Terminales operando sobre un servidor (imprescindible).
+      * Accesos remotos vía internet (e-commerce, consultas, etc.) (importante)
+      * Dispositivos móviles (toma de inventario, levantar pedidos, etc.) (deseable)
+    * Hay que suponer usuarios con mínimos conocimientos y experiencia informática. Las interfaces deben ser simples, cómodas, claras, ágiles, intuitivas y predecibles. Lo mismo que su navegación. (Imprescindible).
+    * Los datos que se deben ofrecer por defecto deben ser los mínimos indispensable. Bajo demanda, los usuarios que lo requieran podrán acceder al resto de los datos que pueden configurarse por defecto o no son indispensables.
+    * La ayuda debe ser fácilmente accesible, navegable y clara para el tipo de usuarios que utilizará el sistema. (Importante).
+    * Es deseable que las interfaces y su navegación pueda ser adaptables a las necesidades de los usuarios. Lo mismo que los datos, como se dice más arriba, lo que el usuario quiera ver en la interfaz y cómo navegar esos datos puede ser muy variable. (Deseable).
+    * Interfaces sean livianas y rápidas. Sobre todo en algunas funcionalidades que requieren rápida operación por parte del usuario. (Imprescindible).
+    * Es deseable que las interfaces sean estéticamente agradables, principalmente por fines comerciales. (Deseable).
+    * Consultas e informes tienen que ser customizables, veloces y claros. (imprescindible).
+  * Otros
+    * Que pueda correr sobre diferentes sistemas operativos (Windows, Linux, etc.). (Deseable).
+    * Manejo amplio de la seguridad de los usuario tanto para acceder a las funcionalidades como para acceder a la información.
