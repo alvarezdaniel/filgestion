@@ -50,9 +50,9 @@ _no pretenden representar una solución real del dominio_, sólo sirven para pro
       * Interfaz de usuario. Uso de WinForm y de WebForm. Determinar si es conveniente el uso de WebForm en todo el sistema. Se presume que para la mayor parte de las funcionalidades los WinForms serán más aptos para los usuarios de un ERP que los WebForms.
       * Probar el uso del framework MVC Spring para separar y conectar la capa de interfaz con el modelo de negocios. Evaluarlo.
       * Probar el uso del framework de persistencia NHibernate para separar y conectar el modelo de negocios de la capa de base de datos.
+      * Analizar, probar y evaluar distintas formas de realizar consultas sobre la información y la forma de presentarla al usuario.
 
 
-Se desarrollarán ciertas funcionalidades mínimas para probar distintos tipos de interfaz de usuario (WinForm, WebForm) y e
 
   # Claves primarias
     * Detalle
