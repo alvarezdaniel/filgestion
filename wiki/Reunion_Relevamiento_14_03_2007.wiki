@@ -1,0 +1,34 @@
+= Reunión General 14/03/2007 =
+
+== Participantes ==
+Néstor 
+
+Francisco
+
+== Temario de la reunión ==
+  # Introducir a Néstor en los objetivos del grupo y su propuesta.
+  # Ver la documentación generada hasta ahora sobre temas funcionales y no funcionales
+  # Definir calendario de reuniones de relevamiento
+
+== Temas tratados ==
+  # Introducir a Néstor en los objetivos del grupo y su propuesta.
+    * Se ve con Néstor el documento inicial de la reunión, los objetivos que se propone FIL Gestión, los integrantes activos en el proyecto y la forma de participación.
+  # Ver la documentación generada hasta ahora sobre temas funcionales
+    * Se ve el documento de requerimientos no funcionales.
+    * Se agregan los siguientes requerimientos no funcionales:
+      * Interfaces gráficas de usuario: definir un estándar de visualización y navegación apropiado y respetarlo en todo el sistema (nombres de botones, mensajes de ayuda, teclas de función, etc.).
+      * Mantener una especie de agenda interna que pueda disparar avisos o acciones automáticos ante determinadas condiciones (Ejemplo: al ingresar al sistema que automáticamente avise las facturas adeudadas que se vencen).
+    * Néstor menciona, coincidiendo con lo debatido previamente, la seguridad a nivel comprobantes. Ya se concluyó que la seguridad es un tema que atraviesa todo el sistema. Qué usuarios pueden usar comprobantes, depósitos, empresas., etc. Qué usuarios pueden ver qué información. Y qué usuarios pueden hacer qué cosas. Néstor agrega también que la seguridad tiene que alcanzar las impresiones. En general todos lo que no se apruebe no debería ser impreso. O sí, pero con autorización. Es decir, una orden de compra no aprobada no debería imprimirse, una cobranza, un pedido, igual.
+    * Para el tema de las subdivisiones de almacenamiento se menciona que deberían realizar un control de la capacidad. También mantener el tema de un máximo apilable.
+    * El tema más importante es la opinión de Néstor con respecto al tema de empresa y sucursal. Para Néstor son conceptos distintos incluso legalmente y para los usuarios. Tanto para la ley como para el usuario la empresa es única y tiene 1 a n sucursales. Esto debería presentarse así para el usuario, más allá de cómo el sistema lo maneje internamente.
+
+  # Definir calendario de reuniones de relevamiento
+    * Se decide establecer una reunión semanal. Queda definir el día, horario y lugar.
+
+== Temas pendientes ==
+
+== Resoluciones adoptadas ==
+  # Realizar una reunión semanal del área funcional.
+
+== Próxima reunión ==
+a confirmar
