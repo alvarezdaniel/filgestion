@@ -1,3 +1,4 @@
+#labels RELEVAMIENTO
 = Reunión General 14/03/2007 =
 
 == Participantes ==
@@ -21,7 +22,6 @@ Francisco
     * Néstor menciona, coincidiendo con lo debatido previamente, la seguridad a nivel comprobantes. Ya se concluyó que la seguridad es un tema que atraviesa todo el sistema. Qué usuarios pueden usar comprobantes, depósitos, empresas., etc. Qué usuarios pueden ver qué información. Y qué usuarios pueden hacer qué cosas. Néstor agrega también que la seguridad tiene que alcanzar las impresiones. En general todos lo que no se apruebe no debería ser impreso. O sí, pero con autorización. Es decir, una orden de compra no aprobada no debería imprimirse, una cobranza, un pedido, igual.
     * Para el tema de las subdivisiones de almacenamiento se menciona que deberían realizar un control de la capacidad. También mantener el tema de un máximo apilable.
     * El tema más importante es la opinión de Néstor con respecto al tema de empresa y sucursal. Para Néstor son conceptos distintos incluso legalmente y para los usuarios. Tanto para la ley como para el usuario la empresa es única y tiene 1 a n sucursales. Esto debería presentarse así para el usuario, más allá de cómo el sistema lo maneje internamente.
-
   # Definir calendario de reuniones de relevamiento
     * Se decide establecer una reunión semanal. Queda definir el día, horario y lugar.
 
