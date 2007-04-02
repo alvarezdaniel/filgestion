@@ -4,7 +4,7 @@
 = Caracteristicas no funcionales del ERP =
 
   * Base de datos
-    *Independiente del motor (importante)
+    * Independiente del motor (importante)
     * Manejo de gran volumen de información (imprescindible)
     * Buena performance (importante)
     * Número variable de accesos y transacciones simultáneas (entre 1 y 100 usuarios realizando peticiones simultáneas) (imprescindible).
@@ -32,4 +32,5 @@
     * Consultas e informes tienen que ser customizables, veloces y claros. (imprescindible).
   * Otros
     * Que pueda correr sobre diferentes sistemas operativos (Windows, Linux, etc.). (Deseable).
-    * Manejo amplio de la seguridad de los usuario tanto para acceder a las funcionalidades como para acceder a la información.
+    * Manejo amplio de la seguridad de los usuario tanto para acceder a las funcionalidades como para acceder a la información, a la impresión, etc.
+    * Avisos y procesos que se ejecuten automáticamente (al iniciar el sistema, agendados, etc.).
