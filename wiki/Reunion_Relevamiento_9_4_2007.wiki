@@ -1,0 +1,41 @@
+= Reunión Relevamiento 27-3-2007 =
+
+== Participantes ==
+Néstor, Gastón, Francisco
+
+== Temario de la reunión ==
+  # Avanzar en la definición de artículos.
+  # Avanzar en la definición de comprobantes.
+  # Avanzar en la definición de movimientos de inventario.
+
+== Temas tratados ==
+Se enumeran los temas tratados.
+El detalle completo de los mismos estará en el documento "Resumen Reunión Relevamiento 09-04-2007", que oportunamente subiremos como archivo a FILGestion.
+
+  # Artículos
+    * Definición del mismo. Campos necesarios para módulo de inventario.
+  # Lotes
+    * Definición de los mismos. Los artículos pueden trabajar con lotes.
+  # Números de serie.
+    * Definición de los mismos. Los artículos pueden trabajar con números de serie.
+  # Despachos
+    * Definición de los mismos. Los artículos pueden trabajar con despachos.
+  # Magnitudes y unidades de medida
+    * Se comienza a plantear el tema y por el momento el artículo manejará sólo la unidad de medida con la que se lleva el inventario. Se anticipa que debe darse la posibilidad al artículo de manejar otras unidades de medida, aunque no se llega a resolver el alcance (por módulo, por funcionalidad).
+  # Relación de los artículos con los depósitos
+    * Se menciona la funcionalidad de poder definir lugares en los que un artículo puede almacenarse y otros temas relacionados (prioridad entre almacenes, capacidad máxima, criterios de asignación automática de almacenamiento, etc). Sin embargo se anticipa que no será una funcionalidad a encarar en una primer iteración.
+  # Relación usuarios - depósitos
+    * Se establecerá una relación directa entre los usuarios y los depósitos. Es un requisito poder definir qué usuario podrá usar qué depósito.
+
+
+
+== Temas pendientes ==
+  # Avanzar en la definición de artículos.
+  # Avanzar en la definición de comprobantes.
+  # Avanzar en la definición de movimientos de inventario.
+
+== Resoluciones adoptadas ==
+  # Ver documento resumen.
+
+== Próxima reunión ==
+9-4-2007
