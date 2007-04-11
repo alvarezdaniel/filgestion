@@ -34,4 +34,4 @@ El detalle completo de los mismos está en el documento ...
   # Ver documento resumen.
 
 == Próxima reunión ==
-dd-mm-aaaa
+9-4-2007
