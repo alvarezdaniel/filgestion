@@ -47,7 +47,7 @@ El detalle completo de los mismos estará en el documento "Resumen Reunión Rele
     * Me parece que a este punto le falta más desarrollo porque no me cierra del todo.
   # Movimientos de inventario
     * Se seleccionará primero el tipo de movimiento de acuerdo a los que pueda realizar el usuario.
-    * Se seleccionará el/los depósitos de acuerdo al tipo de movimiento seleccionado.
+    * Se seleccionará el/los depósitos de acuerdo al tipo de movimiento seleccionado. Estos depósitos deben ser finales (no tener divisiones internas).
     * Se seleccionará el/la unidad adicionalmente involucrada en las transferencias entre unidades de gestión.
     * Se seleccionará el motivo del movimiento de inventario.
     * Se ingresarán el resto de los datos de cabecera: fecha, observaciones, etc.
