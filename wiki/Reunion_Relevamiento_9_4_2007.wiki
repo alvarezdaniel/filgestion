@@ -1,4 +1,4 @@
-= Reunión Relevamiento 27-3-2007 =
+= Reunión Relevamiento 9-4-2007 =
 
 == Participantes ==
 Néstor, Gastón, Francisco
@@ -26,6 +26,26 @@ El detalle completo de los mismos estará en el documento "Resumen Reunión Rele
     * Se menciona la funcionalidad de poder definir lugares en los que un artículo puede almacenarse y otros temas relacionados (prioridad entre almacenes, capacidad máxima, criterios de asignación automática de almacenamiento, etc). Sin embargo se anticipa que no será una funcionalidad a encarar en una primer iteración.
   # Relación usuarios - depósitos
     * Se establecerá una relación directa entre los usuarios y los depósitos. Es un requisito poder definir qué usuario podrá usar qué depósito.
+  # Motivos de ajustes de inventario
+    * Tener un ABM de motivos de ajuste de inventario. En este caso ajuste de inventario refiere a cualquier movimiento de inventario manual. Estos movimientos tendrán que registrarse con una causa.
+  # Tipos de movimientos de inventario manuales o ajustes que se pueden realizar
+    * Ingreso
+    * Egreso
+    * Transferencia interna simultánea (un solo movimiento de una unidad de gestión en el que se produce el egreso de un depósito y el ingreso a otro).
+    * Transferencia interna asincrónica (interviene una sola unidad de gestión pero se realizan dos movimientos, primero el egreso de inventario de un depósito y pase de ese inventario a estado en tránsito hacia otro depósito; segundo movimiento de ingreso en depósito bajando el inventario que ingresa del estado de tránsito hacia dicho depósito).
+    * Transferencia entre unidades de gestión (es siempre asincrónico; es similar al interno asincrónico con la diferencia que los dos movimientos de inventario que se generan pertenecen a unidades de gestión diferentes).
+  # Numeración de comprobantes
+    * Tiene que permitirse numerar transacciones a través de comprobantes en forma única (cada comprobante mantiene su numeración propia), en forma compartida (varios comprobantes del mismo tipo de transacción mantienen la misma numeración), en forma "heredada" (un comprobante de un tipo de transacción recibe la numeración de otro comprobante de otro tipo de transacción, ejemplo el movimiento de inventario que se quiera que tenga el mismo número de remito que lo origina).
+  # Comprobantes de inventario
+    * Será un tipo de comprobante particular dentro del sistema ya que no se darán de alta ni se eliminarán. Vendrá un comprobante predefinido para realizar cada uno de los tipos de movimiento de inventario que se pueda realizar.
+    * No se le definen depósitos ya que los mismos los selecciona en el movimiento de inventario el usuario, de acuerdo al tipo de movimiento y los depósitos que el usuario está habilitado para usar.
+    * Se definirá qué usuario puede utilizar qué comprobante, que en el caso particular de  los comprobantes de movimiento de inventario es decir qué usuarios pueden realizar qué tipo de movimiento.
+  # Modelos de impresión
+    * Los modelos de impresión se clasifican por grupos que responden al tipo de operación. Los usuarios están habilidos o no para utilizar los distintos modelos de impresión. Los comprobantes se asocian a los grupos de modelos y tendrán uno de esos modelos por defecto. Al realizarse una transacción según sea el comprobante y el usuario, si no hay más de un modelo disponible se imprime directamente con el mismo. Si hay más de un modelo, se le presentan al usuario para que seleccione con cuál quiere imprimir.
+    * Me parece que a este punto le falta más desarrollo porque no me cierra del todo.
+  # Movimientos de inventario
+    * Se seleccionará primero el tipo de movimiento
+
 
 
 
