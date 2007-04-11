@@ -58,6 +58,7 @@ El detalle completo de los mismos estará en el documento "Resumen Reunión Rele
       * Despacho
       * Cantidad
       * Unidad de medida
+    * Como resultado se registra el movimiento de inventario y se actualiza el inventario de acuerdo a las características de cada línea, los depósito finales involucrados y el tipo de movimiento de inventario que se realice.
 
 == Temas pendientes ==
   # Costo de los movimientos de inventario.
