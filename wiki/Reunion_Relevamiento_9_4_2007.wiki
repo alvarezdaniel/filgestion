@@ -9,7 +9,7 @@ Néstor, Gastón, Francisco
   # Avanzar en la definición de movimientos de inventario.
 
 == Temas tratados ==
-Se enumeran los temas tratados.
+Se enumeran los temas tratados y se agrega un breve comentario sobre cada uno.
 El detalle completo de los mismos estará en el documento "Resumen Reunión Relevamiento 09-04-2007", que oportunamente subiremos como archivo a FILGestion.
 
   # Artículos
@@ -20,6 +20,8 @@ El detalle completo de los mismos estará en el documento "Resumen Reunión Rele
     * Definición de los mismos. Los artículos pueden trabajar con números de serie.
   # Despachos
     * Definición de los mismos. Los artículos pueden trabajar con despachos.
+  # Clasificación de artículos (talle, color, modelo, etc.)
+    * De decide manejarlo como artículos diferentes dada la complejidad que trae manejarlos de otro modo en todo el sistema. Se ve la necesidad de ofrecer como contraparte al usuario las facilidades para verlo como una unidad a través de agrupamientos de artículos que deberán llevarse a las interfaces de carga, consulta, informes, etc.
   # Magnitudes y unidades de medida
     * Se comienza a plantear el tema y por el momento el artículo manejará sólo la unidad de medida con la que se lleva el inventario. Se anticipa que debe darse la posibilidad al artículo de manejar otras unidades de medida, aunque no se llega a resolver el alcance (por módulo, por funcionalidad).
   # Relación de los artículos con los depósitos
@@ -44,18 +46,25 @@ El detalle completo de los mismos estará en el documento "Resumen Reunión Rele
     * Los modelos de impresión se clasifican por grupos que responden al tipo de operación. Los usuarios están habilidos o no para utilizar los distintos modelos de impresión. Los comprobantes se asocian a los grupos de modelos y tendrán uno de esos modelos por defecto. Al realizarse una transacción según sea el comprobante y el usuario, si no hay más de un modelo disponible se imprime directamente con el mismo. Si hay más de un modelo, se le presentan al usuario para que seleccione con cuál quiere imprimir.
     * Me parece que a este punto le falta más desarrollo porque no me cierra del todo.
   # Movimientos de inventario
-    * Se seleccionará primero el tipo de movimiento
-
-
-
+    * Se seleccionará primero el tipo de movimiento de acuerdo a los que pueda realizar el usuario.
+    * Se seleccionará el/los depósitos de acuerdo al tipo de movimiento seleccionado.
+    * Se seleccionará el/la unidad adicionalmente involucrada en las transferencias entre unidades de gestión.
+    * Se seleccionará el motivo del movimiento de inventario.
+    * Se ingresarán el resto de los datos de cabecera: fecha, observaciones, etc.
+    * Se ingresarán las líneas del movimiento de inventario. Por el momento no se pueden modificar los depósitos involucrados a nivel línea.
+      * Artículo
+      * Lote
+      * Números de serie
+      * Despacho
+      * Cantidad
+      * Unidad de medida
 
 == Temas pendientes ==
-  # Avanzar en la definición de artículos.
-  # Avanzar en la definición de comprobantes.
-  # Avanzar en la definición de movimientos de inventario.
+  # Costo de los movimientos de inventario.
+  # Cerrar el tema de modelos de impresión, comprobantes y usuarios.
 
 == Resoluciones adoptadas ==
   # Ver documento resumen.
 
 == Próxima reunión ==
-9-4-2007
+21-4-2007
