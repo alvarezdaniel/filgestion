@@ -1,0 +1,38 @@
+= Reunión Relevamiento 27-04-2007 =
+
+== Participantes ==
+Los de siempre:
+Néstor, Gastón, Francisco
+
+== Temario de la reunión ==
+  # Ver lo hecho en el EA, explicarlo y definir qué documentación se va a utilizar
+  # Repartir los casos de uso a documentar
+  # Cerrar manejo de comprobantes, modelos de impresión, numeración y relación con seguridad
+  # Costos en movimientos de inventario
+
+== Temas tratados ==
+  # Ver lo hecho en el EA, explicarlo y definir qué documentación se va a utilizar
+    * Se ve y ese explican los diagramas de requerimientos, casos de uso, "domain model", "process model", interfaces, "relationship matrix", etc.
+  # Repartir los casos de uso a documentar
+    * Néstor: Maestro de magnitudes, Maestro de unidades de gestión, Lotes, Números de serie
+    * Gastón: Maestro de artículos, Maestro de depósitos, Maestro de comprobantes de movimiento de inventario
+    * Francisco: Administración de maestros, Usuarios, Usuarios y seguridad, Despachos
+
+== Temas pendientes ==
+  # Cerrar manejo de comprobantes, modelos de impresión, numeración y relación con seguridad
+  # Costos en movimientos de inventario
+
+== Resoluciones adoptadas ==
+  # Documentación a completar para la etapa de requerimientos:
+    # Diagrama de requerimientos: es opcional y previo a la definición de los casos de uso. Convendría completarlos cuando no esté muy claro el caso de uso. En nuestro caso, donde muchas funcionalidades ya están bastante claras y no hay que relevar a un experto externo, quizás sean innecesarios.
+    # Diagrama de casos de uso: obligatorio. Se debe hacer el diagrama de cada caso de uso, representando cada funcionalidad que tendrá el sistema. Se decide, para documentar la descripción del caso de uso detallado, utilizar el procesador de texto que tiene incorporado el EA ("linked document" menú contextual sobre cualquier símbolo). Cada funcionalidad tendrá su "package" y dentro estará el diagrama de casos de uso, junto con otros artefactos.
+    # Diagrama de interfaz: obligatorio. Se colocará dentro del "package" en la que está el caso de uso. Permite dar una idea (bastante precaria) de la interfaz.
+    # "Domain Model": obligatorio. Servirá para graficar las entidades que participan de un caso de uso y la relación de las mismas en el caso de uso. También servirá para definir los datos propios de cada entidad desde un punto de vista funcional. Será la base funcional para el diagrama de clases.
+    # Diagrama de actividades: opcional. Se hará diagrama de actividades donde se crea conveniente para describir circuitos administrativos. Servirá para que los involucrados en el desarrollo tengan una idea del entorno real en donde se utilizará una o más funcionalidades del sistema. Equivale al cursograma.
+
+== Temas adicionales ==
+  # Si una unidad de gestión (A) ve otra (B), todos los registros de maestros habilitados para B tienen que estar habilitados para A, para mantener la consistencia.
+  # Los avisos de transferencia de movimientos de inventario, se sugiere que sean distintos del movimiento de inventario de recepción para poder comparar lo “avisado” contra el ingreso real del otro lado.
+
+== Próxima reunión ==
+a definir
