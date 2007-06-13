@@ -106,8 +106,10 @@ namespace Fil.Modelo.Tests
 
         //Creo el usuario
         Usuario usuario = new Usuario("UserName Test", "Nombres Test", "Apellidos Test");
-        //Le agrego un password
-        usuario.Passwords.Add(new Password("asdf123"));
+        //Le agrego 3 password
+        usuario.Passwords.Add(new Password("asdf1"));
+        usuario.Passwords.Add(new Password("asdf2"));
+        usuario.Passwords.Add(new Password("asdf3"));
         //Lo guardo
         usuario.Guardar();
 
@@ -120,9 +122,11 @@ namespace Fil.Modelo.Tests
 
         //Verifico que tenga la pass
         Assert.IsNotEmpty(usuario.Passwords);
+        usuario.Passwords.RemoveAt(1);
+        usuario.Actualizar();
 
         //Elimino el usuario
-        usuario.Eliminar();
+        //usuario.Eliminar();
 
         NHibernateManager.CommitTransaction();
       }
