@@ -6,6 +6,9 @@ using NHibernate;
 
 namespace Fil.Modelo.Entidades
 {
+  /// <summary>
+  /// Representa un usuario del sistema.
+  /// </summary>
   public class Usuario
   {
 
@@ -14,7 +17,6 @@ namespace Fil.Modelo.Entidades
     private string id;
     private int codigo;
     private string username;
-    private string password;
     private string nombres;
     private string apellidos;
     private IList passwords = new ArrayList();
@@ -23,40 +25,59 @@ namespace Fil.Modelo.Entidades
 
 #region Propiedades
 
+    /// <summary>
+    /// Identificador unívoco del usuario
+    /// </summary>
     public virtual string Id
     {
       get { return id; }
     }
 
+    /// <summary>
+    /// Código autonumerico
+    /// </summary>
+    /// <remarks>
+    /// Este código no tiene significancia funcional, pero es util
+    /// en tiempo de desarrollo
+    /// </remarks>
     public virtual int Codigo
     {
       get { return codigo; }
     }
 
+    /// <summary>
+    /// Nombre del usuario con el que se identifica en el sistema
+    /// </summary>
     public virtual string Username
     {
       get { return username; }
       set { username = value; }
     }
 
-    public virtual string Password
-    {
-      get { return password; }
-      set { password = value; }
-    }
-
+    /// <summary>
+    /// Nombres reales de la persona
+    /// </summary>
     public virtual string Nombres
     {
       get { return nombres; }
       set { nombres = value; }
     }
 
+    /// <summary>
+    /// Apellidos de la persona
+    /// </summary>
     public virtual string Apellidos
     {
       get { return apellidos; }
       set { apellidos = value; }
     }
 
+    /// <summary>
+    /// Lista de contaseñas usadas por el usuario
+    /// </summary>
+    /// <remarks>
+    /// Esta lista contiene la contraseña vigente y las utilizadas anteriormente
+    /// </remarks>
     public virtual IList Passwords
     {
       get { return passwords; }
@@ -67,10 +88,19 @@ namespace Fil.Modelo.Entidades
 
 #region Constructores
 
+    /// <summary>
+    /// Constructor sin parámetros necesario para NHibernate
+    /// </summary>
     protected Usuario()
     {
     }
 
+    /// <summary>
+    /// Crea una nueva instancia de la clase Usuario
+    /// </summary>
+    /// <param name="pUsername">Nombre de Usuario para identificarse</param>
+    /// <param name="pNombres">Nombres reales de la persona física</param>
+    /// <param name="pApellidos">Apellidos de la persona física</param>
     public Usuario(string pUsername,
                    string pNombres,
                    string pApellidos)
@@ -84,19 +114,28 @@ namespace Fil.Modelo.Entidades
 
 #region Metodos Publicos
 
+    /// <summary>
+    /// Guarda la instancia del usuario en la base de datos
+    /// </summary>
     public virtual void Guardar()
     {
-      Helpers.UsuarioHelper.Guardar<Usuario>(this);
+      Helpers.UsuarioHelper.Guardar(this);
     }
 
+    /// <summary>
+    /// Actualiza la instancia del usuario en la base de datos
+    /// </summary>
     public virtual void Actualizar()
     {
-      Helpers.UsuarioHelper.Actualizar<Usuario>(this);
+      Helpers.UsuarioHelper.Actualizar(this);
     }
 
+    /// <summary>
+    /// Elimina la instancia del usuario en la base de datos
+    /// </summary>
     public virtual void Eliminar()
     {
-      Helpers.UsuarioHelper.Eliminar<Usuario>(this);
+      Helpers.UsuarioHelper.Eliminar(this);
     }
 
 #endregion

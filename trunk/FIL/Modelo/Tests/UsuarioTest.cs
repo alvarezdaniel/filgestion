@@ -8,11 +8,20 @@ using Fil.Modelo.Helpers;
 
 namespace Fil.Modelo.Tests
 {
+  /// <summary>
+  /// Esta clase contiene los métodos para probar la lógica de negocio de la clase Usuario
+  /// </summary>
+  /// <remarks>
+  /// Es utilizada por NUnit
+  /// </remarks>
   [TestFixture()]
   public class UsuarioTest
   {
+    /// <summary>
+    /// Prueba completa de la clase Usuario sin passwords
+    /// </summary>
     [Test()]
-    public void UsuarioTestCopleto()
+    public void UsuarioTestCopletoSinPasswords()
     {
       //Creo el usuario
       Usuario usuario = new Usuario("UserName Test", "Nombres Test", "Apellidos Test");
@@ -27,12 +36,6 @@ namespace Fil.Modelo.Tests
 
         //Recupero el codigo generado
         string id = usuario.Id;
-
-        //Verifico el codigo y el nombre
-        Assert.AreNotEqual(id, String.Empty);
-        Assert.AreEqual(usuario.Username, "UserName Test");
-        Assert.AreEqual(usuario.Nombres, "Nombres Test");
-        Assert.AreEqual(usuario.Apellidos, "Apellidos Test");
 
         //Busco el usuario
         usuario = null;
@@ -76,6 +79,50 @@ namespace Fil.Modelo.Tests
 
         //Verifico que no lo haya encontrado
         Assert.IsNull(usuario);
+
+        NHibernateManager.CommitTransaction();
+      }
+      catch (Exception ex)
+      {
+        NHibernateManager.RollbackTransaction();
+
+        System.Console.Write(ex.Message);
+
+        throw ex;
+      }
+    }
+
+    /// <summary>
+    /// Prueba completa de la clase Usuario con passwords
+    /// </summary>
+    [Test()]
+    public void UsuarioTestCopletoConPasswords()
+    {
+
+      NHibernateManager.BeginTransaction();
+
+      try
+      {
+
+        //Creo el usuario
+        Usuario usuario = new Usuario("UserName Test", "Nombres Test", "Apellidos Test");
+        //Le agrego un password
+        usuario.Passwords.Add(new Password("asdf123"));
+        //Lo guardo
+        usuario.Guardar();
+
+        //Recupero el codigo generado
+        string id = usuario.Id;
+
+        //Busco el usuario
+        usuario = null;
+        usuario = UsuarioHelper.ObtenerPorId(id);
+
+        //Verifico que tenga la pass
+        Assert.IsNotEmpty(usuario.Passwords);
+
+        //Elimino el usuario
+        usuario.Eliminar();
 
         NHibernateManager.CommitTransaction();
       }

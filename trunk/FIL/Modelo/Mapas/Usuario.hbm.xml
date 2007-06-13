@@ -15,8 +15,8 @@
       <index column="PwdId"/>
       <composite-element class="Fil.Modelo.Entidades.Password, Fil.Modelo">
         <property name="Valor" column="PwdValor"/>
-        <property name="FechaAlta" column="PwdFechaVencimiento"/>
-        <property name="FechaVencimiento" column="PwdFechaAlta"/>
+        <property name="FechaAlta" column="PwdFechaAlta" />
+        <property name="FechaVencimiento" column="PwdFechaVencimiento" type="Nullables.NHibernate.NullableDateTimeType, Nullables.NHibernate"/>
       </composite-element>
     </list>
 

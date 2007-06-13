@@ -6,29 +6,68 @@ using Fil.Modelo.Managers;
 
 namespace Fil.Modelo.Helpers
 {
+  /// <summary>
+  /// Esta clase es la encargada de administrar la lógica de negocios de la clase Usuario
+  /// </summary>
   public abstract class UsuarioHelper
   {
 
-    public static void Guardar<T>(T objeto)
+    /// <summary>
+    /// Guarda el usuario la base de datos
+    /// </summary>
+    /// <remarks>
+    /// En este método deberán estar las validaciones de negocio que sean necesarias
+    /// </remarks>
+    /// <param name="pUsuario">Usuario a guardar</param>
+    public static void Guardar(Usuario pUsuario)
     {
-      Managers.UsuarioManager.Guardar<T>(objeto);
+      Managers.UsuarioManager.Guardar(pUsuario);
     }
 
-    public static void Actualizar<T>(T objeto)
+    /// <summary>
+    /// Actualiza el usuario en la base de datos
+    /// </summary>
+    /// <remarks>
+    /// En este método deberán estar las validaciones de negocio que sean necesarias
+    /// </remarks>
+    /// <param name="pUsuario">Usuario a actualizar</param>
+    public static void Actualizar(Usuario pUsuario)
     {
-      Managers.UsuarioManager.Actualizar<T>(objeto);
+      Managers.UsuarioManager.Actualizar(pUsuario);
     }
 
-    public static void Eliminar<T>(T objeto)
+    /// <summary>
+    /// Elimina el usuario de la base de datos
+    /// </summary>
+    /// <remarks>
+    /// En este método deberán estar las validaciones de negocio que sean necesarias
+    /// </remarks>
+    /// <param name="pUsuario">Usuario a eliminar</param>
+    public static void Eliminar(Usuario pUsuario)
     {
-      Managers.UsuarioManager.Eliminar<T>(objeto);
+      Managers.UsuarioManager.Eliminar(pUsuario);
     }
 
+    /// <summary>
+    /// Obtiene un usuario a partir de si ID
+    /// </summary>
+    /// <remarks>
+    /// En este método deberán estar las validaciones de negocio que sean necesarias
+    /// </remarks>
+    /// <param name="id">ID del usuario a obtener</param>
+    /// <returns>Usuario</returns>
     public static Usuario ObtenerPorId(string id)
     {
       return UsuarioManager.ObtenerPorId(id);
     }
 
+    /// <summary>
+    /// Obtiene una lista con todos los usuarios
+    /// </summary>
+    /// <remarks>
+    /// En este método deberán estar las validaciones de negocio que sean necesarias
+    /// </remarks>
+    /// <returns>Lista de Usuarios</returns>
     public static IList<Usuario> ObtenerTodos()
     {
       return UsuarioManager.ObtenerTodos();
