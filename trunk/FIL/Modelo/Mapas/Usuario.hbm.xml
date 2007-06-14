@@ -8,18 +8,9 @@
     </id>
     <property name="codigo" access="field" column="UsrCodigo" insert="false" update="false" />
     <property name="Username" column="UsrUsername" />
+    <property name="Password" column="UsrPassword" />
     <property name="Nombres" column="UsrNombres" />
     <property name="Apellidos" column="UsrApellidos" />
-    <list name="Passwords" table="Passwords" lazy="true">
-      <key column="UsrId"/>
-      <index column="PwdId"/>
-      <composite-element class="Fil.Modelo.Entidades.Password, Fil.Modelo">
-        <property name="Valor" column="PwdValor"/>
-        <property name="FechaAlta" column="PwdFechaAlta" />
-        <property name="FechaVencimiento" column="PwdFechaVencimiento" type="Nullables.NHibernate.NullableDateTimeType, Nullables.NHibernate"/>
-      </composite-element>
-    </list>
-
   </class>
   <query name="Usuario.ObtenerPorId">
     FROM Usuario U
