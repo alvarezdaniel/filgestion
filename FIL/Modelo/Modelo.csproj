@@ -61,7 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Password.cs" />
     <Compile Include="Entidades\Usuario.cs">
       <SubType>Code</SubType>
     </Compile>

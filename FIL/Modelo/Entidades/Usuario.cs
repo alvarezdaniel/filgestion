@@ -19,7 +19,7 @@ namespace Fil.Modelo.Entidades
     private string username;
     private string nombres;
     private string apellidos;
-    private IList passwords = new ArrayList();
+    private string password;
 
 #endregion
 
@@ -73,15 +73,12 @@ namespace Fil.Modelo.Entidades
     }
 
     /// <summary>
-    /// Lista de contaseñas usadas por el usuario
+    /// Contaseña del usuario
     /// </summary>
-    /// <remarks>
-    /// Esta lista contiene la contraseña vigente y las utilizadas anteriormente
-    /// </remarks>
-    public virtual IList Passwords
+    public virtual String Password
     {
-      get { return passwords; }
-      set { passwords = value; }
+      get { return password; }
+      set { password = value; }
     }
 
 #endregion   
@@ -119,15 +116,10 @@ namespace Fil.Modelo.Entidades
     /// </summary>
     public virtual void Guardar()
     {
-      Helpers.UsuarioHelper.Guardar(this);
-    }
-
-    /// <summary>
-    /// Actualiza la instancia del usuario en la base de datos
-    /// </summary>
-    public virtual void Actualizar()
-    {
-      Helpers.UsuarioHelper.Actualizar(this);
+      if (this.id == string.Empty)
+        Helpers.UsuarioHelper.Guardar(this);
+      else
+        Helpers.UsuarioHelper.Actualizar(this);
     }
 
     /// <summary>

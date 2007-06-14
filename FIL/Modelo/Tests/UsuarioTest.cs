@@ -51,7 +51,7 @@ namespace Fil.Modelo.Tests
         usuario.Username = "UserName Test 2";
         usuario.Nombres = "Nombres Test 2";
         usuario.Apellidos = "Apellidos Test 2";
-        usuario.Actualizar();
+        usuario.Guardar();
 
         //Busco el usuario
         usuario = null;
@@ -92,52 +92,5 @@ namespace Fil.Modelo.Tests
       }
     }
 
-    /// <summary>
-    /// Prueba completa de la clase Usuario con passwords
-    /// </summary>
-    [Test()]
-    public void UsuarioTestCopletoConPasswords()
-    {
-
-      NHibernateManager.BeginTransaction();
-
-      try
-      {
-
-        //Creo el usuario
-        Usuario usuario = new Usuario("UserName Test", "Nombres Test", "Apellidos Test");
-        //Le agrego 3 password
-        usuario.Passwords.Add(new Password("asdf1"));
-        usuario.Passwords.Add(new Password("asdf2"));
-        usuario.Passwords.Add(new Password("asdf3"));
-        //Lo guardo
-        usuario.Guardar();
-
-        //Recupero el codigo generado
-        string id = usuario.Id;
-
-        //Busco el usuario
-        usuario = null;
-        usuario = UsuarioHelper.ObtenerPorId(id);
-
-        //Verifico que tenga la pass
-        Assert.IsNotEmpty(usuario.Passwords);
-        usuario.Passwords.RemoveAt(1);
-        usuario.Actualizar();
-
-        //Elimino el usuario
-        //usuario.Eliminar();
-
-        NHibernateManager.CommitTransaction();
-      }
-      catch (Exception ex)
-      {
-        NHibernateManager.RollbackTransaction();
-
-        System.Console.Write(ex.Message);
-
-        throw ex;
-      }
-    }
   }
 }
