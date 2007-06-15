@@ -100,11 +100,13 @@ namespace Fil.Modelo.Entidades
     /// <param name="pApellidos">Apellidos de la persona física</param>
     public Usuario(string pUsername,
                    string pNombres,
-                   string pApellidos)
+                   string pApellidos,
+                   string pPassword)
     {
       this.Username = pUsername;
       this.Nombres = pNombres;
       this.Apellidos = pApellidos;
+      this.Password = pPassword;
     }
     
 #endregion
@@ -116,7 +118,7 @@ namespace Fil.Modelo.Entidades
     /// </summary>
     public virtual void Guardar()
     {
-      if (this.id == string.Empty)
+      if (this.id == null)
         Helpers.UsuarioHelper.Guardar(this);
       else
         Helpers.UsuarioHelper.Actualizar(this);

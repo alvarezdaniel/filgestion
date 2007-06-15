@@ -24,7 +24,7 @@ namespace Fil.Modelo.Tests
     public void UsuarioTestCopletoSinPasswords()
     {
       //Creo el usuario
-      Usuario usuario = new Usuario("UserName Test", "Nombres Test", "Apellidos Test");
+      Usuario usuario = new Usuario("UserName Test", "Nombres Test", "Apellidos Test", "asdf1234");
 
       NHibernateManager.BeginTransaction();
 
@@ -46,11 +46,13 @@ namespace Fil.Modelo.Tests
         Assert.AreEqual(usuario.Username, "UserName Test");
         Assert.AreEqual(usuario.Nombres, "Nombres Test");
         Assert.AreEqual(usuario.Apellidos, "Apellidos Test");
+        Assert.AreEqual(usuario.Password, "asdf1234");
 
         //Le cambio el nombre y lo actualizo
         usuario.Username = "UserName Test 2";
         usuario.Nombres = "Nombres Test 2";
         usuario.Apellidos = "Apellidos Test 2";
+        usuario.Password = "4321fdsa";
         usuario.Guardar();
 
         //Busco el usuario
@@ -62,6 +64,7 @@ namespace Fil.Modelo.Tests
         Assert.AreEqual(usuario.Username, "UserName Test 2");
         Assert.AreEqual(usuario.Nombres, "Nombres Test 2");
         Assert.AreEqual(usuario.Apellidos, "Apellidos Test 2");
+        Assert.AreEqual(usuario.Password, "4321fdsa");
 
         //Verifico que la lista de todos los usuarios traiga algo
         IList<Usuario> lista = UsuarioHelper.ObtenerTodos();
