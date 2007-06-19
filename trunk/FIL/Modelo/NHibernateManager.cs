@@ -10,7 +10,7 @@ namespace Fil.Modelo
   /// <summary>
   /// Esta clase se encarga de la interaccion con NHibernate
   /// </summary>
-  public class NHibernateManager
+  internal class NHibernateManager
   {
     private static ISessionFactory nhFactory;
     private static ITransaction nhTransaction;
@@ -30,7 +30,7 @@ namespace Fil.Modelo
     /// <summary>
     /// Sesión de NH
     /// </summary>
-    public static ISession NHSession
+    internal static ISession NHSession
     {
       get
       {
@@ -49,7 +49,7 @@ namespace Fil.Modelo
     /// <summary>
     /// Cierra la session factory
     /// </summary>
-    public static void CloseSessionFactory()
+    internal static void CloseSessionFactory()
     {
       if (nhFactory != null)
         nhFactory.Close();
@@ -58,7 +58,7 @@ namespace Fil.Modelo
     /// <summary>
     /// Cierra la sesión actual
     /// </summary>
-    public static void CloseSession()
+    internal static void CloseSession()
     {
       if (nhSession != null && nhSession.IsOpen)
       {
@@ -70,7 +70,7 @@ namespace Fil.Modelo
     /// <summary>
     /// Inicia una transacción
     /// </summary>
-    public static void BeginTransaction()
+    internal static void BeginTransaction()
     {
       nhTransaction = NHSession.BeginTransaction();
     }
@@ -78,7 +78,7 @@ namespace Fil.Modelo
     /// <summary>
     /// Ejecuta las sentencias de la transacción
     /// </summary>
-    public static void CommitTransaction()
+    internal static void CommitTransaction()
     {
       nhTransaction.Commit();
       nhTransaction.Dispose();
@@ -87,7 +87,7 @@ namespace Fil.Modelo
     /// <summary>
     /// Cancela la ejecución de la transacción
     /// </summary>
-    public static void RollbackTransaction()
+    internal static void RollbackTransaction()
     {
       nhTransaction.Rollback();
       nhTransaction.Dispose();
@@ -97,7 +97,7 @@ namespace Fil.Modelo
     /// Guarda un objeto en la base de datos
     /// </summary>
     /// <param name="objectToSave">Objeto a guardar</param>
-    public static void SaveObject(object objectToSave)
+    internal static void SaveObject(object objectToSave)
     {
       try
       {
@@ -116,7 +116,7 @@ namespace Fil.Modelo
     /// Actualiza un objeto en la base de datos
     /// </summary>
     /// <param name="objectToUpdate">Objeto a actualizar</param>
-    public static void UpdateObject(object objectToUpdate)
+    internal static void UpdateObject(object objectToUpdate)
     {
       try
       {
@@ -135,7 +135,7 @@ namespace Fil.Modelo
     /// Elimina un objeto de la base de datos
     /// </summary>
     /// <param name="objectToDelete">Objeto a eliminar</param>
-    public static void DeleteObject(object objectToDelete)
+    internal static void DeleteObject(object objectToDelete)
     {
       try
       {
@@ -157,7 +157,7 @@ namespace Fil.Modelo
     /// <param name="queryName">Nombre de la consulta de HQL a ejecutar para recuperar el objeto</param>
     /// <param name="parameters">Coleccion de parámetros necesarios para ejecutar la consulta</param>
     /// <returns>Objeto de tipo/clase T</returns>
-    public static T GetUniqueObject<T>(string queryName, Hashtable parameters)
+    internal static T GetUniqueObject<T>(string queryName, Hashtable parameters)
     {
       try
       {
@@ -184,7 +184,7 @@ namespace Fil.Modelo
     /// <param name="queryName">Nombre de la consulta de HQL a ejecutar para recuperar los objetos</param>
     /// <param name="parameters">Coleccion de parámetros necesarios para ejecutar la consulta</param>
     /// <returns>Lista de objetos de tipo/clase T</returns>
-    public static IList<T> GetObjectList<T>(string queryName, Hashtable parameters)
+    internal static IList<T> GetObjectList<T>(string queryName, Hashtable parameters)
     {
       try
       {
