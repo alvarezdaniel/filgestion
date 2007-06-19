@@ -18,10 +18,10 @@ namespace Fil.Modelo.Tests
   public class UsuarioTest
   {
     /// <summary>
-    /// Prueba completa de la clase Usuario sin passwords
+    /// Prueba completa de la clase Usuario
     /// </summary>
     [Test()]
-    public void UsuarioTestCopletoSinPasswords()
+    public void UsuarioTestCopleto()
     {
       //Creo el usuario
       Usuario usuario = new Usuario("UserName Test", "Nombres Test", "Apellidos Test", "asdf1234");

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" >
+  <class name="Fil.Modelo.Entidades.OpcionDeMenu, Fil.Modelo" table="OpcionesDeMenu" lazy="true">
+    <id name="id" access="field">
+      <column name="MnuId" sql-type="int" not-null="true"/>
+      <generator class="assigned" />
+    </id>
+    <many-to-one name="Padre" column="MnuIdPadre" class="Fil.Modelo.Entidades.OpcionDeMenu, Fil.Modelo" />
+    <property name="Accion" column="MnuAccion" type="Fil.Modelo.Enumerados.Accion, Fil.Modelo" />
+    <property name="Descripcion" column="MnuDescripcion" />
+    <set name="Hijos">
+      <key column="MnuIdPadre"/>
+      <one-to-many class="Fil.Modelo.Entidades.OpcionDeMenu, Fil.Modelo"/>
+    </set>
+    <property name="Orden" column="MnuOrden" />
+  </class>
+  <query name="OpcionDeMenu.ObtenerPorId">
+    FROM OpcionDeMenu M
+    WHERE M.id = :Id
+  </query>
+  <query name="OpcionDeMenu.ObtenerTodos">
+    FROM OpcionDeMenu M
+    ORDER BY M.Orden
+  </query>
+  <query name="OpcionDeMenu.ObtenerRaices">
+    FROM OpcionDeMenu M
+    WHERE M.Padre is null
+    ORDER BY M.Orden
+  </query>
+</hibernate-mapping>
