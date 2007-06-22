@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" >
-  <class name="Fil.Modelo.Entidades.OpcionDeMenu, Fil.Modelo" table="OpcionesDeMenu" lazy="true">
+  <class name="Fil.Modelo.Entidades.OpcionDeMenu, Fil.Modelo" table="OpcionesDeMenu" lazy="false">
     <id name="id" access="field">
       <column name="MnuId" sql-type="int" not-null="true"/>
       <generator class="assigned" />
@@ -8,7 +8,7 @@
     <many-to-one name="Padre" column="MnuIdPadre" class="Fil.Modelo.Entidades.OpcionDeMenu, Fil.Modelo" />
     <property name="Accion" column="MnuAccion" type="Fil.Modelo.Enumerados.Accion, Fil.Modelo" />
     <property name="Descripcion" column="MnuDescripcion" />
-    <set name="Hijos">
+    <set name="Hijos" order-by="MnuOrden">
       <key column="MnuIdPadre"/>
       <one-to-many class="Fil.Modelo.Entidades.OpcionDeMenu, Fil.Modelo"/>
     </set>
