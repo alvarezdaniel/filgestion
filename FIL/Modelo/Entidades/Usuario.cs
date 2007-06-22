@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using NHibernate;
+using Iesi.Collections;
 
 namespace Fil.Modelo.Entidades
 {
