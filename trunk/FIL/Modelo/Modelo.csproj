@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\OpcionDeMenu.cs" />
-    <Compile Include="Entidades\Telefono.cs" />
     <Compile Include="Entidades\Usuario.cs">
       <SubType>Code</SubType>
     </Compile>
