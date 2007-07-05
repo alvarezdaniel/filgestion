@@ -17,19 +17,42 @@ namespace Fil.Modelo.Tests
   [TestFixture()]
   public class UsuarioTest
   {
+    private UnidadDeGestion ug1;
+    private UnidadDeGestion ug2;
+    private Perfil pf1;
+    private Perfil pf2;
+
     /// <summary>
     /// Prueba completa de la clase Usuario
     /// </summary>
     [Test()]
     public void UsuarioTestCopleto()
     {
-      //Creo el usuario
-      Usuario usuario = new Usuario("UserName Test", "Nombres Test", "Apellidos Test", "asdf1234");
-
-      NHibernateManager.BeginTransaction();
-
       try
       {
+        NHibernateManager.BeginTransaction();
+
+        //Creo el usuario
+        Usuario usuario = new Usuario("UserName Test", "Nombres Test", "Apellidos Test", "asdf1234");
+        
+        //Creo un par de perfiles y unidades de gestion y se los asigno
+        this.ug1 = new UnidadDeGestion();
+        ug1.Guardar();
+        this.ug2 = new UnidadDeGestion();
+        ug2.Guardar();
+
+        this.pf1 = new Perfil("Perfil Test 1");
+        pf1.AgregarAccion(Fil.Modelo.Enumerados.Accion.ConsultaUsuarios); 
+        pf1.AgregarAccion(Fil.Modelo.Enumerados.Accion.AltaUsuarios); 
+        pf1.Guardar();
+        this.pf2 = new Perfil("Perfil Test 2");
+        pf1.AgregarAccion(Fil.Modelo.Enumerados.Accion.ConsultaUsuarios); 
+        pf1.AgregarAccion(Fil.Modelo.Enumerados.Accion.ModificacionUsuarios); 
+        pf2.Guardar();
+
+        usuario.AsignarPerfil(pf1, ug1);
+        usuario.AsignarPerfil(pf2, ug1);
+        usuario.AsignarPerfil(pf2, ug2);
 
         //Lo guardo
         usuario.Guardar();
@@ -48,11 +71,22 @@ namespace Fil.Modelo.Tests
         Assert.AreEqual(usuario.Apellidos, "Apellidos Test");
         Assert.AreEqual(usuario.Password, "asdf1234");
 
+        //Verifico que pueda realizar acciones
+        Assert.IsTrue(usuario.Puede(Fil.Modelo.Enumerados.Accion.AccionNula, ug1)); 
+        Assert.IsTrue(usuario.Puede(Fil.Modelo.Enumerados.Accion.AccionNula, ug2)); 
+        Assert.IsTrue(usuario.Puede(Fil.Modelo.Enumerados.Accion.AltaUsuarios, ug1)); 
+        Assert.IsFalse(usuario.Puede(Fil.Modelo.Enumerados.Accion.AltaUsuarios, ug2)); 
+
         //Le cambio el nombre y lo actualizo
         usuario.Username = "UserName Test 2";
         usuario.Nombres = "Nombres Test 2";
         usuario.Apellidos = "Apellidos Test 2";
         usuario.Password = "4321fdsa";
+
+        //Le quito algunos perfiles
+        usuario.QuitarPerfil(pf1, ug1);
+        usuario.QuitarPerfil(pf2, ug1);
+
         usuario.Guardar();
 
         //Busco el usuario
@@ -65,6 +99,10 @@ namespace Fil.Modelo.Tests
         Assert.AreEqual(usuario.Nombres, "Nombres Test 2");
         Assert.AreEqual(usuario.Apellidos, "Apellidos Test 2");
         Assert.AreEqual(usuario.Password, "4321fdsa");
+
+        //Verifico que pueda realizar acciones
+        Assert.IsFalse(usuario.Puede(Fil.Modelo.Enumerados.Accion.ConsultaUsuarios, ug1));
+        Assert.IsFalse(usuario.Puede(Fil.Modelo.Enumerados.Accion.AltaUsuarios, ug1));
 
         //Verifico que la lista de todos los usuarios traiga algo
         IList<Usuario> lista = UsuarioHelper.ObtenerTodos();

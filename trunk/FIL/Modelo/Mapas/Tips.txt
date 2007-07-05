@@ -1,0 +1,8 @@
+Tips de ayuda al programador
+============================
+Seccion: Mapas de NHibernate
+----------------------------
+
+1) IMPORTANTE! Los mapas deben estar embemidos en la dll para que nHibernate los encuentre.
+Para hacer esto hay que setear la propiedad "Build Action" de todos los archivos *.hbm.xml 
+con el valor "Embedded Resource"

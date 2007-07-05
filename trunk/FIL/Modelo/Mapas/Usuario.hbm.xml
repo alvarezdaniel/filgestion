@@ -11,6 +11,12 @@
     <property name="Password" column="UsrPassword" />
     <property name="Nombres" column="UsrNombres" />
     <property name="Apellidos" column="UsrApellidos" />
+    <set name="PerfilesAsignados" table="PerfilesAsignados" lazy="false">
+      <key column="PasUsuario" />
+      <composite-element class="Fil.Modelo.Entidades.PerfilAsignado, Fil.Modelo">
+        <many-to-one name="Perfil" column="PasPerfil" class="Fil.Modelo.Entidades.Perfil, Fil.Modelo" />
+        <many-to-one name="UnidadDeGestion" column="PasUnidadDeGestion" class="Fil.Modelo.Entidades.UnidadDeGestion, Fil.Modelo" />      </composite-element>
+    </set>
   </class>
   <query name="Usuario.ObtenerPorId">
     FROM Usuario U
