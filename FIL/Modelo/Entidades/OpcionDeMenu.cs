@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using Iesi.Collections;
+using Fil.Modelo.Helpers;
 
 namespace Fil.Modelo.Entidades
 {
@@ -85,6 +86,7 @@ namespace Fil.Modelo.Entidades
 #endregion
 
 #region "Metodos"
+
 #endregion
 
   }

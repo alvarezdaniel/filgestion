@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Text;
 using NHibernate;
 using Iesi.Collections;
+using Fil.Modelo.Enumerados;
 
 namespace Fil.Modelo.Entidades
 {
   /// <summary>
   /// Representa un usuario del sistema.
   /// </summary>
-  public class Usuario
+  public class Usuario: IEntidadPersistible
   {
 
 #region Campos
@@ -21,6 +22,7 @@ namespace Fil.Modelo.Entidades
     private string nombres;
     private string apellidos;
     private string password;
+    private ISet perfilesAsignados = new HashedSet();
 
 #endregion
 
@@ -82,6 +84,16 @@ namespace Fil.Modelo.Entidades
       set { password = value; }
     }
 
+    /// <summary>
+    /// Lista de Perfiles Asignados al usuario para las diferenets unidades
+    /// de gestion
+    /// </summary>
+    public virtual ISet PerfilesAsignados
+    {
+      get { return perfilesAsignados; }
+      set { perfilesAsignados = value; }
+    }
+
 #endregion   
 
 #region Constructores
@@ -133,7 +145,75 @@ namespace Fil.Modelo.Entidades
       Helpers.UsuarioHelper.Eliminar(this);
     }
 
+		/// <summary>
+    /// Verifica si el usuario puede realizar una determinada accion.
+    /// </summary>
+		/// <param name="accion"></param>
+		public virtual bool Puede(Accion pAccion, UnidadDeGestion pUnidadDeGestion){
+      //Verifico entre los perfiles q tiene para la unidad de gestion, si puede
+      //realizar la accion.
+      foreach (PerfilAsignado pa in PerfilesAsignados)
+      {
+        if (pa.UnidadDeGestion.Equals(pUnidadDeGestion))
+        {
+          //corta con el primer perfil que puede
+          if (pa.Perfil.Puede(pAccion))
+            return true;
+        }
+      }
+      return false;
+		}
+
+    /// <summary>
+    /// Asigna un Perfil al Usuario para una Unidad De Gestion
+    /// </summary>
+    /// <param name="pPerfil">Perfil</param>
+    /// <param name="pUnidadDeGestion">Unidad De Gestion</param>
+    public virtual void AsignarPerfil(Perfil pPerfil, UnidadDeGestion pUnidadDeGestion)
+    {
+      //Me creo un perfilAsignado auxiliar y verifico si no tiene uno igual.
+      PerfilAsignado aux = new PerfilAsignado(pPerfil, pUnidadDeGestion);
+      if (!this.perfilesAsignados.Contains(aux))
+        this.PerfilesAsignados.Add(aux);
+    }
+
+    /// <summary>
+    /// Quita un Perfil asignado al Usuario para una Unidad De Gestion
+    /// </summary>
+    /// <param name="pPerfil">Perfil</param>
+    /// <param name="pUnidadDeGestion">Unidad De Gestion</param>
+    public virtual void QuitarPerfil(Perfil pPerfil, UnidadDeGestion pUnidadDeGestion)
+    {
+      //Me creo un perfilAsignado auxiliar y verifico si lo tiene.
+      PerfilAsignado aux = new PerfilAsignado(pPerfil, pUnidadDeGestion);
+      foreach (PerfilAsignado pa in this.PerfilesAsignados)
+      {
+        if (pa.Equals(aux))
+          aux = pa;
+      }
+      this.PerfilesAsignados.Remove(aux);
+    }
+
+    public override bool Equals(object obj)
+    {
+      //Primero verifico si el objeto es de tipo Usuario o hereda de Usuario (es necesario
+      //porque nhibernate genera RuntimeTypes que heredan de las clases persistentes, para 
+      //manejar la instanciacion perezosa
+      if ((obj.GetType() != typeof(Usuario)) && (obj.GetType().BaseType != typeof(Usuario)))
+        return false;
+      //Si es de tipo Usuario, verifico el Id.
+      return ((Usuario)obj).Id == this.Id;
+    }
+    public override string ToString()
+    {
+      return (this.Apellidos != string.Empty ? this.Apellidos + ", " : String.Empty) + this.Nombres;
+    }
+    public override int GetHashCode()
+    {
+      return base.GetHashCode();
+    }
+
 #endregion
-    
+
   }
 }

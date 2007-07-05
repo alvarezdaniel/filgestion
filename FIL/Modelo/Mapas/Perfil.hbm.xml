@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" >
+  <class name="Fil.Modelo.Entidades.Perfil, Fil.Modelo" table="Perfiles" lazy="true">
+    <id name="id" access="field">
+      <column name="PflId" sql-type="char(32)" 
+        not-null="true"/>
+      <generator class="uuid.hex" />
+    </id>
+    <property name="codigo" access="field" column="PflCodigo" insert="false" update="false" />
+    <property name="Descripcion" column="PflDescripcion" />
+    <set name="AccionesAsociadas" table="AccionesAsociadas" lazy="false">
+      <key column="AasPerfil" />
+      <composite-element class="Fil.Modelo.Entidades.AccionAsociada, Fil.Modelo">
+        <property name="Accion" column="AasAccion" type="Fil.Modelo.Enumerados.Accion, Fil.Modelo" />
+      </composite-element>
+    </set>
+  </class>
+  <query name="Perfil.ObtenerPorId">
+    FROM Perfil P
+    WHERE P.id = :Id
+  </query>
+  <query name="Perfil.ObtenerTodos">
+    FROM Perfil P
+    ORDER BY P.Descripcion
+  </query>
+</hibernate-mapping>
