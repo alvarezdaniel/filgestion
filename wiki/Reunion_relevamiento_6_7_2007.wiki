@@ -1,0 +1,46 @@
+= Reunión Relevamiento 6-07-2007 =
+
+== Participantes ==
+Los de siempre:
+Néstor, Gastón, Francisco
+
+== Temario de la reunión ==
+  # Seguridad para Depósitos y comprobantes
+  # Comprobantes
+  # Numeración de transacciones
+  # Modelos de impresión
+  # Tipos de movimiento de inventario
+
+== Temas tratados ==
+  # Seguridad para Depósitos y comprobantes
+    * La jerarquia la tendrá la Unidad de Gestión. Por jerarquía se entiende que será la que mandará a los efectos de dar la seguridad para las diferentes transacciones en el sistema.
+En los ABM (Depósitos, Comprobantes, Clientes, Proveedores, etc.) se deberá asignar qué UG tendrá disponible para operar cada registro definido en estos ABM. (ej. Si se da de alta un Depósito, se marcará las UG con las cuales puede operar, lo mismo para un cliente, etc.).
+La definición de qué unidades de gestión podrá utilizar cada usuario quedará definida a través de los perfiles que se le asignen a cada usuario. Un perfil es un conjunto de permisos definidos para una unidad de gestión. A un usuario se le pueden asignar “n” perfiles. Y como un perfil se define para una unidad de gestión, un usuario podrá operar sólo con aquellas unidades de gestión en las que alguno de sus perfiles asignados pertenezca.
+Los usuarios también guardan una relación particular con “Depósitos” y “Comprobantes”. Se marcará dentro de los Depósitos y Comprobantes ya definidos y habilitados dentro de cada UG, cuáles podrá usar el usuario y cuáles no. O sea, primero el usuario queda habilitado para la UG (según los perfiles que tenga asignados) y dentro del mismo ABM de Usuarios, aparecen los Comprobantes y Depósitos utilizables dentro de esa UG, para que se designe con qué depósito y/o comprobante podrá operar o no.
+En cuanto a los otros maestros diferentes a Depósitos y Comprobantes, el usuario podrá utilizar la totalidad de los registros habilitados para cada UG a la cual el usuario pueda acceder. O sea que se da de alta un cliente y se lo habilita para dos UG. Cada usuario definido y habilitado para esas mismas UG, por transitividad podrá operar con esos clientes.
+
+  # Comprobantes
+    * Se ve y ese explican los diagramas de requerimientos, casos de uso, "domain model", "process model", interfaces, "relationship matrix", etc.
+  # Repartir los casos de uso a documentar
+    * Néstor: Maestro de magnitudes, Maestro de unidades de gestión, Lotes, Números de serie
+    * Gastón: Maestro de artículos, Maestro de depósitos, Maestro de comprobantes de movimiento de inventario
+    * Francisco: Administración de maestros, Usuarios, Usuarios y seguridad, Despachos
+
+== Temas pendientes ==
+  # Cerrar manejo de comprobantes, modelos de impresión, numeración y relación con seguridad
+  # Costos en movimientos de inventario
+
+== Resoluciones adoptadas ==
+  # Documentación a completar para la etapa de requerimientos:
+    # Diagrama de requerimientos: es opcional y previo a la definición de los casos de uso. Convendría completarlos cuando no esté muy claro el caso de uso. En nuestro caso, donde muchas funcionalidades ya están bastante claras y no hay que relevar a un experto externo, quizás sean innecesarios.
+    # Diagrama de casos de uso: obligatorio. Se debe hacer el diagrama de cada caso de uso, representando cada funcionalidad que tendrá el sistema. Se decide, para documentar la descripción del caso de uso detallado, utilizar el procesador de texto que tiene incorporado el EA ("linked document" menú contextual sobre cualquier símbolo). Cada funcionalidad tendrá su "package" y dentro estará el diagrama de casos de uso, junto con otros artefactos.
+    # Diagrama de interfaz: obligatorio. Se colocará dentro del "package" en la que está el caso de uso. Permite dar una idea (bastante precaria) de la interfaz.
+    # "Domain Model": obligatorio. Servirá para graficar las entidades que participan de un caso de uso y la relación de las mismas en el caso de uso. También servirá para definir los datos propios de cada entidad desde un punto de vista funcional. Será la base funcional para el diagrama de clases.
+    # Diagrama de actividades: opcional. Se hará diagrama de actividades donde se crea conveniente para describir circuitos administrativos. Servirá para que los involucrados en el desarrollo tengan una idea del entorno real en donde se utilizará una o más funcionalidades del sistema. Equivale al cursograma.
+
+== Temas adicionales ==
+  # Si una unidad de gestión (A) ve otra (B), todos los registros de maestros habilitados para B tienen que estar habilitados para A, para mantener la consistencia.
+  # Los avisos de transferencia de movimientos de inventario, se sugiere que sean distintos del movimiento de inventario de recepción para poder comparar lo “avisado” contra el ingreso real del otro lado.
+
+== Próxima reunión ==
+a definir
