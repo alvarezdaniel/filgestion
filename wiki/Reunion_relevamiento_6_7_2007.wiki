@@ -1,3 +1,4 @@
+#labels RELEVAMIENTO
 = Reunión Relevamiento 6-07-2007 =
 
 == Participantes ==
@@ -18,38 +19,24 @@ Néstor, Gastón, Francisco
     * La definición de qué unidades de gestión podrá utilizar cada usuario quedará definida a través de los perfiles que se le asignen a cada usuario. Un perfil es un conjunto de permisos definidos para una unidad de gestión. A un usuario se le pueden asignar “n” perfiles. Y como un perfil se define para una unidad de gestión, un usuario podrá operar sólo con aquellas unidades de gestión en las que alguno de sus perfiles asignados pertenezca.
     * Los usuarios también guardan una relación particular con “Depósitos” y “Comprobantes”. Se marcará dentro de los Depósitos y Comprobantes ya definidos y habilitados dentro de cada UG, cuáles podrá usar el usuario y cuáles no. O sea, primero el usuario queda habilitado para la UG (según los perfiles que tenga asignados) y dentro del mismo ABM de Usuarios, aparecen los Comprobantes y Depósitos utilizables dentro de esa UG, para que se designe con qué depósito y/o comprobante podrá operar o no.
     * En cuanto a los otros maestros diferentes a Depósitos y Comprobantes, el usuario podrá utilizar la totalidad de los registros habilitados para cada UG a la cual el usuario pueda acceder. O sea que se da de alta un cliente y se lo habilita para dos UG. Cada usuario definido y habilitado para esas mismas UG, por transitividad podrá operar con esos clientes.
-
-  # Comprobantes
-Características:
-  * Propia (toma la numeración definida en el comprobante)
-  * Hereda (toma de otro comprobante)
-  * Toma de otro (se le indica de qué operación repetirá la numeración) (queda pendiente ver si se tiene que validar que sea una operación dentro del mismo módulo del comprobante definido o puede ser de otro).
-Esto lleva al punto de cómo considerar el comprobante Remito.
-Este comprobante se considerará un comprobante de Ventas, dado que es importante que guarde en la base, la valorización de la venta. Ocurre que para el movimiento de inventario se manejará que la baja de los productos generada por la operación del Remito, será guardada también en el historial de los movimientos de inventario. Ej.: en una consulta de movimientos de inventario, debe visualizarse lo dado de baja por el Remito como también por los comprobantes puramente de inventario como ser Baja, Alta, Ajuste, Transferencia, etc.
-
-
-
-
-  # Repartir los casos de uso a documentar
-    * Néstor: Maestro de magnitudes, Maestro de unidades de gestión, Lotes, Números de serie
-    * Gastón: Maestro de artículos, Maestro de depósitos, Maestro de comprobantes de movimiento de inventario
-    * Francisco: Administración de maestros, Usuarios, Usuarios y seguridad, Despachos
+  # Numeración
+    * Características:
+      * Propia (toma la numeración definida en el comprobante)
+      * Hereda (toma de otro comprobante)
+      * Toma de otro (se le indica de qué operación repetirá la numeración) (queda pendiente ver si se tiene que validar que sea una operación dentro del mismo módulo del comprobante definido o puede ser de otro). Esto lleva al punto de cómo considerar el comprobante Remito. Este comprobante se considerará un comprobante de Ventas, dado que es importante que guarde en la base, la valorización de la venta. Ocurre que para el movimiento de inventario se manejará que la baja de los productos generada por la operación del Remito, será guardada también en el historial de los movimientos de inventario. Ej.: en una consulta de movimientos de inventario, debe visualizarse lo dado de baja por el Remito como también por los comprobantes puramente de inventario como ser Baja, Alta, Ajuste, Transferencia, etc.
+  # Comprobantes de inventario y tipos de movimientos
+    * Tipos de comprobantes y movimientos: Entrada, Salida y Transferencia. Los de transferencia pueden ser a su vez sincrónicos (para mov. Intra UG) o asincrónicos (para movimientos dentro de la misma UG o entre 2 UG diferentes?.
+    * Las transferencias sincrónicas son siempre dentro de una misma unidad de gestión. Generan un único movimiento de inventario que baja inventario en un depósito y lo sube en otro al mismo tiempo.
+    * Las transferencias asincrónicas implican también una baja de inventario en un depósito y un alta del mismo en otro, pero no se hace al mismo tiempo. Primero se realizar el movimiento de baja de inventario en el depósito de salida. Queda entonces registrado el movimiento de inventario de transferencia, pendiente de recepción. En otro momento, tiene que levantarse este movimiento de inventario incompleto y realizarse el alta de inventario, quedando, recién entonces, completo. Las cantidades en la operación de recepción pueden no ser las mismas que las de la emisión. Es decir, pueden sacarse 20 de un depósito, y en el otro recibirse 19. Esto, por supuesto, deberá tener un nivel de seguridad y deberá haber listados que informen estas diferencias que pueden darse en los movimientos asincrónicos.
+    * Un caso particular de los movimientos asincrónicos, son aquellos realizados entre 2 unidades de gestión distintas. En estos casos la operatoria es similar a una transferencia asincrónica para la misma unidad de gestión, pero difiere en que la emisión y la recepción deben generar 2 operaciones de movimiento de inventario diferentes, una de salida para la UG origen y otra de entrada para la UG destino. Al mismo tiempo ambos movimientos de inventario deben quedar asociados, de modo de poder listarlos como una unidad y poder informar posibles diferencias. También, cuando se realice la salida de inventario de la unidad de gestión origen, debe enviarse a la unidad de gestión destino un aviso de esta salida (las cantidades y artículos que salieron) para que pueda ser levantado y completar con la recepción del inventario en la unidad de gestión destino. A su vez, una vez hecha la recepción en la UG destino, debe enviarse el aviso de la recepción (las cantidades y artículos que se recibieron) para actualizar el movimiento de inventario de la UG origen y marcarlo como completado. En ambas UG se contará así con la información completa para poder sacar listados.
+  # Modelos de impresión.
+    * Un comprobante puede tener más de un modelo de impresión asociado, debiendo definirse obligatoriamente cuál será el modelo por defecto. Para los casos donde el comprobante tenga más de un modelo, antes de realizar la impresión se abrirá una ventana que permitirá al usuario validar el modelo con que se imprimirá, proponiendo inicialmente el modelo por defecto.
 
 == Temas pendientes ==
-  # Cerrar manejo de comprobantes, modelos de impresión, numeración y relación con seguridad
-  # Costos en movimientos de inventario
 
 == Resoluciones adoptadas ==
-  # Documentación a completar para la etapa de requerimientos:
-    # Diagrama de requerimientos: es opcional y previo a la definición de los casos de uso. Convendría completarlos cuando no esté muy claro el caso de uso. En nuestro caso, donde muchas funcionalidades ya están bastante claras y no hay que relevar a un experto externo, quizás sean innecesarios.
-    # Diagrama de casos de uso: obligatorio. Se debe hacer el diagrama de cada caso de uso, representando cada funcionalidad que tendrá el sistema. Se decide, para documentar la descripción del caso de uso detallado, utilizar el procesador de texto que tiene incorporado el EA ("linked document" menú contextual sobre cualquier símbolo). Cada funcionalidad tendrá su "package" y dentro estará el diagrama de casos de uso, junto con otros artefactos.
-    # Diagrama de interfaz: obligatorio. Se colocará dentro del "package" en la que está el caso de uso. Permite dar una idea (bastante precaria) de la interfaz.
-    # "Domain Model": obligatorio. Servirá para graficar las entidades que participan de un caso de uso y la relación de las mismas en el caso de uso. También servirá para definir los datos propios de cada entidad desde un punto de vista funcional. Será la base funcional para el diagrama de clases.
-    # Diagrama de actividades: opcional. Se hará diagrama de actividades donde se crea conveniente para describir circuitos administrativos. Servirá para que los involucrados en el desarrollo tengan una idea del entorno real en donde se utilizará una o más funcionalidades del sistema. Equivale al cursograma.
 
 == Temas adicionales ==
-  # Si una unidad de gestión (A) ve otra (B), todos los registros de maestros habilitados para B tienen que estar habilitados para A, para mantener la consistencia.
-  # Los avisos de transferencia de movimientos de inventario, se sugiere que sean distintos del movimiento de inventario de recepción para poder comparar lo “avisado” contra el ingreso real del otro lado.
 
 == Próxima reunión ==
 a definir
