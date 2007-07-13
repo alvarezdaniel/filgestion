@@ -33,6 +33,8 @@ Néstor, Gastón, Francisco
     * Un comprobante puede tener más de un modelo de impresión asociado, debiendo definirse obligatoriamente cuál será el modelo por defecto. Para los casos donde el comprobante tenga más de un modelo, antes de realizar la impresión se abrirá una ventana que permitirá al usuario validar el modelo con que se imprimirá, proponiendo inicialmente el modelo por defecto.
 
 == Temas pendientes ==
+  # Enumeración de los casos de uso del módulo de inventario. Selección de los casos de uso a desarrollar en la primer iteración.
+  # Comenzar con la definición del caso de uso "Movimiento de inventario"
 
 == Resoluciones adoptadas ==
 
