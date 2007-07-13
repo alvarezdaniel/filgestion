@@ -14,9 +14,9 @@ Néstor, Gastón, Francisco
 == Temas tratados ==
   # Seguridad para Depósitos y comprobantes
     * La jerarquia la tendrá la Unidad de Gestión. Por jerarquía se entiende que será la que mandará a los efectos de dar la seguridad para las diferentes transacciones en el sistema.
-En los ABM (Depósitos, Comprobantes, Clientes, Proveedores, etc.) se deberá asignar qué UG tendrá disponible para operar cada registro definido en estos ABM. (ej. Si se da de alta un Depósito, se marcará las UG con las cuales puede operar, lo mismo para un cliente, etc.).
-La definición de qué unidades de gestión podrá utilizar cada usuario quedará definida a través de los perfiles que se le asignen a cada usuario. Un perfil es un conjunto de permisos definidos para una unidad de gestión. A un usuario se le pueden asignar “n” perfiles. Y como un perfil se define para una unidad de gestión, un usuario podrá operar sólo con aquellas unidades de gestión en las que alguno de sus perfiles asignados pertenezca.
-Los usuarios también guardan una relación particular con “Depósitos” y “Comprobantes”. Se marcará dentro de los Depósitos y Comprobantes ya definidos y habilitados dentro de cada UG, cuáles podrá usar el usuario y cuáles no. O sea, primero el usuario queda habilitado para la UG (según los perfiles que tenga asignados) y dentro del mismo ABM de Usuarios, aparecen los Comprobantes y Depósitos utilizables dentro de esa UG, para que se designe con qué depósito y/o comprobante podrá operar o no.
+      En los ABM (Depósitos, Comprobantes, Clientes, Proveedores, etc.) se deberá asignar qué UG tendrá disponible para operar cada registro definido en estos ABM. (ej. Si se da de alta un Depósito, se marcará las UG con las cuales puede operar, lo mismo para un cliente, etc.).
+      La definición de qué unidades de gestión podrá utilizar cada usuario quedará definida a través de los perfiles que se le asignen a cada usuario. Un perfil es un conjunto de permisos definidos para una unidad de gestión. A un usuario se le pueden asignar “n” perfiles. Y como un perfil se define para una unidad de gestión, un usuario podrá operar sólo con aquellas unidades de gestión en las que alguno de sus perfiles asignados pertenezca.
+      Los usuarios también guardan una relación particular con “Depósitos” y “Comprobantes”. Se marcará dentro de los Depósitos y Comprobantes ya definidos y habilitados dentro de cada UG, cuáles podrá usar el usuario y cuáles no. O sea, primero el usuario queda habilitado para la UG (según los perfiles que tenga asignados) y dentro del mismo ABM de Usuarios, aparecen los Comprobantes y Depósitos utilizables dentro de esa UG, para que se designe con qué depósito y/o comprobante podrá operar o no.
 En cuanto a los otros maestros diferentes a Depósitos y Comprobantes, el usuario podrá utilizar la totalidad de los registros habilitados para cada UG a la cual el usuario pueda acceder. O sea que se da de alta un cliente y se lo habilita para dos UG. Cada usuario definido y habilitado para esas mismas UG, por transitividad podrá operar con esos clientes.
 
   # Comprobantes
@@ -44,3 +44,4 @@ En cuanto a los otros maestros diferentes a Depósitos y Comprobantes, el usuari
 
 == Próxima reunión ==
 a definir
+
