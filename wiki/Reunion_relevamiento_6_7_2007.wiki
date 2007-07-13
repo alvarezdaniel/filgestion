@@ -17,10 +17,19 @@ Néstor, Gastón, Francisco
     * En los ABM (Depósitos, Comprobantes, Clientes, Proveedores, etc.) se deberá asignar qué UG tendrá disponible para operar cada registro definido en estos ABM. (ej. Si se da de alta un Depósito, se marcará las UG con las cuales puede operar, lo mismo para un cliente, etc.).
     * La definición de qué unidades de gestión podrá utilizar cada usuario quedará definida a través de los perfiles que se le asignen a cada usuario. Un perfil es un conjunto de permisos definidos para una unidad de gestión. A un usuario se le pueden asignar “n” perfiles. Y como un perfil se define para una unidad de gestión, un usuario podrá operar sólo con aquellas unidades de gestión en las que alguno de sus perfiles asignados pertenezca.
     * Los usuarios también guardan una relación particular con “Depósitos” y “Comprobantes”. Se marcará dentro de los Depósitos y Comprobantes ya definidos y habilitados dentro de cada UG, cuáles podrá usar el usuario y cuáles no. O sea, primero el usuario queda habilitado para la UG (según los perfiles que tenga asignados) y dentro del mismo ABM de Usuarios, aparecen los Comprobantes y Depósitos utilizables dentro de esa UG, para que se designe con qué depósito y/o comprobante podrá operar o no.
-En cuanto a los otros maestros diferentes a Depósitos y Comprobantes, el usuario podrá utilizar la totalidad de los registros habilitados para cada UG a la cual el usuario pueda acceder. O sea que se da de alta un cliente y se lo habilita para dos UG. Cada usuario definido y habilitado para esas mismas UG, por transitividad podrá operar con esos clientes.
+    * En cuanto a los otros maestros diferentes a Depósitos y Comprobantes, el usuario podrá utilizar la totalidad de los registros habilitados para cada UG a la cual el usuario pueda acceder. O sea que se da de alta un cliente y se lo habilita para dos UG. Cada usuario definido y habilitado para esas mismas UG, por transitividad podrá operar con esos clientes.
 
   # Comprobantes
-    * Se ve y ese explican los diagramas de requerimientos, casos de uso, "domain model", "process model", interfaces, "relationship matrix", etc.
+Características:
+  * Propia (toma la numeración definida en el comprobante)
+  * Hereda (toma de otro comprobante)
+  * Toma de otro (se le indica de qué operación repetirá la numeración) (queda pendiente ver si se tiene que validar que sea una operación dentro del mismo módulo del comprobante definido o puede ser de otro).
+Esto lleva al punto de cómo considerar el comprobante Remito.
+Este comprobante se considerará un comprobante de Ventas, dado que es importante que guarde en la base, la valorización de la venta. Ocurre que para el movimiento de inventario se manejará que la baja de los productos generada por la operación del Remito, será guardada también en el historial de los movimientos de inventario. Ej.: en una consulta de movimientos de inventario, debe visualizarse lo dado de baja por el Remito como también por los comprobantes puramente de inventario como ser Baja, Alta, Ajuste, Transferencia, etc.
+
+
+
+
   # Repartir los casos de uso a documentar
     * Néstor: Maestro de magnitudes, Maestro de unidades de gestión, Lotes, Números de serie
     * Gastón: Maestro de artículos, Maestro de depósitos, Maestro de comprobantes de movimiento de inventario
