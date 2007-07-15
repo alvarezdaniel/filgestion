@@ -64,6 +64,7 @@
     <Compile Include="Entidades\AccionAsociada.cs" />
     <Compile Include="Entidades\IEntidadPersistible.cs" />
     <Compile Include="Entidades\OpcionDeMenu.cs" />
+    <Compile Include="Entidades\Pais.cs" />
     <Compile Include="Entidades\Perfil.cs" />
     <Compile Include="Entidades\PerfilAsignado.cs" />
     <Compile Include="Entidades\Sistema.cs" />
@@ -73,12 +74,14 @@
     </Compile>
     <Compile Include="Enumerados\Enumerados.cs" />
     <Compile Include="Helpers\OpcionDeMenuHelper.cs" />
+    <Compile Include="Helpers\PaisHelper.cs" />
     <Compile Include="Helpers\PerfilHelper.cs" />
     <Compile Include="Helpers\UnidadDeGestionHelper.cs" />
     <Compile Include="Helpers\UsuarioHelper.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Managers\OpcionDeMenuManager.cs" />
+    <Compile Include="Managers\PaisManager.cs" />
     <Compile Include="Managers\PerfilManager.cs" />
     <Compile Include="Managers\UnidadDeGestionManager.cs" />
     <Compile Include="Managers\UsuarioManager.cs">
@@ -87,6 +90,7 @@
     <Compile Include="NHibernateManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\OpcionDeMenuTest.cs" />
+    <Compile Include="Tests\PaisTest.cs" />
     <Compile Include="Tests\PerfilTest.cs" />
     <Compile Include="Tests\UsuarioTest.cs">
       <SubType>Code</SubType>
@@ -96,6 +100,7 @@
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Mapas\Pais.hbm.xml" />
     <Content Include="Mapas\Tips.txt" />
     <EmbeddedResource Include="Mapas\UnidadDeGestion.hbm.xml" />
     <EmbeddedResource Include="Mapas\Perfil.hbm.xml" />
