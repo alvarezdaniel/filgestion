@@ -1,0 +1,8 @@
+Tips de ayuda al programador
+============================
+Seccion: Entidades
+----------------------------
+
+1) Todas las propiedades y los métodos públicos (salvo los constructores) deben contener la directiva "virtual" 
+para que no fallen con el NHibernate.
+Ej: public virtual string Id
