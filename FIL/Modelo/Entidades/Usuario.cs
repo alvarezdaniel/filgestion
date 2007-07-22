@@ -17,7 +17,7 @@ namespace Fil.Modelo.Entidades
 #region Campos
 
     private string id;
-    private int codigo;
+    private int autonumerico;
     private string username;
     private string nombres;
     private string apellidos;
@@ -43,9 +43,10 @@ namespace Fil.Modelo.Entidades
     /// Este código no tiene significancia funcional, pero es util
     /// en tiempo de desarrollo
     /// </remarks>
-    public virtual int Codigo
+    public virtual int Autonumerico
     {
-      get { return codigo; }
+      get { return autonumerico; }
+      set { autonumerico = value; }
     }
 
     /// <summary>

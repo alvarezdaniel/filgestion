@@ -25,7 +25,7 @@ namespace Fil.Modelo.Entidades
     private string id;
     private string descripcion;
     private ISet accionesAsociadas = new HashedSet();
-    private int codigo;
+    private int autonumerico;
 
 #endregion
 
@@ -61,10 +61,10 @@ namespace Fil.Modelo.Entidades
     /// <summary>
     /// Código autonumerico
     /// </summary>
-    public virtual int Codigo
+    public virtual int Autonumerico
     {
-      get { return codigo; }
-      set { codigo = value; }
+      get { return autonumerico; }
+      set { autonumerico = value; }
     }
 
     /// <summary>
