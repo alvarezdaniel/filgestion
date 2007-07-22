@@ -43,7 +43,7 @@ namespace Fil.Modelo.Tests
 
         //Verifico los datos
         Assert.AreEqual(p.Id, aux.Id);
-        Assert.AreEqual(p.Codigo, aux.Codigo);
+        Assert.AreEqual(p.Autonumerico, aux.Autonumerico);
         Assert.AreEqual(p.Descripcion, aux.Descripcion);
         Assert.AreEqual(p.Acciones.Count, aux.Acciones.Count);
 
@@ -60,7 +60,7 @@ namespace Fil.Modelo.Tests
 
         //Verifico los datos
         Assert.AreEqual(p.Id, aux.Id);
-        Assert.AreEqual(p.Codigo, aux.Codigo);
+        Assert.AreEqual(p.Autonumerico, aux.Autonumerico);
         Assert.AreEqual(p.Descripcion, aux.Descripcion);
         Assert.AreEqual(p.Acciones.Count, aux.Acciones.Count);
 
