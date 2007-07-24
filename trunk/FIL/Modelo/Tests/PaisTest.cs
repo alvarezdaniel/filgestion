@@ -14,33 +14,95 @@ namespace Fil.Modelo.Tests
     [Test()]
     public void TestCompleto()
     {
-      Pais p = new Pais("Pais Test");
-      p.Guardar();
+      try
+      {
 
-      Pais pais2 = PaisHelper.ObtenerPorId(p.Id);
+        NHibernateManager.BeginTransaction();
 
-      Assert.AreEqual(p.Nombre, pais2.Nombre);
-      Assert.AreEqual(p.Autonumerico, pais2.Autonumerico);
+        Pais p = new Pais("Pais Test");
+        p.Guardar();
 
-      p.Nombre = "Pais Test 2";
-      p.Guardar();
+        Pais pais2 = PaisHelper.ObtenerPorId(p.Id);
 
-      pais2 = null;
-      pais2 = PaisHelper.ObtenerPorId(p.Id);
+        Assert.AreEqual(p.Nombre, pais2.Nombre);
+        Assert.AreEqual(p.Autonumerico, pais2.Autonumerico);
 
-      Assert.AreEqual(p.Nombre, pais2.Nombre);
-      Assert.AreEqual(p.Autonumerico, pais2.Autonumerico);
+        p.Nombre = "Pais Test 2";
+        p.Guardar();
 
-      IList<Pais> lista = PaisHelper.ObtenerTodos();
-      Assert.AreNotEqual(lista.Count, 0);
+        pais2 = null;
+        pais2 = PaisHelper.ObtenerPorId(p.Id);
 
-      p.Eliminar();
+        Assert.AreEqual(p.Nombre, pais2.Nombre);
+        Assert.AreEqual(p.Autonumerico, pais2.Autonumerico);
 
-      pais2 = null;
-      pais2 = PaisHelper.ObtenerPorId(p.Id);
+        IList<Pais> lista = PaisHelper.ObtenerTodos();
+        Assert.AreNotEqual(lista.Count, 0);
 
-      Assert.IsNull(pais2);
+        p.Eliminar();
 
+        pais2 = null;
+        pais2 = PaisHelper.ObtenerPorId(p.Id);
+
+        Assert.IsNull(pais2);
+
+        NHibernateManager.CommitTransaction();
+      }
+      catch
+      {
+        NHibernateManager.RollbackTransaction();
+        throw;
+      }
+    }
+
+    [Test()]
+    public void TestObtenerLike()
+    {
+      try
+      {
+        NHibernateManager.BeginTransaction();
+
+        //Creo varios paises
+        Pais austria = new Pais("Austria");
+        austria.Guardar();
+        Pais australia = new Pais("Australia");
+        australia.Guardar();
+        Pais argentina = new Pais("Argentina");
+        argentina.Guardar();
+        Pais chile = new Pais("Chile");
+        chile.Guardar();
+        Pais china = new Pais("China");
+        china.Guardar();
+
+
+        //Hago consultas por el parecido del nombre
+        IList<Pais> list;
+
+        //Busco paises con "aus"
+        list = PaisHelper.ObtenerLike("aus");
+        Assert.AreEqual(list.Count, 2);
+        //Busco paises con "chi"
+        list = PaisHelper.ObtenerLike("chi");
+        Assert.AreEqual(list.Count, 2);
+        //Busco paises con "ina"
+        list = PaisHelper.ObtenerLike("ina");
+        Assert.AreEqual(list.Count, 2);
+
+        //Elimino los paises
+        austria.Eliminar();
+        australia.Eliminar();
+        argentina.Eliminar();
+        chile.Eliminar();
+        china.Eliminar();
+
+
+        NHibernateManager.CommitTransaction();
+      }
+      catch
+      {
+        NHibernateManager.RollbackTransaction();
+        throw;
+      }
     }
   }
 }

@@ -62,15 +62,27 @@ namespace Fil.Modelo.Helpers
     }
 
     /// <summary>
-    /// Obtiene una lista con todas las Unidades De Gestion
+    /// Obtiene una lista con todos los Paises
     /// </summary>
     /// <remarks>
     /// En este método deberán estar las validaciones de negocio que sean necesarias
     /// </remarks>
-    /// <returns>Lista de Unidades De Gestion</returns>
+    /// <returns>Lista de Paises</returns>
     public static IList<Pais> ObtenerTodos()
     {
       return PaisManager.ObtenerTodos();
+    }
+
+    /// <summary>
+    /// Obtiene una lista con todos los Paises
+    /// </summary>
+    /// <remarks>
+    /// En este método deberán estar las validaciones de negocio que sean necesarias
+    /// </remarks>
+    /// <returns>Lista de Paises</returns>
+    public static IList<Pais> ObtenerLike(string like)
+    {
+      return PaisManager.ObtenerLike(like);
     }
 
   }
