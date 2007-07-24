@@ -158,6 +158,7 @@ namespace Fil.Modelo
     /// <param name="queryName">Nombre de la consulta de HQL a ejecutar para recuperar el objeto</param>
     /// <param name="parameters">Coleccion de parámetros necesarios para ejecutar la consulta</param>
     /// <returns>Objeto de tipo/clase T</returns>
+    [Obsolete("Este metodo se va a dejar de usar. En su lugar se deberia usar GetObjectList<T>() y pasar como parametro el Id. Ver PaisManager.ObtenerPorId(...).")]
     internal static T GetUniqueObject<T>(string queryName, Hashtable parameters)
     {
       try
@@ -229,6 +230,7 @@ namespace Fil.Modelo
     /// <param name="queryName">Nombre de la consulta de HQL a ejecutar para recuperar los objetos</param>
     /// <param name="parameters">Coleccion de parámetros necesarios para ejecutar la consulta</param>
     /// <returns>Lista de objetos de tipo/clase T</returns>
+    [Obsolete("Este metodo se va a dejar de usar. En su lugar se deberian usar las otras sobrecargas.")]
     internal static IList<T> GetObjectList<T>(string queryName, Hashtable parameters)
     {
       try
