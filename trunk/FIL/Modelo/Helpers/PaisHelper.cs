@@ -25,18 +25,6 @@ namespace Fil.Modelo.Helpers
     }
 
     /// <summary>
-    /// Actualiza el Pais en la base de datos
-    /// </summary>
-    /// <remarks>
-    /// En este método deberán estar las validaciones de negocio que sean necesarias
-    /// </remarks>
-    /// <param name="pPais">Pais a actualizar</param>
-    public static void Actualizar(Pais pPais)
-    {
-      Managers.PaisManager.Actualizar(pPais);
-    }
-
-    /// <summary>
     /// Elimina el Pais de la base de datos
     /// </summary>
     /// <remarks>
@@ -58,7 +46,7 @@ namespace Fil.Modelo.Helpers
     /// <returns>Pais</returns>
     public static Pais ObtenerPorId(string id)
     {
-      return PaisManager.ObtenerPorId(id);
+      return PaisManager.ObtenerPorClave<Pais>("id", id);
     }
 
     /// <summary>
@@ -70,7 +58,7 @@ namespace Fil.Modelo.Helpers
     /// <returns>Lista de Paises</returns>
     public static IList<Pais> ObtenerTodos()
     {
-      return PaisManager.ObtenerTodos();
+      return PaisManager.ObtenerTodos<Pais>();
     }
 
     /// <summary>

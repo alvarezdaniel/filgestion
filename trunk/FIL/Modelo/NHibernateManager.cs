@@ -98,6 +98,7 @@ namespace Fil.Modelo
     /// Guarda un objeto en la base de datos
     /// </summary>
     /// <param name="objectToSave">Objeto a guardar</param>
+    [Obsolete("No usar mas. En su lugar usar SaveOrUpdate().")]
     internal static void SaveObject(object objectToSave)
     {
       try
@@ -117,6 +118,7 @@ namespace Fil.Modelo
     /// Actualiza un objeto en la base de datos
     /// </summary>
     /// <param name="objectToUpdate">Objeto a actualizar</param>
+    [Obsolete("No usar mas. En su lugar usar SaveOrUpdate().")]
     internal static void UpdateObject(object objectToUpdate)
     {
       try
@@ -124,6 +126,25 @@ namespace Fil.Modelo
         ISession session = NHSession;
 
         session.Update(objectToUpdate);
+        session.Flush();
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+
+    /// <summary>
+    /// Guarda o Actualiza un objeto en la base de datos dependiendo de si ya existe o no.
+    /// </summary>
+    /// <param name="objectToSaveOrUpdate">Objeto en cuestion</param>
+    internal static void SaveOrUpdateObject(object objectToSaveOrUpdate)
+    {
+      try
+      {
+        ISession session = NHSession;
+
+        session.SaveOrUpdate(objectToSaveOrUpdate);
         session.Flush();
       }
       catch (Exception ex)
