@@ -45,10 +45,13 @@ namespace Fil.Modelo.Managers
     /// <returns>Pais</returns>
     internal static Pais ObtenerPorId(string id)
     {
-      Hashtable ht = new Hashtable(1);
-      ht.Add("Id", id);
-      Pais a = NHibernateManager.GetUniqueObject<Pais>("Pais.ObtenerPorId", ht);
-      return a;
+      IList exp = new ArrayList();
+      exp.Add(NHibernate.Expression.Expression.Eq("id", id));
+      Pais pais = null;
+      IList<Pais> list = NHibernateManager.GetObjectList<Pais>(exp);
+      if (list.Count == 1)
+        pais = (Pais)list[0];
+      return pais;
     }
 
     /// <summary>
@@ -57,10 +60,23 @@ namespace Fil.Modelo.Managers
     /// <returns>Lista de Paises</returns>
     internal static IList<Pais> ObtenerTodos()
     {
-      Hashtable ht = new Hashtable();
-      IList<Pais> lista = NHibernateManager.GetObjectList<Pais>("Pais.ObtenerTodos", ht);
+      IList<Pais> lista = NHibernateManager.GetObjectList<Pais>();
       return lista;
     }
 
+    /// <summary>
+    /// Obtiene los paises q se llaman parecido al texto a buscar
+    /// </summary>
+    /// <param name="like">texto a buscar</param>
+    /// <returns></returns>
+    internal static IList<Pais> ObtenerLike(string like)
+    {
+      string strLike = like.Replace("%","").Replace("'","").Trim();
+      strLike = "%" + strLike + "%";
+      IList exp = new ArrayList();
+      exp.Add(NHibernate.Expression.Expression.Like("Nombre", strLike).IgnoreCase());
+      IList<Pais> lista = NHibernateManager.GetObjectList<Pais>(exp);
+      return lista;
+    }
   }
 }

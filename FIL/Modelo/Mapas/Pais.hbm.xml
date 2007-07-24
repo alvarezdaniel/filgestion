@@ -9,11 +9,4 @@
     <property name="Nombre" column="PaiNombre" />
     <property name="autonumerico" access="field" column="PaiAutonumerico" insert="false" update="false" />
   </class>
-  <query name="Pais.ObtenerPorId">
-    FROM Pais P
-    WHERE P.id = :Id
-  </query>
-  <query name="Pais.ObtenerTodos">
-    FROM Pais P
-  </query>
 </hibernate-mapping>
