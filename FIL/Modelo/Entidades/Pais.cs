@@ -16,12 +16,16 @@ namespace Fil.Modelo.Entidades
     
 #endregion
 
+#region Constructor
+
     protected Pais() { }
 
     public Pais(string pNombre)
     {
       this.Nombre = pNombre;
     }
+    
+#endregion
 
 #region Propiedades
 
@@ -48,19 +52,11 @@ namespace Fil.Modelo.Entidades
     
 #endregion
 
-
 #region Miembros de IEntidadPersistible
 
     public void Guardar()
     {
-      if (this.id == null)
-      {
-        PaisHelper.Guardar(this);
-      }
-      else
-      {
-        PaisHelper.Actualizar(this);
-      }
+      PaisHelper.Guardar(this);
     }
 
     public void Eliminar()
