@@ -82,6 +82,7 @@
     <Compile Include="Helpers\UsuarioHelper.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\ClienteManager.cs" />
     <Compile Include="Managers\OpcionDeMenuManager.cs" />
     <Compile Include="Managers\PaisManager.cs" />
