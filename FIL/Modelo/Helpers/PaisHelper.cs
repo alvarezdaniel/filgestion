@@ -21,7 +21,7 @@ namespace Fil.Modelo.Helpers
     /// <param name="pPais">Pais a guardar</param>
     public static void Guardar(Pais pPais)
     {
-      Managers.PaisManager.Guardar(pPais);
+      PaisManager.Guardar(pPais);
     }
 
     /// <summary>
@@ -33,7 +33,7 @@ namespace Fil.Modelo.Helpers
     /// <param name="pPais">Pais a eliminar</param>
     public static void Eliminar(Pais pPais)
     {
-      Managers.PaisManager.Eliminar(pPais);
+      PaisManager.Eliminar(pPais);
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ namespace Fil.Modelo.Helpers
     /// <returns>Pais</returns>
     public static Pais ObtenerPorId(string id)
     {
-      return PaisManager.ObtenerPorClave<Pais>("id", id);
+      return PaisManager.ObtenerPorId(id);
     }
 
     /// <summary>
@@ -58,7 +58,7 @@ namespace Fil.Modelo.Helpers
     /// <returns>Lista de Paises</returns>
     public static IList<Pais> ObtenerTodos()
     {
-      return PaisManager.ObtenerTodos<Pais>();
+      return PaisManager.ObtenerTodos();
     }
 
     /// <summary>

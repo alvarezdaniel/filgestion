@@ -17,7 +17,7 @@ namespace Fil.Modelo.Managers
     /// </summary>
     /// <typeparam name="T">Clase del Objeto a guardar</typeparam>
     /// <param name="pObject">Objeto a guardar</param>
-    internal static void Guardar<T>(T pObject)
+    protected static void Guardar<T>(T pObject)
     {
       NHibernateManager.SaveOrUpdateObject(pObject);
       NHibernateManager.NHSession.Refresh(pObject);
@@ -28,7 +28,7 @@ namespace Fil.Modelo.Managers
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="pObject"></param>
-    internal static void Eliminar<T>(T pObject)
+    protected static void Eliminar<T>(T pObject)
     {
       NHibernateManager.DeleteObject(pObject);
     }
@@ -44,7 +44,7 @@ namespace Fil.Modelo.Managers
     /// Verificar si se mapeo como ID el campo "id" o la propiedad "Id".
     /// </remarks>
     /// <returns>Objeto buscado</returns>
-    internal static T ObtenerPorClave<T>(string nombreClave, string valorClave)
+    protected static T ObtenerPorClave<T>(string nombreClave, string valorClave)
     {
       IList exp = new ArrayList();
       exp.Add(NHibernate.Expression.Expression.Eq(nombreClave, valorClave));
@@ -60,7 +60,7 @@ namespace Fil.Modelo.Managers
     /// </summary>
     /// <typeparam name="T">Clase de los objetos buscados</typeparam>
     /// <returns>Lista de Objetos</returns>
-    internal static IList<T> ObtenerTodos<T>()
+    protected static IList<T> ObtenerTodos<T>()
     {
       IList<T> lista = NHibernateManager.GetObjectList<T>();
       return lista;
