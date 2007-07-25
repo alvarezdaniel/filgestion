@@ -7,7 +7,7 @@ using Fil.Modelo.Entidades;
 namespace Fil.Modelo.Managers
 {
 
-  internal abstract class UnidadDeGestionManager
+  internal abstract class UnidadDeGestionManager: BaseManager
   {
 
     /// <summary>
@@ -16,17 +16,7 @@ namespace Fil.Modelo.Managers
     /// <param name="pUnidadDeGestion">Unidad De Gestion a guardar</param>
     internal static void Guardar(UnidadDeGestion pUnidadDeGestion)
     {
-      NHibernateManager.SaveObject(pUnidadDeGestion);
-      NHibernateManager.NHSession.Refresh(pUnidadDeGestion);
-    }
-
-    /// <summary>
-    /// Actualiza la instancia del objeto en la base de datos
-    /// </summary>
-    /// <param name="pUnidadDeGestion">UnidadDeGestion a actualizar</param>
-    internal static void Actualizar(UnidadDeGestion pUnidadDeGestion)
-    {
-      NHibernateManager.UpdateObject(pUnidadDeGestion);
+      Guardar<UnidadDeGestion>(pUnidadDeGestion);
     }
 
     /// <summary>
@@ -35,7 +25,7 @@ namespace Fil.Modelo.Managers
     /// <param name="pUnidadDeGestion">UnidadDeGestion a eliminar</param>
     internal static void Eliminar(UnidadDeGestion pUnidadDeGestion)
     {
-      NHibernateManager.DeleteObject(pUnidadDeGestion);
+      Eliminar<UnidadDeGestion>(pUnidadDeGestion);
     }
 
     /// <summary>
@@ -45,10 +35,7 @@ namespace Fil.Modelo.Managers
     /// <returns>UnidadDeGestion</returns>
     internal static UnidadDeGestion ObtenerPorId(string id)
     {
-      Hashtable ht = new Hashtable(1);
-      ht.Add("Id", id);
-      UnidadDeGestion a = NHibernateManager.GetUniqueObject<UnidadDeGestion>("UnidadDeGestion.ObtenerPorId", ht);
-      return a;
+      return ObtenerPorClave<UnidadDeGestion>("id", id);
     }
 
     /// <summary>
@@ -57,9 +44,7 @@ namespace Fil.Modelo.Managers
     /// <returns>Lista de Unidades De Gestions</returns>
     internal static IList<UnidadDeGestion> ObtenerTodos()
     {
-      Hashtable ht = new Hashtable();
-      IList<UnidadDeGestion> lista = NHibernateManager.GetObjectList<UnidadDeGestion>("UnidadDeGestion.ObtenerTodos", ht);
-      return lista;
+      return ObtenerTodos<UnidadDeGestion>();
     }
 
   }

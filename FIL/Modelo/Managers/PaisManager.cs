@@ -23,8 +23,7 @@ namespace Fil.Modelo.Managers
       strLike = "%" + strLike + "%";
       IList exp = new ArrayList();
       exp.Add(NHibernate.Expression.Expression.Like("Nombre", strLike).IgnoreCase());
-      IList<Pais> lista = NHibernateManager.GetObjectList<Pais>(exp);
-      return lista;
+      return NHibernateManager.GetObjectList<Pais>(exp);
     }
 
 

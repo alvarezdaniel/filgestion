@@ -14,17 +14,4 @@
     </set>
     <property name="Orden" column="MnuOrden" />
   </class>
-  <query name="OpcionDeMenu.ObtenerPorId">
-    FROM OpcionDeMenu M
-    WHERE M.id = :Id
-  </query>
-  <query name="OpcionDeMenu.ObtenerTodos">
-    FROM OpcionDeMenu M
-    ORDER BY M.Orden
-  </query>
-  <query name="OpcionDeMenu.ObtenerRaices">
-    FROM OpcionDeMenu M
-    WHERE M.Padre is null
-    ORDER BY M.Orden
-  </query>
 </hibernate-mapping>

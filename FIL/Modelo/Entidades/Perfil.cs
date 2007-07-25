@@ -125,10 +125,7 @@ namespace Fil.Modelo.Entidades
     /// </summary>
     public virtual void Guardar()
     {
-      if (this.id == null)
-        PerfilHelper.Guardar(this);
-      else
-        PerfilHelper.Actualizar(this);
+      PerfilHelper.Guardar(this);
     }
     /// <summary>
     /// Elimina la instancia de la base de datos

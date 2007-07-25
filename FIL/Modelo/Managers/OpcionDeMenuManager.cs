@@ -6,7 +6,7 @@ using Fil.Modelo.Entidades;
 
 namespace Fil.Modelo.Managers
 {
-  internal abstract class OpcionDeMenuManager
+  internal abstract class OpcionDeMenuManager: BaseManager
   {
 
     /// <summary>
@@ -16,32 +16,29 @@ namespace Fil.Modelo.Managers
     /// <returns></returns>
     internal static OpcionDeMenu ObtenerPorId(int id)
     {
-      Hashtable ht = new Hashtable(1);
-      ht.Add("Id", id);
-      OpcionDeMenu obj = NHibernateManager.GetUniqueObject<OpcionDeMenu>("OpcionDeMenu.ObtenerPorId", ht);
-      return obj;
+      return ObtenerPorClave<OpcionDeMenu>("id", id);
     }
 
     /// <summary>
     /// Obtiene de la base de datos una lista con todas las opciones de menú
     /// </summary>
     /// <returns></returns>
-    internal static IList<Fil.Modelo.Entidades.OpcionDeMenu> ObtenerTodos()
+    internal static IList<OpcionDeMenu> ObtenerTodos()
     {
-      Hashtable ht = new Hashtable();
-      IList<OpcionDeMenu> lista = NHibernateManager.GetObjectList<OpcionDeMenu>("OpcionDeMenu.ObtenerTodos", ht);
-      return lista;
+      return ObtenerTodos<OpcionDeMenu>();
     }
 
     /// <summary>
     /// Obtiene de la base de datos una lista con todas las opciones de menú raices (sin padre)
     /// </summary>
     /// <returns></returns>
-    internal static IList<Fil.Modelo.Entidades.OpcionDeMenu> ObtenerRaices()
+    internal static IList<OpcionDeMenu> ObtenerRaices()
     {
-      Hashtable ht = new Hashtable();
-      IList<OpcionDeMenu> lista = NHibernateManager.GetObjectList<OpcionDeMenu>("OpcionDeMenu.ObtenerRaices", ht);
-      return lista;
+      IList exp = new ArrayList();
+      exp.Add(NHibernate.Expression.Expression.IsNull("Padre"));
+      IList ord = new ArrayList();
+      ord.Add(NHibernate.Expression.Order.Asc("Orden"));
+      return NHibernateManager.GetObjectList<OpcionDeMenu>(exp, ord);
     }
 
   }

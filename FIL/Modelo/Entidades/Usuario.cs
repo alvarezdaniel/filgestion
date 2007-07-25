@@ -16,7 +16,7 @@ namespace Fil.Modelo.Entidades
 
 #region Campos
 
-    private string id;
+    private string id = null;
     private int autonumerico;
     private string username;
     private string nombres;
@@ -132,10 +132,7 @@ namespace Fil.Modelo.Entidades
     /// </summary>
     public virtual void Guardar()
     {
-      if (this.id == null)
-        Helpers.UsuarioHelper.Guardar(this);
-      else
-        Helpers.UsuarioHelper.Actualizar(this);
+      Helpers.UsuarioHelper.Guardar(this);
     }
 
     /// <summary>

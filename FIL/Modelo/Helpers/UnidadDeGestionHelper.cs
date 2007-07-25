@@ -25,18 +25,6 @@ namespace Fil.Modelo.Helpers
     }
 
     /// <summary>
-    /// Actualiza la Unidad De Gestion en la base de datos
-    /// </summary>
-    /// <remarks>
-    /// En este método deberán estar las validaciones de negocio que sean necesarias
-    /// </remarks>
-    /// <param name="pUnidadDeGestion">UnidadDeGestion a actualizar</param>
-    public static void Actualizar(UnidadDeGestion pUnidadDeGestion)
-    {
-      Managers.UnidadDeGestionManager.Actualizar(pUnidadDeGestion);
-    }
-
-    /// <summary>
     /// Elimina la Unidad De Gestion de la base de datos
     /// </summary>
     /// <remarks>

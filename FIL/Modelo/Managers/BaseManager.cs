@@ -44,7 +44,7 @@ namespace Fil.Modelo.Managers
     /// Verificar si se mapeo como ID el campo "id" o la propiedad "Id".
     /// </remarks>
     /// <returns>Objeto buscado</returns>
-    protected static T ObtenerPorClave<T>(string nombreClave, string valorClave)
+    protected static T ObtenerPorClave<T>(string nombreClave, object valorClave)
     {
       IList exp = new ArrayList();
       exp.Add(NHibernate.Expression.Expression.Eq(nombreClave, valorClave));
@@ -62,8 +62,7 @@ namespace Fil.Modelo.Managers
     /// <returns>Lista de Objetos</returns>
     protected static IList<T> ObtenerTodos<T>()
     {
-      IList<T> lista = NHibernateManager.GetObjectList<T>();
-      return lista;
+      return NHibernateManager.GetObjectList<T>();
     }
 
   }

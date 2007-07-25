@@ -245,6 +245,36 @@ namespace Fil.Modelo
     }
 
     /// <summary>
+    /// Devuelve una lista de objetos de la clase T que cumple con los criterios
+    /// </summary>
+    /// <typeparam name="T">Clase de los objetos a retornar</typeparam>
+    /// <param name="expressions">Lista de expresiones</param>
+    /// <param name="orders">Lista de expresiones de ordenamiento</param>
+    /// <returns>Lista de objetos</returns>
+    internal static IList<T> GetObjectList<T>(IList expressions, IList orders)
+    {
+      try
+      {
+        ISession session = NHSession;
+        ICriteria criteria = session.CreateCriteria(typeof(T));
+        foreach (ICriterion exp in expressions)
+        {
+          criteria.Add(exp);
+        }
+        foreach (Order ord in orders)
+        {
+          criteria.AddOrder(ord);
+        }
+        IList<T> result = criteria.List<T>();
+        return result;
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+
+    /// <summary>
     /// Obtiene una lista de objetos de la base de datos
     /// </summary>
     /// <typeparam name="T">Tipo/Clase de los objetos a obtener</typeparam>

@@ -68,11 +68,9 @@ namespace Fil.Modelo.Entidades {
     /// </summary>
     public virtual void Guardar()
     {
-      if (this.id == null)
-        UnidadDeGestionHelper.Guardar(this);
-      else
-        UnidadDeGestionHelper.Actualizar(this);
+      UnidadDeGestionHelper.Guardar(this);
     }
+
     /// <summary>
     /// Elimina la instancia de la base de datos
     /// </summary>
