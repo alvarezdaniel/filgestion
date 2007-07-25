@@ -15,12 +15,4 @@
       </composite-element>
     </set>
   </class>
-  <query name="Perfil.ObtenerPorId">
-    FROM Perfil P
-    WHERE P.id = :Id
-  </query>
-  <query name="Perfil.ObtenerTodos">
-    FROM Perfil P
-    ORDER BY P.Descripcion
-  </query>
 </hibernate-mapping>

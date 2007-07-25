@@ -25,18 +25,6 @@ namespace Fil.Modelo.Helpers
     }
 
     /// <summary>
-    /// Actualiza el perfil en la base de datos
-    /// </summary>
-    /// <remarks>
-    /// En este método deberán estar las validaciones de negocio que sean necesarias
-    /// </remarks>
-    /// <param name="pPerfil">Perfil a actualizar</param>
-    public static void Actualizar(Perfil pPerfil)
-    {
-      Managers.PerfilManager.Actualizar(pPerfil);
-    }
-
-    /// <summary>
     /// Elimina el perfil de la base de datos
     /// </summary>
     /// <remarks>

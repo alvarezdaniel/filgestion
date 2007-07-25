@@ -21,19 +21,7 @@ namespace Fil.Modelo.Helpers
     /// <param name="pUsuario">Usuario a guardar</param>
     public static void Guardar(Usuario pUsuario)
     {
-      Managers.UsuarioManager.Guardar(pUsuario);
-    }
-
-    /// <summary>
-    /// Actualiza el usuario en la base de datos
-    /// </summary>
-    /// <remarks>
-    /// En este método deberán estar las validaciones de negocio que sean necesarias
-    /// </remarks>
-    /// <param name="pUsuario">Usuario a actualizar</param>
-    public static void Actualizar(Usuario pUsuario)
-    {
-      Managers.UsuarioManager.Actualizar(pUsuario);
+      UsuarioManager.Guardar(pUsuario);
     }
 
     /// <summary>
@@ -45,7 +33,7 @@ namespace Fil.Modelo.Helpers
     /// <param name="pUsuario">Usuario a eliminar</param>
     public static void Eliminar(Usuario pUsuario)
     {
-      Managers.UsuarioManager.Eliminar(pUsuario);
+      UsuarioManager.Eliminar(pUsuario);
     }
 
     /// <summary>

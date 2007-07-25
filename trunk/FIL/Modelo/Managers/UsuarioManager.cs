@@ -6,7 +6,7 @@ using Fil.Modelo.Entidades;
 
 namespace Fil.Modelo.Managers
 {
-  internal abstract class UsuarioManager
+  internal abstract class UsuarioManager : BaseManager
   {
 
     /// <summary>
@@ -15,17 +15,7 @@ namespace Fil.Modelo.Managers
     /// <param name="pUsuario">Usuario a guardar</param>
     internal static void Guardar(Usuario pUsuario)
     {
-      NHibernateManager.SaveObject(pUsuario);
-      NHibernateManager.NHSession.Refresh(pUsuario);
-    }
-
-    /// <summary>
-    /// Actualiza la instancia del objeto en la base de datos
-    /// </summary>
-    /// <param name="pUsuario">Usuario a actualizar</param>
-    internal static void Actualizar(Usuario pUsuario)
-    {
-      NHibernateManager.UpdateObject(pUsuario);
+      Guardar<Usuario>(pUsuario);
     }
 
     /// <summary>
@@ -34,7 +24,7 @@ namespace Fil.Modelo.Managers
     /// <param name="pUsuario">Usuario a eliminar</param>
     internal static void Eliminar(Usuario pUsuario)
     {
-      NHibernateManager.DeleteObject(pUsuario);
+      Eliminar<Usuario>(pUsuario);
     }
 
     /// <summary>
@@ -44,10 +34,7 @@ namespace Fil.Modelo.Managers
     /// <returns>Usuario</returns>
     internal static Usuario ObtenerPorId(string id)
     {
-      Hashtable ht = new Hashtable(1);
-      ht.Add("Id", id);
-      Usuario a = NHibernateManager.GetUniqueObject<Usuario>("Usuario.ObtenerPorId", ht);
-      return a;
+      return ObtenerPorClave<Usuario>("id", id);
     }
     
     /// <summary>
@@ -56,9 +43,7 @@ namespace Fil.Modelo.Managers
     /// <returns>Lista de Usuarios</returns>
     internal static IList<Usuario> ObtenerTodos()
     {
-      Hashtable ht = new Hashtable();
-      IList<Usuario> lista = NHibernateManager.GetObjectList<Usuario>("Usuario.ObtenerTodos", ht);
-      return lista;
+      return ObtenerTodos<Usuario>();
     }
 
   }

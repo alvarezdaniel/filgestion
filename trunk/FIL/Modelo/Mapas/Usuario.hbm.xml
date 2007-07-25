@@ -18,13 +18,5 @@
         <many-to-one name="UnidadDeGestion" column="PasUnidadDeGestion" class="Fil.Modelo.Entidades.UnidadDeGestion, Fil.Modelo" />      </composite-element>
     </set>
   </class>
-  <query name="Usuario.ObtenerPorId">
-    FROM Usuario U
-    WHERE U.id = :Id
-  </query>
-  <query name="Usuario.ObtenerTodos">
-    FROM Usuario U
-    ORDER BY U.Apellidos, U.Nombres
-  </query>
 </hibernate-mapping>
 

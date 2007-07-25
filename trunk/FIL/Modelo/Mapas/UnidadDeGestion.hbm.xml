@@ -8,11 +8,4 @@
     </id>
     <property name="Autonumerico" column="UdgAutonumerico" insert="false" update="false" />
   </class>
-  <query name="UnidadDeGestion.ObtenerPorId">
-    FROM UnidadDeGestion U
-    WHERE U.id = :Id
-  </query>
-  <query name="UnidadDeGestion.ObtenerTodos">
-    FROM UnidadDeGestion U
-  </query>
 </hibernate-mapping>
