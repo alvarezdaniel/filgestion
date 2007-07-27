@@ -21,5 +21,18 @@ namespace Windows
 
       // TODO: Add any constructor code after InitializeComponent call
     }
+
+    private void mnuSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+    {
+      this.Close();
+    }
+
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+      DialogResult dr = MessageBox.Show("¿Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+      if (dr == DialogResult.No)
+        e.Cancel = true;
+    }
+
   }
 }
