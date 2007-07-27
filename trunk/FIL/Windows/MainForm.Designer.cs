@@ -57,7 +57,7 @@ namespace Windows
             this.mnuSalir,
             this.barButtonItem1});
       this.barManager1.MainMenu = this.MainBar;
-      this.barManager1.MaxItemId = 3;
+      this.barManager1.MaxItemId = 5;
       this.barManager1.StatusBar = this.StatusBar;
       // 
       // MainBar
@@ -134,6 +134,8 @@ namespace Windows
     private DevExpress.XtraBars.BarDockControl barDockControlRight;
     private DevExpress.XtraBars.BarButtonItem mnuSalir;
     private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+    private DevExpress.XtraBars.BarSubItem barSubItem1;
+    private DevExpress.XtraBars.BarButtonItem barButtonItem2;
 
 
   }
