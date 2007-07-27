@@ -1,6 +1,6 @@
 namespace Windows
 {
-  partial class Form1
+  partial class MainForm
   {
     /// <summary>
     /// Required designer variable.
@@ -29,11 +29,10 @@ namespace Windows
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
-      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.Text = "Form1";
+      this.Size = new System.Drawing.Size(300, 300);
+      this.Text = "MainForm";
     }
 
     #endregion
   }
 }
-
