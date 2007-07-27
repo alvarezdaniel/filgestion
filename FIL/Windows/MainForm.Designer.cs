@@ -29,11 +29,11 @@ namespace Windows
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
       this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
       this.MainBar = new DevExpress.XtraBars.Bar();
       this.mnuArchivo = new DevExpress.XtraBars.BarSubItem();
       this.mnuSalir = new DevExpress.XtraBars.BarButtonItem();
-      this.mnuABMs = new DevExpress.XtraBars.BarSubItem();
       this.mnuAyuda = new DevExpress.XtraBars.BarButtonItem();
       this.StatusBar = new DevExpress.XtraBars.Bar();
       this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
@@ -41,6 +41,8 @@ namespace Windows
       this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
       this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
       this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+      this.mnuABMs = new DevExpress.XtraBars.BarSubItem();
+      this.menuImageList = new System.Windows.Forms.ImageList(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
       this.SuspendLayout();
       // 
@@ -54,6 +56,7 @@ namespace Windows
       this.barManager1.DockControls.Add(this.barDockControlLeft);
       this.barManager1.DockControls.Add(this.barDockControlRight);
       this.barManager1.Form = this;
+      this.barManager1.Images = this.menuImageList;
       this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.mnuArchivo,
             this.mnuSalir,
@@ -88,6 +91,7 @@ namespace Windows
       // 
       this.mnuSalir.Caption = "&Salir";
       this.mnuSalir.Id = 1;
+      this.mnuSalir.ImageIndex = 0;
       this.mnuSalir.Name = "mnuSalir";
       this.mnuSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnuSalir_ItemClick);
       // 
@@ -117,6 +121,17 @@ namespace Windows
       this.barStaticItem1.Id = 3;
       this.barStaticItem1.Name = "barStaticItem1";
       this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
+      // 
+      // mnuABMs
+      // 
+      this.mnuABMs.Id = -1;
+      this.mnuABMs.Name = "mnuABMs";
+      // 
+      // menuImageList
+      // 
+      this.menuImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("menuImageList.ImageStream")));
+      this.menuImageList.TransparentColor = System.Drawing.Color.Transparent;
+      this.menuImageList.Images.SetKeyName(0, "exit.png");
       // 
       // MainForm
       // 
@@ -149,6 +164,7 @@ namespace Windows
     private DevExpress.XtraBars.BarButtonItem mnuAyuda;
     private DevExpress.XtraBars.BarStaticItem barStaticItem1;
     private DevExpress.XtraBars.BarSubItem mnuABMs;
+    private System.Windows.Forms.ImageList menuImageList;
 
   }
 }
