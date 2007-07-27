@@ -39,6 +39,7 @@ namespace Windows
       this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
       this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
       this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+      this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
       ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
       this.SuspendLayout();
       // 
@@ -55,9 +56,10 @@ namespace Windows
       this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.mnuArchivo,
             this.mnuSalir,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.barStaticItem1});
       this.barManager1.MainMenu = this.MainBar;
-      this.barManager1.MaxItemId = 5;
+      this.barManager1.MaxItemId = 6;
       this.barManager1.StatusBar = this.StatusBar;
       // 
       // MainBar
@@ -101,10 +103,19 @@ namespace Windows
       this.StatusBar.DockCol = 0;
       this.StatusBar.DockRow = 0;
       this.StatusBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+      this.StatusBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem1)});
       this.StatusBar.OptionsBar.AllowQuickCustomization = false;
       this.StatusBar.OptionsBar.DrawDragBorder = false;
       this.StatusBar.OptionsBar.UseWholeRow = true;
       this.StatusBar.Text = "Barra de Estado";
+      // 
+      // barStaticItem1
+      // 
+      this.barStaticItem1.Caption = "Listo";
+      this.barStaticItem1.Id = 5;
+      this.barStaticItem1.Name = "barStaticItem1";
+      this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
       // 
       // MainForm
       // 
@@ -116,6 +127,7 @@ namespace Windows
       this.IsMdiContainer = true;
       this.Name = "MainForm";
       this.Text = "Prototipo FIL";
+      this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
       ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
       this.ResumeLayout(false);
@@ -136,6 +148,7 @@ namespace Windows
     private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     private DevExpress.XtraBars.BarSubItem barSubItem1;
     private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+    private DevExpress.XtraBars.BarStaticItem barStaticItem1;
 
 
   }

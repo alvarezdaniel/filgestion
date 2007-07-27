@@ -46,5 +46,21 @@ namespace Fil.Modelo.Managers
       return ObtenerTodos<Usuario>();
     }
 
+    /// <summary>
+    /// Obtiene un usuario de la base de datos a partir de su Username
+    /// </summary>
+    /// <param name="pUsername">Username del usuario a recuperar</param>
+    /// <returns>Usuario</returns>
+    internal static Usuario ObtenerPorUsername(string pUsername)
+    {
+      IList exp = new ArrayList();
+      exp.Add(NHibernate.Expression.Expression.Eq("Username", pUsername).IgnoreCase());
+      Usuario usr = null;
+      IList<Usuario> list = NHibernateManager.GetObjectList<Usuario>(exp);
+      if (list.Count == 1)
+        usr = (Usuario)list[0];
+      return usr;
+    }
+
   }
 }

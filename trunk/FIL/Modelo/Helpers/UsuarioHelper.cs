@@ -61,5 +61,15 @@ namespace Fil.Modelo.Helpers
       return UsuarioManager.ObtenerTodos();
     }
 
+    /// <summary>
+    /// Obtiene un usuario a partir de si Username
+    /// </summary>
+    /// <param name="pUsername">Nombre de Usuario del usuario a obtener</param>
+    /// <returns>Usuario</returns>
+    public static Usuario ObtenerPorUsername(string pUsername)
+    {
+      return UsuarioManager.ObtenerPorUsername(pUsername);
+    }
+
   }
 }

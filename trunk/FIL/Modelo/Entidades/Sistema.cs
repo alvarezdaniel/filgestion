@@ -15,23 +15,14 @@ using Fil.Modelo.Entidades;
 
 namespace Fil.Modelo.Entidades {
 
-	public class Sistema 
+	public abstract class Sistema 
   {
 
 #region Campos Privados
 
-    private Usuario usuarioActual;
-    
-#endregion
-
-#region Constructores
-
-    /// <summary>
-    /// Constructor sin parámetros necesario para NHibernate
-    /// </summary>
-    protected Sistema()
-    {
-    }
+    private static Usuario usuarioActual;
+    private const string USUARIO_SISTEMA_NOMBRE = "admin";
+    private const string USUARIO_SISTEMA_PASSWORD = "";
     
 #endregion
 
@@ -40,7 +31,7 @@ namespace Fil.Modelo.Entidades {
     /// <summary>
     /// Usuario logueado actualmente en el sistema
     /// </summary>
-    public Usuario UsuarioActual
+    public static Usuario UsuarioActual
     {
       get
       {
@@ -54,6 +45,43 @@ namespace Fil.Modelo.Entidades {
     
 #endregion
 
-	}//end Sistema
+#region "Metodos"
+
+    public static bool IngresarUsuario(string username, string pass)
+    {
+      username = username.Trim();
+
+      if (username == string.Empty)
+      {
+        return false;
+      }
+
+      Usuario usr;
+
+      //Agergo un harcode para tener un usuario y pass que pase siempre
+      //User: admin
+      //Pass: (vacio)
+      if (username.ToLower() == USUARIO_SISTEMA_NOMBRE && pass == USUARIO_SISTEMA_PASSWORD )
+      {
+        usr = new Usuario(USUARIO_SISTEMA_NOMBRE, "XX", "XX", USUARIO_SISTEMA_PASSWORD);
+        usuarioActual = usr;
+        return true;
+      }
+
+      usr = Helpers.UsuarioHelper.ObtenerPorUsername(username);
+      if (usr != null)
+      {
+        if (usr.Password == pass)
+        {
+          UsuarioActual = usr;
+          return true;
+        }
+      }
+      return false;
+    }
+
+#endregion
+
+  }//end Sistema
 
 }//end namespace Entidades

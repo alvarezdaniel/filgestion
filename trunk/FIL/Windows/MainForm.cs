@@ -11,15 +11,25 @@ namespace Windows
 {
   public partial class MainForm : DevExpress.XtraEditors.XtraForm
   {
+    private Form opener;
+
     /// <summary>
     /// Required designer variable.
     /// </summary>
-    public MainForm()
+    public MainForm(Form pOpener)
     {
       // Required for Windows Form Designer support
       InitializeComponent();
 
-      // TODO: Add any constructor code after InitializeComponent call
+      this.opener = pOpener;
+
+      //Armar Menu
+      ArmarMenu();
+    }
+
+    private void ArmarMenu()
+    {
+      //ToDo: Armar menu.
     }
 
     private void mnuSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -32,6 +42,7 @@ namespace Windows
       DialogResult dr = MessageBox.Show("¿Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
       if (dr == DialogResult.No)
         e.Cancel = true;
+      this.opener.Close();
     }
 
   }
