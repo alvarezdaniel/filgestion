@@ -33,13 +33,14 @@ namespace Windows
       this.MainBar = new DevExpress.XtraBars.Bar();
       this.mnuArchivo = new DevExpress.XtraBars.BarSubItem();
       this.mnuSalir = new DevExpress.XtraBars.BarButtonItem();
-      this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+      this.mnuABMs = new DevExpress.XtraBars.BarSubItem();
+      this.mnuAyuda = new DevExpress.XtraBars.BarButtonItem();
       this.StatusBar = new DevExpress.XtraBars.Bar();
+      this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
       this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
       this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
       this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
       this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-      this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
       ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
       this.SuspendLayout();
       // 
@@ -56,10 +57,10 @@ namespace Windows
       this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.mnuArchivo,
             this.mnuSalir,
-            this.barButtonItem1,
+            this.mnuAyuda,
             this.barStaticItem1});
       this.barManager1.MainMenu = this.MainBar;
-      this.barManager1.MaxItemId = 6;
+      this.barManager1.MaxItemId = 3;
       this.barManager1.StatusBar = this.StatusBar;
       // 
       // MainBar
@@ -70,7 +71,7 @@ namespace Windows
       this.MainBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
       this.MainBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.mnuArchivo),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.mnuAyuda)});
       this.MainBar.OptionsBar.MultiLine = true;
       this.MainBar.OptionsBar.UseWholeRow = true;
       this.MainBar.Text = "Barra de Menú";
@@ -90,11 +91,11 @@ namespace Windows
       this.mnuSalir.Name = "mnuSalir";
       this.mnuSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnuSalir_ItemClick);
       // 
-      // barButtonItem1
+      // mnuAyuda
       // 
-      this.barButtonItem1.Caption = "&?";
-      this.barButtonItem1.Id = 2;
-      this.barButtonItem1.Name = "barButtonItem1";
+      this.mnuAyuda.Caption = "&?";
+      this.mnuAyuda.Id = 2;
+      this.mnuAyuda.Name = "mnuAyuda";
       // 
       // StatusBar
       // 
@@ -113,7 +114,7 @@ namespace Windows
       // barStaticItem1
       // 
       this.barStaticItem1.Caption = "Listo";
-      this.barStaticItem1.Id = 5;
+      this.barStaticItem1.Id = 3;
       this.barStaticItem1.Name = "barStaticItem1";
       this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
       // 
@@ -145,11 +146,9 @@ namespace Windows
     private DevExpress.XtraBars.BarDockControl barDockControlLeft;
     private DevExpress.XtraBars.BarDockControl barDockControlRight;
     private DevExpress.XtraBars.BarButtonItem mnuSalir;
-    private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-    private DevExpress.XtraBars.BarSubItem barSubItem1;
-    private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+    private DevExpress.XtraBars.BarButtonItem mnuAyuda;
     private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-
+    private DevExpress.XtraBars.BarSubItem mnuABMs;
 
   }
 }
