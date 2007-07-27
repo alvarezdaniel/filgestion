@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{5FDAB473-B20E-49DB-9A4A-4A1A041B9AA4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows", "Windows\Windows.csproj", "{07BABDD4-8096-41A1-B793-37ECA65FA596}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5FDAB473-B20E-49DB-9A4A-4A1A041B9AA4} = {5FDAB473-B20E-49DB-9A4A-4A1A041B9AA4}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
