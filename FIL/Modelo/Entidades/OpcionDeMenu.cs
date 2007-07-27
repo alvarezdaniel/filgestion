@@ -18,6 +18,9 @@ namespace Fil.Modelo.Entidades
     private string descripcion;
     private ISet hijos = new HashedSet();
     private int orden;
+    private string form;
+    private string url;
+    private string metodo;
 
 #endregion
 
@@ -70,6 +73,33 @@ namespace Fil.Modelo.Entidades
     {
       get { return orden; }
       set { orden = value; }
+    }
+    /// <summary>
+    /// Contiene el nombre del Form que de debe abrir al clickear en la opcion
+    /// </summary>
+    public virtual string Form
+    {
+      get { return form; }
+      set { form = value; }
+    }
+    /// <summary>
+    /// Nombre del método a ejecutar al clickear la opcion
+    /// </summary>
+    public virtual string Metodo
+    {
+      get { return metodo; }
+      set { metodo = value; }
+    }
+    /// <summary>
+    /// URL a la cual redirigir al clickear en al opcion.
+    /// </summary>
+    /// <remarks>
+    /// Para uso en Web
+    /// </remarks>
+    public virtual string Url
+    {
+      get { return url; }
+      set { url = value; }
     }
 
 #endregion

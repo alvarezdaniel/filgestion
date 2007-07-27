@@ -13,5 +13,8 @@
       <one-to-many class="Fil.Modelo.Entidades.OpcionDeMenu, Fil.Modelo"/>
     </set>
     <property name="Orden" column="MnuOrden" />
+    <property name="Form" column="MnuForm" />
+    <property name="Metodo" column="MnuMetodo" />
+    <property name="URL" column="MnuURL" />
   </class>
 </hibernate-mapping>
