@@ -96,7 +96,7 @@ namespace Fil.Modelo.Entidades
     /// <remarks>
     /// Para uso en Web
     /// </remarks>
-    public virtual string Url
+    public virtual string URL
     {
       get { return url; }
       set { url = value; }
