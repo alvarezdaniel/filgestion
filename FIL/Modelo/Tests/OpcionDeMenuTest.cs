@@ -21,8 +21,8 @@ namespace Fil.Modelo.Tests
         Assert.AreNotEqual(opciones.Count, 0);
 
         //Pruebo levantar una opción por su Id
-        //Levanto la opción 1: Usuarios
-        OpcionDeMenu opm = OpcionDeMenuHelper.ObtenerPorId(1);
+        //Levanto la opción 2: Usuarios
+        OpcionDeMenu opm = OpcionDeMenuHelper.ObtenerPorId(2);
         Assert.AreEqual(opm.Accion, Enumerados.Accion.ConsultaUsuarios);
         Assert.AreEqual(opm.Descripcion, "Usuarios");
 
