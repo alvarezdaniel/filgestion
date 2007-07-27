@@ -29,7 +29,6 @@ namespace Windows
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
       this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
       this.MainBar = new DevExpress.XtraBars.Bar();
       this.mnuArchivo = new DevExpress.XtraBars.BarSubItem();
@@ -41,8 +40,8 @@ namespace Windows
       this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
       this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
       this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-      this.mnuABMs = new DevExpress.XtraBars.BarSubItem();
       this.menuImageList = new System.Windows.Forms.ImageList(this.components);
+      this.mnuABMs = new DevExpress.XtraBars.BarSubItem();
       ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
       this.SuspendLayout();
       // 
@@ -91,7 +90,6 @@ namespace Windows
       // 
       this.mnuSalir.Caption = "&Salir";
       this.mnuSalir.Id = 1;
-      this.mnuSalir.ImageIndex = 0;
       this.mnuSalir.Name = "mnuSalir";
       this.mnuSalir.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnuSalir_ItemClick);
       // 
@@ -122,16 +120,16 @@ namespace Windows
       this.barStaticItem1.Name = "barStaticItem1";
       this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
       // 
+      // menuImageList
+      // 
+      this.menuImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+      this.menuImageList.ImageSize = new System.Drawing.Size(8, 8);
+      this.menuImageList.TransparentColor = System.Drawing.Color.Transparent;
+      // 
       // mnuABMs
       // 
       this.mnuABMs.Id = -1;
       this.mnuABMs.Name = "mnuABMs";
-      // 
-      // menuImageList
-      // 
-      this.menuImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("menuImageList.ImageStream")));
-      this.menuImageList.TransparentColor = System.Drawing.Color.Transparent;
-      this.menuImageList.Images.SetKeyName(0, "exit.png");
       // 
       // MainForm
       // 
@@ -145,6 +143,7 @@ namespace Windows
       this.Text = "Prototipo FIL";
       this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+      this.Load += new System.EventHandler(this.MainForm_Load);
       ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
       this.ResumeLayout(false);
 
