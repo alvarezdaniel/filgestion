@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" >
+  <class name="Fil.Modelo.Entidades.Localidad, Fil.Modelo" table="Localidades" lazy="true">
+    <id name="id" access="field">
+      <column name="LocId" sql-type="char(32)" 
+        not-null="true"/>
+      <generator class="uuid.hex" />
+    </id>
+    <property name="Nombre" column="LocNombre" />
+    <property name="CodigoPostal" column="LocCodigoPostal" />
+    <property name="autonumerico" access="field" column="LocAutonumerico" insert="false" update="false" />
+  </class>
+</hibernate-mapping>
