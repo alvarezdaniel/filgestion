@@ -9,6 +9,7 @@ namespace Fil.Modelo.Entidades
   {
 #region Campos
 
+
     private string id;
     private string nombre;
     private int autonumerico;
