@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmEditorUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditorUsuario.Designer.cs">
+      <DependentUpon>FrmEditorUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSeleccionUG.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmEditorUsuario.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmEditorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSeleccionUG.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmSeleccionUG.cs</DependentUpon>

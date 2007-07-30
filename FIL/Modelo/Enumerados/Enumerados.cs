@@ -16,7 +16,8 @@ namespace Fil.Modelo.Enumerados
     ConsultaUsuarios = 1,
     AltaUsuarios = 2,
     BajaUsuarios = 3,
-    ModificacionUsuarios = 4
+    ModificacionUsuarios = 4,
+    AsignarPerfiles = 5
   }
 
 }

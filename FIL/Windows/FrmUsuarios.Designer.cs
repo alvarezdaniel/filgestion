@@ -30,13 +30,19 @@ namespace Windows
     {
       this.GrdDatos = new DevExpress.XtraGrid.GridControl();
       this.GrvDatos = new DevExpress.XtraGrid.Views.Grid.GridView();
-      this.BtnNuevo = new DevExpress.XtraEditors.SimpleButton();
       this.ColId = new DevExpress.XtraGrid.Columns.GridColumn();
       this.ColApellidos = new DevExpress.XtraGrid.Columns.GridColumn();
       this.ColNombres = new DevExpress.XtraGrid.Columns.GridColumn();
       this.ColUsername = new DevExpress.XtraGrid.Columns.GridColumn();
+      this.BtnNuevo = new DevExpress.XtraEditors.SimpleButton();
+      this.BtnCerrar = new DevExpress.XtraEditors.SimpleButton();
+      this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+      this.BtnModificar = new DevExpress.XtraEditors.SimpleButton();
+      this.BtnEliminar = new DevExpress.XtraEditors.SimpleButton();
+      this.BtnPerfiles = new DevExpress.XtraEditors.SimpleButton();
       ((System.ComponentModel.ISupportInitialize)(this.GrdDatos)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.GrvDatos)).BeginInit();
+      this.flowLayoutPanel1.SuspendLayout();
       this.SuspendLayout();
       // 
       // GrdDatos
@@ -48,7 +54,7 @@ namespace Windows
       this.GrdDatos.Location = new System.Drawing.Point(12, 12);
       this.GrdDatos.MainView = this.GrvDatos;
       this.GrdDatos.Name = "GrdDatos";
-      this.GrdDatos.Size = new System.Drawing.Size(409, 270);
+      this.GrdDatos.Size = new System.Drawing.Size(328, 263);
       this.GrdDatos.TabIndex = 0;
       this.GrdDatos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GrvDatos});
@@ -62,15 +68,7 @@ namespace Windows
             this.ColUsername});
       this.GrvDatos.GridControl = this.GrdDatos;
       this.GrvDatos.Name = "GrvDatos";
-      // 
-      // BtnNuevo
-      // 
-      this.BtnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-      this.BtnNuevo.Location = new System.Drawing.Point(345, 292);
-      this.BtnNuevo.Name = "BtnNuevo";
-      this.BtnNuevo.Size = new System.Drawing.Size(75, 23);
-      this.BtnNuevo.TabIndex = 1;
-      this.BtnNuevo.Text = "&Nuevo";
+      this.GrvDatos.OptionsBehavior.Editable = false;
       // 
       // ColId
       // 
@@ -88,6 +86,7 @@ namespace Windows
       this.ColApellidos.Caption = "Apellidos";
       this.ColApellidos.FieldName = "Apellidos";
       this.ColApellidos.Name = "ColApellidos";
+      this.ColApellidos.OptionsColumn.AllowEdit = false;
       this.ColApellidos.Visible = true;
       this.ColApellidos.VisibleIndex = 1;
       // 
@@ -96,6 +95,7 @@ namespace Windows
       this.ColNombres.Caption = "Nombres";
       this.ColNombres.FieldName = "Nombres";
       this.ColNombres.Name = "ColNombres";
+      this.ColNombres.OptionsColumn.AllowEdit = false;
       this.ColNombres.Visible = true;
       this.ColNombres.VisibleIndex = 2;
       // 
@@ -104,15 +104,75 @@ namespace Windows
       this.ColUsername.Caption = "Username";
       this.ColUsername.FieldName = "Username";
       this.ColUsername.Name = "ColUsername";
+      this.ColUsername.OptionsColumn.AllowEdit = false;
       this.ColUsername.Visible = true;
       this.ColUsername.VisibleIndex = 3;
+      // 
+      // BtnNuevo
+      // 
+      this.BtnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.BtnNuevo.Location = new System.Drawing.Point(3, 3);
+      this.BtnNuevo.Name = "BtnNuevo";
+      this.BtnNuevo.Size = new System.Drawing.Size(96, 23);
+      this.BtnNuevo.TabIndex = 1;
+      this.BtnNuevo.Text = "&Nuevo";
+      this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
+      // 
+      // BtnCerrar
+      // 
+      this.BtnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.BtnCerrar.Location = new System.Drawing.Point(352, 252);
+      this.BtnCerrar.Name = "BtnCerrar";
+      this.BtnCerrar.Size = new System.Drawing.Size(96, 23);
+      this.BtnCerrar.TabIndex = 2;
+      this.BtnCerrar.Text = "&Cerrar";
+      this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+      // 
+      // flowLayoutPanel1
+      // 
+      this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.flowLayoutPanel1.Controls.Add(this.BtnNuevo);
+      this.flowLayoutPanel1.Controls.Add(this.BtnModificar);
+      this.flowLayoutPanel1.Controls.Add(this.BtnEliminar);
+      this.flowLayoutPanel1.Controls.Add(this.BtnPerfiles);
+      this.flowLayoutPanel1.Location = new System.Drawing.Point(349, 12);
+      this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+      this.flowLayoutPanel1.Size = new System.Drawing.Size(107, 128);
+      this.flowLayoutPanel1.TabIndex = 3;
+      // 
+      // BtnModificar
+      // 
+      this.BtnModificar.Location = new System.Drawing.Point(3, 32);
+      this.BtnModificar.Name = "BtnModificar";
+      this.BtnModificar.Size = new System.Drawing.Size(96, 23);
+      this.BtnModificar.TabIndex = 2;
+      this.BtnModificar.Text = "&Modificar";
+      this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
+      // 
+      // BtnEliminar
+      // 
+      this.BtnEliminar.Location = new System.Drawing.Point(3, 61);
+      this.BtnEliminar.Name = "BtnEliminar";
+      this.BtnEliminar.Size = new System.Drawing.Size(96, 23);
+      this.BtnEliminar.TabIndex = 3;
+      this.BtnEliminar.Text = "&Eliminar";
+      this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+      // 
+      // BtnPerfiles
+      // 
+      this.BtnPerfiles.Location = new System.Drawing.Point(3, 90);
+      this.BtnPerfiles.Name = "BtnPerfiles";
+      this.BtnPerfiles.Size = new System.Drawing.Size(96, 23);
+      this.BtnPerfiles.TabIndex = 4;
+      this.BtnPerfiles.Text = "&Perfiles";
       // 
       // FrmUsuarios
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(433, 327);
-      this.Controls.Add(this.BtnNuevo);
+      this.ClientSize = new System.Drawing.Size(457, 287);
+      this.Controls.Add(this.flowLayoutPanel1);
+      this.Controls.Add(this.BtnCerrar);
       this.Controls.Add(this.GrdDatos);
       this.Name = "FrmUsuarios";
       this.ShowIcon = false;
@@ -120,6 +180,7 @@ namespace Windows
       this.Load += new System.EventHandler(this.FrmUsuarios_Load);
       ((System.ComponentModel.ISupportInitialize)(this.GrdDatos)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.GrvDatos)).EndInit();
+      this.flowLayoutPanel1.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -133,5 +194,10 @@ namespace Windows
     private DevExpress.XtraGrid.Columns.GridColumn ColApellidos;
     private DevExpress.XtraGrid.Columns.GridColumn ColNombres;
     private DevExpress.XtraGrid.Columns.GridColumn ColUsername;
+    private DevExpress.XtraEditors.SimpleButton BtnCerrar;
+    private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+    private DevExpress.XtraEditors.SimpleButton BtnModificar;
+    private DevExpress.XtraEditors.SimpleButton BtnEliminar;
+    private DevExpress.XtraEditors.SimpleButton BtnPerfiles;
   }
 }
