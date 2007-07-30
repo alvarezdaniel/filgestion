@@ -21,7 +21,7 @@ namespace Fil.Modelo.Entidades {
 #region Campos Privados
 
     private static Usuario usuarioActual;
-    private const string USUARIO_SISTEMA_NOMBRE = "admin";
+    private const string USUARIO_SISTEMA_NOMBRE = "";
     private const string USUARIO_SISTEMA_PASSWORD = "";
     
 #endregion
@@ -50,16 +50,12 @@ namespace Fil.Modelo.Entidades {
     public static bool IngresarUsuario(string username, string pass)
     {
       username = username.Trim();
-
-      if (username == string.Empty)
-      {
-        return false;
-      }
+      pass = pass.Trim();
 
       Usuario usr;
 
       //Agergo un harcode para tener un usuario y pass que pase siempre
-      //User: admin
+      //User: (vacio)
       //Pass: (vacio)
       if (username.ToLower() == USUARIO_SISTEMA_NOMBRE && pass == USUARIO_SISTEMA_PASSWORD )
       {

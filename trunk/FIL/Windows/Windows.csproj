@@ -32,6 +32,7 @@
     <Reference Include="DevExpress.Utils.v7.1, Version=7.1.1.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v7.1, Version=7.1.1.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
     <Reference Include="DevExpress.XtraEditors.v7.1, Version=7.1.1.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v7.1, Version=7.1.1.0, Culture=neutral, PublicKeyToken=79868b8147b5eae4" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -41,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +62,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmUsuarios.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>LoginForm.cs</DependentUpon>

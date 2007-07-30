@@ -66,5 +66,12 @@ namespace Windows
     {
       MessageBox.Show(e.Item.Name);
     }
+
+    private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+    {
+      FrmUsuarios frm = new FrmUsuarios();
+      frm.MdiParent = this;
+      frm.Show();
+    }
   }
 }
