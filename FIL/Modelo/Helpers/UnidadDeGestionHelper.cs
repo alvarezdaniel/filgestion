@@ -21,6 +21,8 @@ namespace Fil.Modelo.Helpers
     /// <param name="pUnidadDeGestion">UnidadDeGestion a guardar</param>
     public static void Guardar(UnidadDeGestion pUnidadDeGestion)
     {
+      if (pUnidadDeGestion.Nombre == UnidadDeGestion.UNIDADVIRTUAL_NOMBRE)
+        return;
       Managers.UnidadDeGestionManager.Guardar(pUnidadDeGestion);
     }
 
@@ -33,6 +35,8 @@ namespace Fil.Modelo.Helpers
     /// <param name="pUnidadDeGestion">UnidadDeGestion a eliminar</param>
     public static void Eliminar(UnidadDeGestion pUnidadDeGestion)
     {
+      if (pUnidadDeGestion.Nombre == UnidadDeGestion.UNIDADVIRTUAL_NOMBRE)
+        return;
       Managers.UnidadDeGestionManager.Eliminar(pUnidadDeGestion);
     }
 
@@ -61,5 +65,13 @@ namespace Fil.Modelo.Helpers
       return UnidadDeGestionManager.ObtenerTodos();
     }
 
+    /// <summary>
+    /// Devuelve una unidad de gestion virtual. No se puede guardar o eliminar de la base.
+    /// </summary>
+    /// <returns></returns>
+    internal static UnidadDeGestion GetUnidadVirtual()
+    {
+      return new UnidadDeGestion(UnidadDeGestion.UNIDADVIRTUAL_NOMBRE);
+    }
   }
 }

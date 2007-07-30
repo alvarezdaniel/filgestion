@@ -41,7 +41,6 @@ namespace Fil.Modelo.Helpers
       return OpcionDeMenuManager.ObtenerRaices();
     }
 
-   
   }
 }
 

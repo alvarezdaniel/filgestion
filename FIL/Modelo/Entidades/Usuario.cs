@@ -14,6 +14,13 @@ namespace Fil.Modelo.Entidades
   public class Usuario: IEntidadPersistible
   {
 
+#region Constantes
+
+    internal const string SUPERUSUARIO_NOMBRE = "";
+    internal const string SUPERUSUARIO_PASSWORD = "";
+    
+#endregion
+
 #region Campos
 
     private string id = null;

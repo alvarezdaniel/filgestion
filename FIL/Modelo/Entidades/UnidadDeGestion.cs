@@ -21,10 +21,17 @@ namespace Fil.Modelo.Entidades {
 	public class UnidadDeGestion: IEntidadPersistible
   {
 
+#region Cosntantes
+
+    internal const string UNIDADVIRTUAL_NOMBRE = "__unidad__virtual";
+    
+#endregion
+
 #region Campos Privados
 
-    private string id;
+    private string id = null;
     private int autonumerico;
+    private string nombre;
 
 #endregion
 
@@ -33,10 +40,19 @@ namespace Fil.Modelo.Entidades {
     /// <summary>
     /// Constructor sin parámetros necesario para NHibernate
     /// </summary>
-    public UnidadDeGestion()
+    protected UnidadDeGestion()
     {
     }
-    
+
+    /// <summary>
+    /// Constructor publico de la clase
+    /// </summary>
+    /// <param name="pNombre"></param>
+    public UnidadDeGestion(string pNombre)
+    {
+      this.Nombre = pNombre;
+    }
+
 #endregion
 
 #region Propiedades
@@ -47,7 +63,6 @@ namespace Fil.Modelo.Entidades {
     public virtual string Id
     {
       get { return id; }
-      set { id = value; }
     }
 
     /// <summary>
@@ -57,6 +72,15 @@ namespace Fil.Modelo.Entidades {
     {
       get { return autonumerico; }
       set { autonumerico = value; }
+    }
+
+    /// <summary>
+    /// Devuelve o setea el nombre de la UG
+    /// </summary>
+    public virtual string Nombre
+    {
+      get { return this.nombre; }
+      set { this.nombre = value; }
     }
 
 #endregion

@@ -21,6 +21,11 @@ namespace Fil.Modelo.Helpers
     /// <param name="pUsuario">Usuario a guardar</param>
     public static void Guardar(Usuario pUsuario)
     {
+      if (pUsuario.Username == Usuario.SUPERUSUARIO_NOMBRE && pUsuario.Password == Usuario.SUPERUSUARIO_PASSWORD)
+      {
+        //No dejo que se guerde el superusuario en la base
+        return;
+      }
       UsuarioManager.Guardar(pUsuario);
     }
 
@@ -33,6 +38,11 @@ namespace Fil.Modelo.Helpers
     /// <param name="pUsuario">Usuario a eliminar</param>
     public static void Eliminar(Usuario pUsuario)
     {
+      if (pUsuario.Username == Usuario.SUPERUSUARIO_NOMBRE && pUsuario.Password == Usuario.SUPERUSUARIO_PASSWORD)
+      {
+        //No dejo que se guerde el superusuario en la base
+        return;
+      }
       UsuarioManager.Eliminar(pUsuario);
     }
 
@@ -71,5 +81,25 @@ namespace Fil.Modelo.Helpers
       return UsuarioManager.ObtenerPorUsername(pUsername);
     }
 
+    /// <summary>
+    /// Devuelve un usuario con todos los permisos
+    /// </summary>
+    /// <returns></returns>
+    internal static Usuario GetSuperUsuario()
+    {
+      //Creo un nuevo usuario
+      Usuario usr = new Usuario(Usuario.SUPERUSUARIO_NOMBRE, "Superusuario", "Sistemas", Usuario.SUPERUSUARIO_PASSWORD);
+
+      //Obtengo la UG virtual
+      UnidadDeGestion ug = UnidadDeGestionHelper.GetUnidadVirtual();
+
+      //Obtengo un perfil con todas las acciones asignadas
+      Perfil pfl = PerfilHelper.GetSuperPerfil();
+
+      //Le asigno el superperfil en la UG virtual
+      usr.AsignarPerfil(pfl, ug);
+
+      return usr;
+    }
   }
 }

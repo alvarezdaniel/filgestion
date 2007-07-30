@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Fil.Modelo.Entidades;
 using Fil.Modelo.Managers;
+using Fil.Modelo.Enumerados;
 
 namespace Fil.Modelo.Helpers
 {
@@ -21,6 +22,8 @@ namespace Fil.Modelo.Helpers
     /// <param name="pPerfil">Perfil a guardar</param>
     public static void Guardar(Perfil pPerfil)
     {
+      if (pPerfil.Descripcion == Perfil.SUPERPERFIL_NOMBRE)
+        return;
       Managers.PerfilManager.Guardar(pPerfil);
     }
 
@@ -33,6 +36,8 @@ namespace Fil.Modelo.Helpers
     /// <param name="pPerfil">Perfil a eliminar</param>
     public static void Eliminar(Perfil pPerfil)
     {
+      if (pPerfil.Descripcion == Perfil.SUPERPERFIL_NOMBRE)
+        return;
       Managers.PerfilManager.Eliminar(pPerfil);
     }
 
@@ -61,5 +66,17 @@ namespace Fil.Modelo.Helpers
       return PerfilManager.ObtenerTodos();
     }
 
+    /// <summary>
+    /// Devuelve un perfil con todas las acciones asignadas
+    /// </summary>
+    /// <returns></returns>
+    internal static Perfil GetSuperPerfil()
+    {
+      Perfil pfl = new Perfil(Perfil.SUPERPERFIL_NOMBRE);
+      foreach(Accion acn in Enum.GetValues(typeof(Accion))){
+        pfl.AgregarAccion(acn);
+      }
+      return pfl;
+    }
   }
 }

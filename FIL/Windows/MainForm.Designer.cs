@@ -42,7 +42,6 @@ namespace Windows
       this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
       this.menuImageList = new System.Windows.Forms.ImageList(this.components);
       this.mnuABMs = new DevExpress.XtraBars.BarSubItem();
-      this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
       ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
       this.SuspendLayout();
       // 
@@ -61,8 +60,7 @@ namespace Windows
             this.mnuArchivo,
             this.mnuSalir,
             this.mnuAyuda,
-            this.barStaticItem1,
-            this.barButtonItem1});
+            this.barStaticItem1});
       this.barManager1.MainMenu = this.MainBar;
       this.barManager1.MaxItemId = 4;
       this.barManager1.StatusBar = this.StatusBar;
@@ -75,8 +73,7 @@ namespace Windows
       this.MainBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
       this.MainBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.mnuArchivo),
-            new DevExpress.XtraBars.LinkPersistInfo(this.mnuAyuda),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.mnuAyuda)});
       this.MainBar.OptionsBar.MultiLine = true;
       this.MainBar.OptionsBar.UseWholeRow = true;
       this.MainBar.Text = "Barra de Menú";
@@ -134,13 +131,6 @@ namespace Windows
       this.mnuABMs.Id = -1;
       this.mnuABMs.Name = "mnuABMs";
       // 
-      // barButtonItem1
-      // 
-      this.barButtonItem1.Caption = "usr";
-      this.barButtonItem1.Id = 3;
-      this.barButtonItem1.Name = "barButtonItem1";
-      this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
-      // 
       // MainForm
       // 
       this.ClientSize = new System.Drawing.Size(465, 273);
@@ -152,8 +142,8 @@ namespace Windows
       this.Name = "MainForm";
       this.Text = "Prototipo FIL";
       this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-      this.Load += new System.EventHandler(this.MainForm_Load);
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+      this.Load += new System.EventHandler(this.MainForm_Load);
       ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
       this.ResumeLayout(false);
 
@@ -174,7 +164,6 @@ namespace Windows
     private DevExpress.XtraBars.BarStaticItem barStaticItem1;
     private DevExpress.XtraBars.BarSubItem mnuABMs;
     private System.Windows.Forms.ImageList menuImageList;
-    private DevExpress.XtraBars.BarButtonItem barButtonItem1;
 
   }
 }

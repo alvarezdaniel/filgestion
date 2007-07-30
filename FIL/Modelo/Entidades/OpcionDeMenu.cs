@@ -12,7 +12,7 @@ namespace Fil.Modelo.Entidades
 
 #region "Campos"
 
-    private int id;
+    private int id = 0;
     private OpcionDeMenu padre;
     private Enumerados.Accion accion;
     private string descripcion;
@@ -32,7 +32,6 @@ namespace Fil.Modelo.Entidades
     public virtual int Id
     {
       get { return id; }
-      set { id = value; }
     }
     /// <summary>
     /// Opción de Menú Padre
