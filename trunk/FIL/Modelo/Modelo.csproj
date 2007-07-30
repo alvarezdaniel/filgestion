@@ -108,7 +108,6 @@
   <ItemGroup>
     <Content Include="Entidades\Tips.txt" />
     <None Include="hibernate.cfg.xml.template">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <EmbeddedResource Include="Mapas\Pais.hbm.xml" />
     <EmbeddedResource Include="Mapas\Cliente.hbm.xml" />
@@ -127,4 +126,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(ProjectDir)hibernate.cfg.xml" "$(ProjectDir)$(OutDir)hibernate.cfg.xml"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
