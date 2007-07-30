@@ -72,8 +72,12 @@ namespace Windows
       {
         DialogResult dr = MessageBox.Show("¿Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
         if (dr == DialogResult.No)
+        {
           e.Cancel = true;
-        this.opener.Close();
+          return;
+        }
+        else
+          this.opener.Close();
       }
       catch (Exception ex)
       {
