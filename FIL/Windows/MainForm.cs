@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +7,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using Fil.Modelo.Entidades;
+using Fil.Modelo.Helpers;
+using Iesi.Collections;
 
 namespace Windows
 {
@@ -35,18 +39,32 @@ namespace Windows
     {
       //fuerzo al manager a crear los links
       this.barManager1.ForceLinkCreate();
-      
-      //DevExpress.XtraBars.BarSubItem mnu1 = new DevExpress.XtraBars.BarSubItem(this.barManager1, "Menu 1");
-      //mnu1.Name = "mnu1";
-      //mnu1.Id = this.barManager1.GetNewItemId();
 
-      //DevExpress.XtraBars.BarButtonItem mnu2 = new DevExpress.XtraBars.BarButtonItem(this.barManager1, "Menu 3");
-      //mnu2.Name = "mnu3";
-      //mnu2.Id = this.barManager1.GetNewItemId();
-      //mnu2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuItems_ItemClick); 
-      //mnu1.AddItem(mnu2);
+      foreach (OpcionDeMenu raiz in OpcionDeMenuHelper.ObtenerRaices())
+      {
+        DevExpress.XtraBars.BarItem item;
 
-      //this.MainBar.InsertItem(mnuAyuda.Links[0], mnu1);
+        //ToDo: Verificar Permisos
+
+        if (raiz.Hijos.Count > 0)
+        {
+          //Si la opcion tiene hijos, entonces es de tipo submenu
+          item = new DevExpress.XtraBars.BarSubItem(this.barManager1, raiz.Descripcion);
+
+          //ToDo: Armar Submenues
+        }
+        else
+        {
+          //Si la opcion tiene hijos, entonces es de tipo submenu
+          item = new DevExpress.XtraBars.BarSubItem(this.barManager1, raiz.Descripcion);
+          item.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuItems_ItemClick); 
+        }
+        item.Name = raiz.Id.ToString();
+        item.Id = this.barManager1.GetNewItemId();
+
+        this.MainBar.InsertItem(mnuAyuda.Links[0], item);
+      }
+
     }
 
     private void mnuSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
