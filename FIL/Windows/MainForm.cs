@@ -15,7 +15,14 @@ namespace Windows
 {
   public partial class MainForm : DevExpress.XtraEditors.XtraForm
   {
+
+#region Campos
+
     private Form opener;
+    
+#endregion
+
+#region Contructor
 
     /// <summary>
     /// Required designer variable.
@@ -28,12 +35,79 @@ namespace Windows
       this.opener = pOpener;
 
     }
+    
+#endregion
+
+#region Eventos
 
     private void MainForm_Load(object sender, EventArgs e)
     {
-      //Armar Menu
-      ArmarMenu();
+      try
+      {
+        //Armar Menu
+        ArmarMenu();
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
     }
+
+    private void mnuSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+    {
+      try
+      {
+        this.Close();
+
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+      try
+      {
+        DialogResult dr = MessageBox.Show("¿Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+        if (dr == DialogResult.No)
+          e.Cancel = true;
+        this.opener.Close();
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+
+    private void menuItems_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+    {
+      try
+      {
+        OpcionDeMenu opt = (OpcionDeMenu)e.Item.Tag;
+        if (opt.Form != null)
+        {
+          Form frm = (Form)System.Reflection.Assembly.GetExecutingAssembly().CreateInstance("Windows." + opt.Form, true);
+          //Type t = System.Reflection.Assembly.GetExecutingAssembly().GetType(opt.Form);
+          frm.MdiParent = this;
+          frm.Show();
+        }
+        else if (opt.Metodo != null)
+        {
+          //ToDo: Obtener el método por reflection e invocarlo.
+        }
+
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+    
+#endregion
+
+#region Métodos
 
     private void ArmarMenu()
     {
@@ -44,7 +118,9 @@ namespace Windows
       {
         DevExpress.XtraBars.BarItem item;
 
-        //ToDo: Verificar Permisos
+        //Si no tiene permiso, salteo la opcion.
+        if (!Sistema.UsuarioActual.Puede(raiz.Accion))
+          continue;
 
         if (raiz.Hijos.Count > 0)
         {
@@ -74,7 +150,11 @@ namespace Windows
       foreach (OpcionDeMenu opc in pPadre.Hijos)
       {
         DevExpress.XtraBars.BarItem item;
-        
+
+        //Si no tiene permiso, salteo la opcion.
+        if (!Sistema.UsuarioActual.Puede(opc.Accion))
+          continue;
+
         if (opc.Hijos.Count > 0)
         {
           //Si la opcion tiene hijos, entonces es de tipo submenu
@@ -99,36 +179,8 @@ namespace Windows
         item.Id = this.barManager1.GetNewItemId();
       }
     }
-    
-    private void mnuSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-    {
-      this.Close();
-    }
 
-    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-    {
-      DialogResult dr = MessageBox.Show("¿Esta seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-      if (dr == DialogResult.No)
-        e.Cancel = true;
-      this.opener.Close();
-    }
-
-    private void menuItems_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-    {
-      MessageBox.Show("Usted clickeó en " + ((OpcionDeMenu)e.Item.Tag).Descripcion + "\nSe ejecutará: " + ((OpcionDeMenu)e.Item.Tag).Form);
-
-      OpcionDeMenu opt = (OpcionDeMenu)e.Item.Tag;
-      if (opt.Form != null)
-      {
-        Form frm = (Form)System.Reflection.Assembly.GetExecutingAssembly().CreateInstance("Windows." + opt.Form, true);
-        //Type t = System.Reflection.Assembly.GetExecutingAssembly().GetType(opt.Form);
-        frm.MdiParent = this;
-        frm.Show();
-      }
-      else if (opt.Metodo != null)
-      {
-      }
-    }
+#endregion
 
   }
 }

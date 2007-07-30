@@ -150,11 +150,21 @@ namespace Fil.Modelo.Entidades
       Helpers.UsuarioHelper.Eliminar(this);
     }
 
+    /// <summary>
+    /// Verifica si el Usuario puede realizar la accion en la UG Actual.
+    /// </summary>
+    /// <param name="pAccion"></param>
+    public virtual bool Puede(Accion pAccion)
+    {
+      return Puede(pAccion, Sistema.UnidadActual);
+    }
+
 		/// <summary>
     /// Verifica si el usuario puede realizar una determinada accion.
     /// </summary>
 		/// <param name="accion"></param>
-		public virtual bool Puede(Accion pAccion, UnidadDeGestion pUnidadDeGestion){
+    public virtual bool Puede(Accion pAccion, UnidadDeGestion pUnidadDeGestion)
+    {
       //Verifico entre los perfiles q tiene para la unidad de gestion, si puede
       //realizar la accion.
       foreach (PerfilAsignado pa in PerfilesAsignados)
