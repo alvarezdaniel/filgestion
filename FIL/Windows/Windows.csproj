@@ -122,4 +122,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(ProjectDir)hibernate.cfg.xml" "$(ProjectDir)$(OutDir)hibernate.cfg.xml"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
