@@ -107,8 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entidades\Tips.txt" />
-    <None Include="hibernate.cfg.xml.template">
-    </None>
     <EmbeddedResource Include="Mapas\Pais.hbm.xml" />
     <EmbeddedResource Include="Mapas\Cliente.hbm.xml" />
     <EmbeddedResource Include="Mapas\Localidad.hbm.xml" />
