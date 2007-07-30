@@ -22,7 +22,8 @@ namespace Fil.Modelo.Entidades {
 #region Campos Privados
 
     private static Usuario usuarioActual;
-    
+    private static UnidadDeGestion unidadActual;
+
 #endregion
 
 #region Propiedades
@@ -32,14 +33,17 @@ namespace Fil.Modelo.Entidades {
     /// </summary>
     public static Usuario UsuarioActual
     {
-      get
-      {
-        return usuarioActual;
-      }
-      set
-      {
-        usuarioActual = value;
-      }
+      get { return usuarioActual; }
+      set { usuarioActual = value; }
+    }
+
+    /// <summary>
+    /// Devuelve o setea la Unidad de Gestion sobre la cual esta operando el Usuario
+    /// </summary>
+    public static UnidadDeGestion UnidadActual
+    {
+      get { return Sistema.unidadActual; }
+      set { Sistema.unidadActual = value; }
     }
     
 #endregion
@@ -59,7 +63,8 @@ namespace Fil.Modelo.Entidades {
       if (username.ToLower() == Usuario.SUPERUSUARIO_NOMBRE && pass == Usuario.SUPERUSUARIO_PASSWORD)
       {
         usr = UsuarioHelper.GetSuperUsuario();
-        usuarioActual = usr;
+        UsuarioActual = usr;
+        UnidadActual = UnidadDeGestionHelper.GetUnidadVirtual();
         return true;
       }
 
@@ -69,10 +74,45 @@ namespace Fil.Modelo.Entidades {
         if (usr.Password == pass)
         {
           UsuarioActual = usr;
+          UnidadActual = SeleccionarUnidadDeGestion(usr);
           return true;
         }
       }
       return false;
+    }
+
+    private static UnidadDeGestion SeleccionarUnidadDeGestion(Usuario usr)
+    {
+      UnidadDeGestion ug = null;
+
+      if (usr.PerfilesAsignados.Count == 1)
+      {
+        // Si tiene un solo perfil asignado, pongo la unica UG que tiene
+        IEnumerator e = usr.PerfilesAsignados.GetEnumerator();
+        e.MoveNext();
+        UnidadActual = ((PerfilAsignado)e.Current).UnidadDeGestion;
+      }
+      else if (usr.PerfilesAsignados.Count > 1)
+      {
+        // Si tiene mas de un perfil asignado, me fijo si hay mas de una UG
+        IList ugs = new ArrayList();
+        foreach (PerfilAsignado pfa in usr.PerfilesAsignados)
+        {
+          if (!ugs.Contains(pfa.UnidadDeGestion))
+            ugs.Add(pfa.UnidadDeGestion);
+        }
+        // si tengo uno solo, lo asigno, sino no.
+        if (ugs.Count == 1)
+          UnidadActual = (UnidadDeGestion)ugs[0];
+        //else
+        //{
+          // Tengo varias UG's => tiene q elegir una. 
+          // Lo va a hacer en el form de login, ya que desde aca no tengo conocimiento de la capa 
+          // de presentacion y no puedo llamar a ningun form.
+        //}
+      }
+      
+      return ug;
     }
 
 #endregion
