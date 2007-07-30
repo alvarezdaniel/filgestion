@@ -36,9 +36,9 @@ namespace Fil.Modelo.Tests
         Usuario usuario = new Usuario("UserName Test", "Nombres Test", "Apellidos Test", "asdf1234");
         
         //Creo un par de perfiles y unidades de gestion y se los asigno
-        this.ug1 = new UnidadDeGestion();
+        this.ug1 = new UnidadDeGestion("UG1");
         ug1.Guardar();
-        this.ug2 = new UnidadDeGestion();
+        this.ug2 = new UnidadDeGestion("UG2");
         ug2.Guardar();
 
         this.pf1 = new Perfil("Perfil Test 1");
@@ -120,6 +120,12 @@ namespace Fil.Modelo.Tests
 
         //Verifico que no lo haya encontrado
         Assert.IsNull(usuario);
+
+        //Elimino las UG's y los perfiles
+        ug1.Eliminar();
+        ug2.Eliminar();
+        pf1.Eliminar();
+        pf2.Eliminar();
 
         NHibernateManager.CommitTransaction();
       }

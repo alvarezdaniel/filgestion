@@ -10,7 +10,7 @@ namespace Fil.Modelo.Entidades
 
 #region Campos
 
-    private string id;
+    private string id = null;
     private string nombre;
     private int autonumerico;
     
@@ -35,7 +35,6 @@ namespace Fil.Modelo.Entidades
     public virtual string Id
     {
       get { return id; }
-      set { id = value; }
     }
 
     public virtual string Nombre

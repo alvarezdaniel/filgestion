@@ -7,5 +7,6 @@
       <generator class="uuid.hex" />
     </id>
     <property name="Autonumerico" column="UdgAutonumerico" insert="false" update="false" />
+    <property name="Nombre" column="UdgNombre" />
   </class>
 </hibernate-mapping>

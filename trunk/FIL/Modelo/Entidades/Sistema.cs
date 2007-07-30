@@ -12,6 +12,7 @@ using System.Text;
 using NHibernate;
 using Iesi.Collections;
 using Fil.Modelo.Entidades;
+using Fil.Modelo.Helpers;
 
 namespace Fil.Modelo.Entidades {
 
@@ -21,8 +22,6 @@ namespace Fil.Modelo.Entidades {
 #region Campos Privados
 
     private static Usuario usuarioActual;
-    private const string USUARIO_SISTEMA_NOMBRE = "";
-    private const string USUARIO_SISTEMA_PASSWORD = "";
     
 #endregion
 
@@ -54,12 +53,12 @@ namespace Fil.Modelo.Entidades {
 
       Usuario usr;
 
-      //Agergo un harcode para tener un usuario y pass que pase siempre
+      //Agergo un harcode para tener un usuario y pass que pase siempre y que tenga todos los permisos
       //User: (vacio)
       //Pass: (vacio)
-      if (username.ToLower() == USUARIO_SISTEMA_NOMBRE && pass == USUARIO_SISTEMA_PASSWORD )
+      if (username.ToLower() == Usuario.SUPERUSUARIO_NOMBRE && pass == Usuario.SUPERUSUARIO_PASSWORD)
       {
-        usr = new Usuario(USUARIO_SISTEMA_NOMBRE, "XX", "XX", USUARIO_SISTEMA_PASSWORD);
+        usr = UsuarioHelper.GetSuperUsuario();
         usuarioActual = usr;
         return true;
       }

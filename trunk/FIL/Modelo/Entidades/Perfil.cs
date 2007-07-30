@@ -20,9 +20,11 @@ namespace Fil.Modelo.Entidades
 	public class Perfil: IEntidadPersistible
   {
 
+    internal const string SUPERPERFIL_NOMBRE = "__superperfil__sistemas";
+
 #region Campos Privados
 
-    private string id;
+    private string id = null;
     private string descripcion;
     private ISet accionesAsociadas = new HashedSet();
     private int autonumerico;
@@ -55,7 +57,6 @@ namespace Fil.Modelo.Entidades
     public virtual string Id
     {
       get { return id; }
-      set { id = value; }
     }
 
     /// <summary>

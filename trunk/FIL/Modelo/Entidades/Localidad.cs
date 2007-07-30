@@ -10,7 +10,7 @@ namespace Fil.Modelo.Entidades
 #region Campos
 
 
-    private string id;
+    private string id = null;
     private string nombre;
     private int autonumerico;
     private string codigoPostal;
@@ -28,14 +28,13 @@ namespace Fil.Modelo.Entidades
     }
 #endregion
 
-    # region Propiedades
+# region Propiedades
     /// <summary>
     /// Identificador de Clase
     /// </summary>
     public virtual string Id
     {
       get { return id; }
-      set { id = value; }
     }
 
     public virtual string Nombre
@@ -56,7 +55,7 @@ namespace Fil.Modelo.Entidades
       set { codigoPostal = value; }
     }
 
-    #endregion
+#endregion
 
 #region Miembros de IEntidadPersistible
 
