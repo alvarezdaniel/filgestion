@@ -52,7 +52,7 @@ namespace Windows
       }
       catch (Exception ex)
       {
-        throw;
+        throw ex;
       }
     }
     
