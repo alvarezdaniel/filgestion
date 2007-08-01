@@ -17,7 +17,15 @@ namespace Fil.Modelo.Enumerados
     AltaUsuarios = 2,
     BajaUsuarios = 3,
     ModificacionUsuarios = 4,
-    AsignarPerfiles = 5
+    AsignarPerfiles = 5,
+    AltaPerfiles = 6,
+    ConsultaPerfiles = 7,
+    BajaPerfiles = 8,
+    ModificacionPerfiles = 9,
+    ConsultaUnidadesDeGestion = 10,
+    AltaUnidadesDeGestion = 11,
+    BajaUnidadesDeGestion = 12,
+    ModificacionUnidadesDeGestion = 13
   }
 
 }

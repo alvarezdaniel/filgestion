@@ -115,7 +115,7 @@ namespace Fil.Modelo.Entidades {
     }
     public override string ToString()
     {
-      return "Unidad De Gestion";
+      return this.Nombre;
     }
     public override int GetHashCode()
     {

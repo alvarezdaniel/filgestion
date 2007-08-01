@@ -32,6 +32,7 @@ namespace Windows
       this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
       this.MainBar = new DevExpress.XtraBars.Bar();
       this.mnuArchivo = new DevExpress.XtraBars.BarSubItem();
+      this.mnuCambiarUsuario = new DevExpress.XtraBars.BarButtonItem();
       this.mnuSalir = new DevExpress.XtraBars.BarButtonItem();
       this.mnuAyuda = new DevExpress.XtraBars.BarButtonItem();
       this.StatusBar = new DevExpress.XtraBars.Bar();
@@ -60,9 +61,10 @@ namespace Windows
             this.mnuArchivo,
             this.mnuSalir,
             this.mnuAyuda,
-            this.barStaticItem1});
+            this.barStaticItem1,
+            this.mnuCambiarUsuario});
       this.barManager1.MainMenu = this.MainBar;
-      this.barManager1.MaxItemId = 4;
+      this.barManager1.MaxItemId = 5;
       this.barManager1.StatusBar = this.StatusBar;
       // 
       // MainBar
@@ -83,8 +85,16 @@ namespace Windows
       this.mnuArchivo.Caption = "&Archivo";
       this.mnuArchivo.Id = 0;
       this.mnuArchivo.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.mnuCambiarUsuario, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.mnuSalir, true)});
       this.mnuArchivo.Name = "mnuArchivo";
+      // 
+      // mnuCambiarUsuario
+      // 
+      this.mnuCambiarUsuario.Caption = "&Cambiar Usuario...";
+      this.mnuCambiarUsuario.Id = 4;
+      this.mnuCambiarUsuario.Name = "mnuCambiarUsuario";
+      this.mnuCambiarUsuario.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnuCambiarUsuario_ItemClick);
       // 
       // mnuSalir
       // 
@@ -133,7 +143,7 @@ namespace Windows
       // 
       // MainForm
       // 
-      this.ClientSize = new System.Drawing.Size(465, 273);
+      this.ClientSize = new System.Drawing.Size(501, 349);
       this.Controls.Add(this.barDockControlLeft);
       this.Controls.Add(this.barDockControlRight);
       this.Controls.Add(this.barDockControlBottom);
@@ -164,6 +174,7 @@ namespace Windows
     private DevExpress.XtraBars.BarStaticItem barStaticItem1;
     private DevExpress.XtraBars.BarSubItem mnuABMs;
     private System.Windows.Forms.ImageList menuImageList;
+    private DevExpress.XtraBars.BarButtonItem mnuCambiarUsuario;
 
   }
 }

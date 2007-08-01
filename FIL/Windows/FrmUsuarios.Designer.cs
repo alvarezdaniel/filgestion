@@ -116,6 +116,7 @@ namespace Windows
       this.BtnNuevo.Size = new System.Drawing.Size(96, 23);
       this.BtnNuevo.TabIndex = 1;
       this.BtnNuevo.Text = "&Nuevo";
+      this.BtnNuevo.Visible = false;
       this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
       // 
       // BtnCerrar
@@ -147,6 +148,7 @@ namespace Windows
       this.BtnModificar.Size = new System.Drawing.Size(96, 23);
       this.BtnModificar.TabIndex = 2;
       this.BtnModificar.Text = "&Modificar";
+      this.BtnModificar.Visible = false;
       this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
       // 
       // BtnEliminar
@@ -156,6 +158,7 @@ namespace Windows
       this.BtnEliminar.Size = new System.Drawing.Size(96, 23);
       this.BtnEliminar.TabIndex = 3;
       this.BtnEliminar.Text = "&Eliminar";
+      this.BtnEliminar.Visible = false;
       this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
       // 
       // BtnPerfiles
@@ -165,6 +168,8 @@ namespace Windows
       this.BtnPerfiles.Size = new System.Drawing.Size(96, 23);
       this.BtnPerfiles.TabIndex = 4;
       this.BtnPerfiles.Text = "&Perfiles";
+      this.BtnPerfiles.Visible = false;
+      this.BtnPerfiles.Click += new System.EventHandler(this.BtnPerfiles_Click);
       // 
       // FrmUsuarios
       // 
@@ -176,6 +181,7 @@ namespace Windows
       this.Controls.Add(this.GrdDatos);
       this.Name = "FrmUsuarios";
       this.ShowIcon = false;
+      this.ShowInTaskbar = false;
       this.Text = "Usuarios";
       this.Load += new System.EventHandler(this.FrmUsuarios_Load);
       ((System.ComponentModel.ISupportInitialize)(this.GrdDatos)).EndInit();

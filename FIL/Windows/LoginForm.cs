@@ -14,7 +14,7 @@ namespace Windows
   public partial class LoginForm : DevExpress.XtraEditors.XtraForm
   {
 
-#region Contructor
+#region Constructor
 
     /// <summary>
     /// Required designer variable.
@@ -29,59 +29,46 @@ namespace Windows
     
 #endregion
 
+#region Propiedades
+
+    public string Username
+    {
+      get { return this.TxtUsuario.Text; }
+    }
+    public string Password
+    {
+      get { return this.TxtPassword.Text; }
+    }
+
+#endregion
+
 #region Eventos
 
     private void BtnIngresar_Click(object sender, EventArgs e)
     {
-      if (Sistema.IngresarUsuario(TxtUsuario.Text, TxtPassword.Text))
+      try
       {
-        if (Sistema.UnidadActual == null)
-        {
-          // No tenia una unica UG.
-          // Podria no tener ninguna, en cuyo caso no va a poder hacer nada, o podria tener varias
-          // y tiene q elegir una.
-          SeleccionarUnidadDeGestion(Sistema.UsuarioActual);
-        }
-
-        this.Hide();
-        MainForm frm = new MainForm(this);
-        frm.Show();
+        this.Close();
       }
-      else
+      catch (Exception ex)
       {
-        MessageBox.Show("Usuario o Password incorrectos", "Usuario Invalido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        throw;
+      }
+    }
+    
+    private void LoginForm_Load(object sender, EventArgs e)
+    {
+      try
+      {
         this.TxtUsuario.Focus();
         this.TxtUsuario.SelectAll();
       }
-    }
-    
-#endregion
-
-#region Metodos
-
-    private void SeleccionarUnidadDeGestion(Usuario usr)
-    {
-      if (usr.PerfilesAsignados.Count > 1)
+      catch (Exception ex)
       {
-        // Si tiene mas de un perfil asignado, me fijo si hay mas de una UG
-        IList ugs = new ArrayList();
-        foreach (PerfilAsignado pfa in usr.PerfilesAsignados)
-        {
-          if (!ugs.Contains(pfa.UnidadDeGestion))
-            ugs.Add(pfa.UnidadDeGestion);
-        }
-        if (ugs.Count > 1)
-        {
-          //Tengo varias UG's => tiene q elegir una.
-          FrmSeleccionUG frm = new FrmSeleccionUG(ugs);
-          if (frm.ShowDialog() == DialogResult.OK)
-          {
-            Sistema.UnidadActual = frm.UnidadSeleccionada;
-          }
-        }
+        throw ex;
       }
     }
-    
+
 #endregion
 
   }

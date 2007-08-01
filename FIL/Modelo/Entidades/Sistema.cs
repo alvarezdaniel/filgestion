@@ -74,17 +74,15 @@ namespace Fil.Modelo.Entidades {
         if (usr.Password == pass)
         {
           UsuarioActual = usr;
-          UnidadActual = SeleccionarUnidadDeGestion(usr);
+          SeleccionarUnidadDeGestion(usr);
           return true;
         }
       }
       return false;
     }
 
-    private static UnidadDeGestion SeleccionarUnidadDeGestion(Usuario usr)
+    private static void SeleccionarUnidadDeGestion(Usuario usr)
     {
-      UnidadDeGestion ug = null;
-
       if (usr.PerfilesAsignados.Count == 1)
       {
         // Si tiene un solo perfil asignado, pongo la unica UG que tiene
@@ -111,8 +109,6 @@ namespace Fil.Modelo.Entidades {
           // de presentacion y no puedo llamar a ningun form.
         //}
       }
-      
-      return ug;
     }
 
 #endregion

@@ -47,14 +47,14 @@ namespace Windows
       this.CmbUnidades.FormattingEnabled = true;
       this.CmbUnidades.Location = new System.Drawing.Point(16, 29);
       this.CmbUnidades.Name = "CmbUnidades";
-      this.CmbUnidades.Size = new System.Drawing.Size(264, 21);
+      this.CmbUnidades.Size = new System.Drawing.Size(261, 21);
       this.CmbUnidades.TabIndex = 1;
       // 
       // BtnAceptar
       // 
       this.BtnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.BtnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
-      this.BtnAceptar.Location = new System.Drawing.Point(205, 59);
+      this.BtnAceptar.Location = new System.Drawing.Point(202, 61);
       this.BtnAceptar.Name = "BtnAceptar";
       this.BtnAceptar.Size = new System.Drawing.Size(75, 23);
       this.BtnAceptar.TabIndex = 2;
@@ -62,7 +62,7 @@ namespace Windows
       // 
       // FrmSeleccionUG
       // 
-      this.ClientSize = new System.Drawing.Size(292, 94);
+      this.ClientSize = new System.Drawing.Size(289, 96);
       this.ControlBox = false;
       this.Controls.Add(this.BtnAceptar);
       this.Controls.Add(this.CmbUnidades);
@@ -70,6 +70,7 @@ namespace Windows
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.Name = "FrmSeleccionUG";
       this.ShowIcon = false;
+      this.ShowInTaskbar = false;
       this.Text = "Selección de Unidad de Gestión";
       this.Load += new System.EventHandler(this.FrmSeleccionUG_Load);
       this.ResumeLayout(false);
