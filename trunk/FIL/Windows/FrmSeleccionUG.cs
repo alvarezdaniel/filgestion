@@ -13,7 +13,14 @@ namespace Windows
 {
   public partial class FrmSeleccionUG : DevExpress.XtraEditors.XtraForm
   {
+
+#region Campos
+
     private IList unidades;
+    
+#endregion
+
+#region Constructor
 
     /// <summary>
     /// Required designer variable.
@@ -26,11 +33,26 @@ namespace Windows
       // TODO: Add any constructor code after InitializeComponent call
       this.unidades = pUnidadesDeGestion;
     }
+    
+#endregion
+
+#region Eventos
 
     private void FrmSeleccionUG_Load(object sender, EventArgs e)
     {
-      CargarUnidades();
+      try
+      {
+        CargarUnidades();
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
     }
+    
+#endregion
+
+#region Metodos
 
     private void CargarUnidades()
     {
@@ -44,5 +66,8 @@ namespace Windows
       get { return (UnidadDeGestion)this.CmbUnidades.SelectedItem; }
       set { this.CmbUnidades.SelectedItem = value; }
     }
+    
+#endregion
+
   }
 }

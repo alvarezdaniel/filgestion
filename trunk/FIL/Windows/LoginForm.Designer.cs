@@ -92,10 +92,10 @@ namespace Windows
       this.MinimizeBox = false;
       this.Name = "LoginForm";
       this.ShowIcon = false;
-      this.ShowInTaskbar = false;
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Inicio de Sesión";
       this.TopMost = true;
+      this.Load += new System.EventHandler(this.LoginForm_Load);
       ((System.ComponentModel.ISupportInitialize)(this.TxtUsuario.Properties)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.TxtPassword.Properties)).EndInit();
       this.ResumeLayout(false);

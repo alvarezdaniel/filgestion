@@ -16,24 +16,17 @@ namespace Windows
   public partial class MainForm : DevExpress.XtraEditors.XtraForm
   {
 
-#region Campos
-
-    private Form opener;
-    
-#endregion
+    private ArrayList itemsMenu = new ArrayList();
 
 #region Contructor
 
     /// <summary>
     /// Required designer variable.
     /// </summary>
-    public MainForm(Form pOpener)
+    public MainForm()
     {
       // Required for Windows Form Designer support
       InitializeComponent();
-
-      this.opener = pOpener;
-
     }
     
 #endregion
@@ -44,6 +37,9 @@ namespace Windows
     {
       try
       {
+        //Verifico si hay alguien logueado
+        VerificarUsuario();
+
         //Armar Menu
         ArmarMenu();
       }
@@ -58,7 +54,6 @@ namespace Windows
       try
       {
         this.Close();
-
       }
       catch (Exception ex)
       {
@@ -74,10 +69,7 @@ namespace Windows
         if (dr == DialogResult.No)
         {
           e.Cancel = true;
-          return;
         }
-        else
-          this.opener.Close();
       }
       catch (Exception ex)
       {
@@ -92,6 +84,17 @@ namespace Windows
         OpcionDeMenu opt = (OpcionDeMenu)e.Item.Tag;
         if (opt.Form != null)
         {
+          // Reviso entre los forms abiertos si ya tengo uno instanciado
+          foreach (Form f in this.MdiChildren){
+            if (f.GetType() == System.Reflection.Assembly.GetExecutingAssembly().GetType("Windows." + opt.Form))
+            {
+              // Si encuentro uno del mismo tipo, lo activo.
+              f.Activate();
+              return;
+            }
+          }
+          // Si no lo encontre, lo instancio.
+
           Form frm = (Form)System.Reflection.Assembly.GetExecutingAssembly().CreateInstance("Windows." + opt.Form, true);
           //Type t = System.Reflection.Assembly.GetExecutingAssembly().GetType(opt.Form);
           frm.MdiParent = this;
@@ -109,13 +112,33 @@ namespace Windows
       }
     }
     
+    private void mnuCambiarUsuario_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+    {
+      try
+      {
+        CerrarVentanasAbiertas();
+        LoguearUsuario();
+        ArmarMenu();
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+
 #endregion
 
 #region Métodos
 
     private void ArmarMenu()
     {
-      //fuerzo al manager a crear los links
+      // Elimino las opciones agregadas anteriormente
+      foreach (DevExpress.XtraBars.BarItem item in itemsMenu)
+      {
+        this.barManager1.Items.Remove(item);
+      }
+      // fuerzo al manager a crear los links
+      // this.barManager1.ForceInitialize();
       this.barManager1.ForceLinkCreate();
 
       foreach (OpcionDeMenu raiz in OpcionDeMenuHelper.ObtenerRaices())
@@ -145,6 +168,7 @@ namespace Windows
         item.Tag = raiz;
 
         this.MainBar.InsertItem(mnuAyuda.Links[0], item);
+        this.itemsMenu.Add(item);
       }
 
     }
@@ -181,6 +205,70 @@ namespace Windows
 
         item.Name = opc.Id.ToString();
         item.Id = this.barManager1.GetNewItemId();
+
+        this.itemsMenu.Add(item);
+
+      }
+    }
+
+    private void VerificarUsuario()
+    {
+      if (Sistema.UsuarioActual == null)
+      {
+        LoguearUsuario();
+      }
+    }
+
+    private void LoguearUsuario()
+    {
+      LoginForm frm = new LoginForm();
+      while (true)
+      {
+        if (frm.ShowDialog() == DialogResult.OK)
+        {
+          if (Sistema.IngresarUsuario(frm.Username, frm.Password))
+          {
+            if (Sistema.UnidadActual == null)
+            {
+              if (Sistema.UsuarioActual.PerfilesAsignados.Count > 1)
+              {
+                // Si tiene mas de un perfil asignado, me fijo si hay mas de una UG
+                IList ugs = new ArrayList();
+                foreach (PerfilAsignado pfa in Sistema.UsuarioActual.PerfilesAsignados)
+                {
+                  if (!ugs.Contains(pfa.UnidadDeGestion))
+                    ugs.Add(pfa.UnidadDeGestion);
+                }
+                if (ugs.Count > 1)
+                {
+                  //Tengo varias UG's => tiene q elegir una.
+                  FrmSeleccionUG frmug = new FrmSeleccionUG(ugs);
+                  if (frmug.ShowDialog() == DialogResult.OK)
+                  {
+                    Sistema.UnidadActual = frmug.UnidadSeleccionada;
+                  }
+                }
+              }
+            }
+            return;
+          }
+          else
+          {
+            MessageBox.Show("Usuario o Password incorrectos", "Usuario Invalido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+          }
+        }
+        else
+        {
+          return;
+        }
+      }
+    }
+
+    private void CerrarVentanasAbiertas()
+    {
+      foreach (Form frm in this.MdiChildren)
+      {
+        frm.Close();
       }
     }
 

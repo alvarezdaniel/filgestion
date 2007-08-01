@@ -46,17 +46,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAsignarPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAsignarPerfil.Designer.cs">
+      <DependentUpon>FrmAsignarPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditorPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditorPerfil.Designer.cs">
+      <DependentUpon>FrmEditorPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditorUnidadDeGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditorUnidadDeGestion.Designer.cs">
+      <DependentUpon>FrmEditorUnidadDeGestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditorUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEditorUsuario.Designer.cs">
       <DependentUpon>FrmEditorUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPerfiles.Designer.cs">
+      <DependentUpon>FrmPerfiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSeleccionUG.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmSeleccionUG.Designer.cs">
       <DependentUpon>FrmSeleccionUG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUnidadesDeGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUnidadesDeGestion.Designer.cs">
+      <DependentUpon>FrmUnidadesDeGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuarios.cs">
       <SubType>Form</SubType>
@@ -78,13 +108,33 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAsignarPerfil.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmAsignarPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditorPerfil.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmEditorPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditorUnidadDeGestion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmEditorUnidadDeGestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEditorUsuario.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmEditorUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPerfiles.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSeleccionUG.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmSeleccionUG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUnidadesDeGestion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmUnidadesDeGestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <SubType>Designer</SubType>
