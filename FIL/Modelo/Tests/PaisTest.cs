@@ -20,7 +20,7 @@ namespace Fil.Modelo.Tests
         NHibernateManager.BeginTransaction();
 
         Pais p = new Pais("Pais Test");
-        p.Guardar();
+        PaisHelper.Guardar(p);
 
         Pais pais2 = PaisHelper.ObtenerPorId(p.Id);
 
@@ -28,7 +28,7 @@ namespace Fil.Modelo.Tests
         Assert.AreEqual(p.Autonumerico, pais2.Autonumerico);
 
         p.Nombre = "Pais Test 2";
-        p.Guardar();
+        PaisHelper.Guardar(p);
 
         pais2 = null;
         pais2 = PaisHelper.ObtenerPorId(p.Id);
@@ -39,7 +39,7 @@ namespace Fil.Modelo.Tests
         IList<Pais> lista = PaisHelper.ObtenerTodos();
         Assert.AreNotEqual(lista.Count, 0);
 
-        p.Eliminar();
+        PaisHelper.Eliminar(p);
 
         pais2 = null;
         pais2 = PaisHelper.ObtenerPorId(p.Id);
@@ -64,15 +64,15 @@ namespace Fil.Modelo.Tests
 
         //Creo varios paises
         Pais austria = new Pais("Austria");
-        austria.Guardar();
+        PaisHelper.Guardar(austria);
         Pais australia = new Pais("Australia");
-        australia.Guardar();
+        PaisHelper.Guardar(australia);
         Pais argentina = new Pais("Argentina");
-        argentina.Guardar();
+        PaisHelper.Guardar(argentina);
         Pais chile = new Pais("Chile");
-        chile.Guardar();
+        PaisHelper.Guardar(chile);
         Pais china = new Pais("China");
-        china.Guardar();
+        PaisHelper.Guardar(china);
 
 
         //Hago consultas por el parecido del nombre
@@ -89,11 +89,11 @@ namespace Fil.Modelo.Tests
         Assert.AreEqual(list.Count, 2);
 
         //Elimino los paises
-        austria.Eliminar();
-        australia.Eliminar();
-        argentina.Eliminar();
-        chile.Eliminar();
-        china.Eliminar();
+        PaisHelper.Eliminar(austria);
+        PaisHelper.Eliminar(australia);
+        PaisHelper.Eliminar(argentina);
+        PaisHelper.Eliminar(chile);
+        PaisHelper.Eliminar(china);
 
 
         NHibernateManager.CommitTransaction();

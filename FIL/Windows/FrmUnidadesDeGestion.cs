@@ -101,7 +101,7 @@ namespace Windows
                               MessageBoxDefaultButton.Button2) == DialogResult.Yes)
           {
             UnidadDeGestion ug = (UnidadDeGestion)this.GrvDatos.GetRow(this.GrvDatos.GetSelectedRows()[0]);
-            ug.Eliminar();
+            UnidadDeGestionHelper.Eliminar(ug);
             CargarDatos();
           }
         }

@@ -6,27 +6,10 @@ using Fil.Modelo.Entidades;
 
 namespace Fil.Modelo.Managers
 {
-  internal abstract class OpcionDeMenuManager: BaseManager
+  internal abstract class OpcionDeMenuManager: BaseManager<OpcionDeMenu>
   {
 
-    /// <summary>
-    /// Obtiene de la base de datos una opcion de menú a partir de su id
-    /// </summary>
-    /// <param name="id">id de la opción de menú</param>
-    /// <returns></returns>
-    internal static OpcionDeMenu ObtenerPorId(int id)
-    {
-      return ObtenerPorClave<OpcionDeMenu>("id", id);
-    }
-
-    /// <summary>
-    /// Obtiene de la base de datos una lista con todas las opciones de menú
-    /// </summary>
-    /// <returns></returns>
-    internal static IList<OpcionDeMenu> ObtenerTodos()
-    {
-      return ObtenerTodos<OpcionDeMenu>();
-    }
+    public const string OPCION_DE_MENU_ID = "id";
 
     /// <summary>
     /// Obtiene de la base de datos una lista con todas las opciones de menú raices (sin padre)

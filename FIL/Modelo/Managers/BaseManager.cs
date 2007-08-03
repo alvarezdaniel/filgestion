@@ -9,7 +9,7 @@ namespace Fil.Modelo.Managers
   /// Manager Genérico.
   /// esta clase define los métodos generales de todos los managers
   /// </summary>
-  internal abstract class BaseManager
+  internal abstract class BaseManager<T>
   {
 
     /// <summary>
@@ -17,7 +17,7 @@ namespace Fil.Modelo.Managers
     /// </summary>
     /// <typeparam name="T">Clase del Objeto a guardar</typeparam>
     /// <param name="pObject">Objeto a guardar</param>
-    protected static void Guardar<T>(T pObject)
+    internal static void Guardar(T pObject)
     {
       NHibernateManager.SaveOrUpdateObject(pObject);
       NHibernateManager.NHSession.Refresh(pObject);
@@ -28,7 +28,7 @@ namespace Fil.Modelo.Managers
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="pObject"></param>
-    protected static void Eliminar<T>(T pObject)
+    internal static void Eliminar(T pObject)
     {
       NHibernateManager.DeleteObject(pObject);
     }
@@ -44,10 +44,10 @@ namespace Fil.Modelo.Managers
     /// Verificar si se mapeo como ID el campo "id" o la propiedad "Id".
     /// </remarks>
     /// <returns>Objeto buscado</returns>
-    protected static T ObtenerPorClave<T>(string nombreClave, object valorClave)
+    internal static T ObtenerPorCampo(string pNombreCampo, object pValorCampo)
     {
       IList exp = new ArrayList();
-      exp.Add(NHibernate.Expression.Expression.Eq(nombreClave, valorClave));
+      exp.Add(NHibernate.Expression.Expression.Eq(pNombreCampo, pValorCampo));
       T obj = default(T);
       IList<T> list = NHibernateManager.GetObjectList<T>(exp);
       if (list.Count == 1)
@@ -60,7 +60,7 @@ namespace Fil.Modelo.Managers
     /// </summary>
     /// <typeparam name="T">Clase de los objetos buscados</typeparam>
     /// <returns>Lista de Objetos</returns>
-    protected static IList<T> ObtenerTodos<T>()
+    internal static IList<T> ObtenerTodos()
     {
       return NHibernateManager.GetObjectList<T>();
     }

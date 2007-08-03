@@ -5,7 +5,7 @@ using Fil.Modelo.Helpers;
 
 namespace Fil.Modelo.Entidades
 {
-  public class Localidad: IEntidadPersistible
+  public class Localidad
   {
 #region Campos
 
@@ -54,21 +54,6 @@ namespace Fil.Modelo.Entidades
       get { return codigoPostal; }
       set { codigoPostal = value; }
     }
-
-#endregion
-
-#region Miembros de IEntidadPersistible
-
-    public void Guardar()
-    {
-      LocalidadHelper.Guardar(this);
-    }
-
-    public void Eliminar()
-    {
-      LocalidadHelper.Eliminar(this);
-    }
-
 
 #endregion
 

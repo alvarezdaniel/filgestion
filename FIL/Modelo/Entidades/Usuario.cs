@@ -11,7 +11,7 @@ namespace Fil.Modelo.Entidades
   /// <summary>
   /// Representa un usuario del sistema.
   /// </summary>
-  public class Usuario: IEntidadPersistible
+  public class Usuario
   {
 
 #region Constantes
@@ -133,22 +133,6 @@ namespace Fil.Modelo.Entidades
 #endregion
 
 #region Metodos Publicos
-
-    /// <summary>
-    /// Guarda la instancia del usuario en la base de datos
-    /// </summary>
-    public virtual void Guardar()
-    {
-      Helpers.UsuarioHelper.Guardar(this);
-    }
-
-    /// <summary>
-    /// Elimina la instancia del usuario en la base de datos
-    /// </summary>
-    public virtual void Eliminar()
-    {
-      Helpers.UsuarioHelper.Eliminar(this);
-    }
 
     /// <summary>
     /// Verifica si el Usuario puede realizar la accion en la UG Actual.

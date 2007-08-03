@@ -76,7 +76,7 @@ namespace Windows
                               MessageBoxDefaultButton.Button2) == DialogResult.Yes)
           {
             Usuario usr = (Usuario)this.GrvDatos.GetRow(this.GrvDatos.GetSelectedRows()[0]);
-            usr.Eliminar();
+            UsuarioHelper.Eliminar(usr);
             CargarDatos();
           }
         }

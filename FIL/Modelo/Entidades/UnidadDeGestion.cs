@@ -18,7 +18,7 @@ namespace Fil.Modelo.Entidades {
   /// <summary>
   /// Representa una unidad de gestion operativa
   /// </summary>
-	public class UnidadDeGestion: IEntidadPersistible
+	public class UnidadDeGestion
   {
 
 #region Cosntantes
@@ -86,22 +86,6 @@ namespace Fil.Modelo.Entidades {
 #endregion
 
 #region Metodos Publicos
-
-    /// <summary>
-    /// Guarda la instancia en la base de datos
-    /// </summary>
-    public virtual void Guardar()
-    {
-      UnidadDeGestionHelper.Guardar(this);
-    }
-
-    /// <summary>
-    /// Elimina la instancia de la base de datos
-    /// </summary>
-    public virtual void Eliminar()
-    {
-      UnidadDeGestionHelper.Eliminar(this);
-    }
 
     public override bool Equals(object obj)
     {

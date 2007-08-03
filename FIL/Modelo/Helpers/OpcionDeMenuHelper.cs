@@ -10,26 +10,12 @@ namespace Fil.Modelo.Helpers
   /// <summary>
   /// Esta clase es la encargada de administrar la lógica de negocios de la clase Usuario
   /// </summary>
-  public abstract class OpcionDeMenuHelper
+  public abstract class OpcionDeMenuHelper: BaseHelper<OpcionDeMenu>
   {
 
-    /// <summary>
-    /// Obtiene la opcion de menú a partir de su ID
-    /// </summary>
-    /// <param name="id">ID de la opción de menú a obtener</param>
-    /// <returns>Opción De Menu</returns>
-    public static OpcionDeMenu ObtenerPorId(int id)
+    public static OpcionDeMenu ObtenerPorId(object pId)
     {
-      return OpcionDeMenuManager.ObtenerPorId(id);
-    }
-
-    /// <summary>
-    /// Obtiene una lista con todas las opciones de menú
-    /// </summary>
-    /// <returns>Lista de Opciones De Menú</returns>
-    public static IList<OpcionDeMenu> ObtenerTodos()
-    {
-      return OpcionDeMenuManager.ObtenerTodos();
+      return ObtenerPorCampo(OpcionDeMenuManager.OPCION_DE_MENU_ID, pId);
     }
 
     /// <summary>

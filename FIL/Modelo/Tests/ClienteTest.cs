@@ -26,13 +26,13 @@ namespace Fil.Modelo.Tests
       Cliente c2 = new Cliente("clicli", "Cliente", "por defecto", 1985);
 
       //Los gurdo en la base
-      c.Guardar();
-      c2.Guardar();
+      ClienteHelper.Guardar(c);
+      ClienteHelper.Guardar(c2);
 
       //Le agreo un dato al primer cliente
       c.AnioNacimiento = 1980;
       //Lo mando a guardar para que lo actualice
-      c.Guardar();
+      ClienteHelper.Guardar(c);
 
       //Obtengo el cliente guardado
       Cliente c3 = ClienteHelper.ObtenerPorId(c.Id);
@@ -46,7 +46,7 @@ namespace Fil.Modelo.Tests
 
       //Cambio el código del cliente y vuelvo a guardar
       c.Codigo = "MartinV";
-      c.Guardar();
+      ClienteHelper.Guardar(c);
       
       //Vuelvo a traer el cliente guardado
       c3 = null;
@@ -60,8 +60,8 @@ namespace Fil.Modelo.Tests
       Assert.AreNotEqual(lista.Count, 0);
 
       //Elimino a los dos clientes
-      c2.Eliminar();
-      c.Eliminar();
+      ClienteHelper.Eliminar(c);
+      ClienteHelper.Eliminar(c2);
 
       //Verifico que los haya eliminado
       c3 = null;

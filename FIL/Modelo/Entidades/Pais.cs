@@ -5,7 +5,7 @@ using Fil.Modelo.Helpers;
 
 namespace Fil.Modelo.Entidades
 {
-  public class Pais: IEntidadPersistible
+  public class Pais
   {
 
 #region Campos
@@ -49,20 +49,6 @@ namespace Fil.Modelo.Entidades
       set { autonumerico = value; }
     }
     
-#endregion
-
-#region Miembros de IEntidadPersistible
-
-    public void Guardar()
-    {
-      PaisHelper.Guardar(this);
-    }
-
-    public void Eliminar()
-    {
-      PaisHelper.Eliminar(this);
-    }
-
 #endregion
 
   }

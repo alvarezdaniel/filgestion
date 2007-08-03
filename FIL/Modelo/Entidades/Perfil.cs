@@ -17,7 +17,7 @@ using Fil.Modelo.Helpers;
 namespace Fil.Modelo.Entidades 
 {
 
-	public class Perfil: IEntidadPersistible
+	public class Perfil
   {
 
     internal const string SUPERPERFIL_NOMBRE = "__superperfil__sistemas";
@@ -120,20 +120,6 @@ namespace Fil.Modelo.Entidades
       if (pAccion == Accion.AccionNula)
         return true;
       return this.Acciones.Contains(pAccion);
-    }
-    /// <summary>
-    /// Guarda la instancia en la base de datos
-    /// </summary>
-    public virtual void Guardar()
-    {
-      PerfilHelper.Guardar(this);
-    }
-    /// <summary>
-    /// Elimina la instancia de la base de datos
-    /// </summary>
-    public virtual void Eliminar()
-    {
-      PerfilHelper.Eliminar(this);
     }
     /// <summary>
     /// Agrega una accion a la coleccion de acciones asociadas

@@ -193,7 +193,7 @@ namespace Windows
         usuario.AsignarPerfil(pfa.Perfil, pfa.UnidadDeGestion);
       }
 
-      usuario.Guardar();
+      UsuarioHelper.Guardar(usuario);
       this.Close();
     }
 
