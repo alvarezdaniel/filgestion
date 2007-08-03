@@ -19,7 +19,7 @@ namespace Fil.Modelo.Tests
         NHibernateManager.BeginTransaction();
 
         Localidad p = new Localidad("Localidad Test xxxx");
-        p.Guardar();
+        LocalidadHelper.Guardar(p);
 
         Localidad Localidad2 = LocalidadHelper.ObtenerPorId(p.Id);
 
@@ -29,7 +29,7 @@ namespace Fil.Modelo.Tests
 
         p.Nombre = "Localidad Test 2 xxxx";
         p.CodigoPostal = "1636 xxxx";
-        p.Guardar();
+        LocalidadHelper.Guardar(p);
 
         Localidad2 = null;
         Localidad2 = LocalidadHelper.ObtenerPorId(p.Id);
@@ -40,7 +40,7 @@ namespace Fil.Modelo.Tests
         IList<Localidad> lista = LocalidadHelper.ObtenerTodos();
         Assert.AreNotEqual(lista.Count, 0);
 
-        p.Eliminar();
+        LocalidadHelper.Eliminar(p);
 
         Localidad2 = null;
         Localidad2 = LocalidadHelper.ObtenerPorId(p.Id);
@@ -65,16 +65,20 @@ namespace Fil.Modelo.Tests
 
         //Creo varios paises
         Localidad olivos = new Localidad("Olivos");
-        olivos.Guardar();
-        Localidad olivares = new Localidad("Olivares");
-        olivares.Guardar();
-        Localidad carupa = new Localidad("Carupá");
-        carupa.Guardar();
-        Localidad matanza = new Localidad("Matanza");
-        matanza.Guardar();
-        Localidad mataderos = new Localidad("Mataderos");
-        mataderos.Guardar();
+        LocalidadHelper.Guardar(olivos);
 
+        Localidad olivares = new Localidad("Olivares");
+        LocalidadHelper.Guardar(olivares);
+        
+        Localidad carupa = new Localidad("Carupá");
+        LocalidadHelper.Guardar(carupa);
+        
+        Localidad matanza = new Localidad("Matanza");
+        LocalidadHelper.Guardar(matanza);
+        
+        Localidad mataderos = new Localidad("Mataderos");
+        LocalidadHelper.Guardar(mataderos);
+        
 
         //Hago consultas por el parecido del nombre
         IList<Localidad> list;
@@ -90,12 +94,11 @@ namespace Fil.Modelo.Tests
         Assert.AreEqual(list.Count, 1);
 
         //Elimino las localidades 
-
-        mataderos.Eliminar();
-        olivos.Eliminar();
-        olivares.Eliminar();
-        matanza.Eliminar();
-        carupa.Eliminar();
+        LocalidadHelper.Eliminar(olivos);
+        LocalidadHelper.Eliminar(olivares);
+        LocalidadHelper.Eliminar(mataderos);
+        LocalidadHelper.Eliminar(matanza);
+        LocalidadHelper.Eliminar(carupa);
                 
         NHibernateManager.CommitTransaction();
       }

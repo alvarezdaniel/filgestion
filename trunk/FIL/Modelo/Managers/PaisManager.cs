@@ -9,8 +9,10 @@ namespace Fil.Modelo.Managers
   /// <summary>
   /// Manager de Paises. Se encarga de interactuar con la base para el manejo de paises
   /// </summary>
-  internal abstract class PaisManager : BaseManager
+  internal abstract class PaisManager : BaseManager<Pais>
   {
+
+    public const string PAIS_ID = "id";
 
     /// <summary>
     /// Obtiene los paises q se llaman parecido al texto a buscar
@@ -26,27 +28,6 @@ namespace Fil.Modelo.Managers
       return NHibernateManager.GetObjectList<Pais>(exp);
     }
 
-
-    internal static void Guardar(Pais pPais)
-    {
-      Guardar<Pais>(pPais);
-    }
-
-    internal static void Eliminar(Pais pPais)
-    {
-      Eliminar<Pais>(pPais);
-    }
-
-    internal static Pais ObtenerPorId(string pId)
-    {
-      return ObtenerPorClave<Pais>("id", pId);
-    }
-
-    internal static IList<Pais> ObtenerTodos()
-    {
-      return ObtenerTodos<Pais>();
-    }
-    
   }
 
 }

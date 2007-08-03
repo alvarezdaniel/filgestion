@@ -36,7 +36,7 @@ namespace Fil.Modelo.Tests
         p.AgregarAccion(Fil.Modelo.Enumerados.Accion.BajaUsuarios);
 
         //Lo guardo en la base
-        p.Guardar();
+        PerfilHelper.Guardar(p);
 
         //Obtengo el perfil guardado y lo asigno a otra variable
         Perfil aux = PerfilHelper.ObtenerPorId(p.Id);
@@ -52,7 +52,7 @@ namespace Fil.Modelo.Tests
         p.QuitarAccion(Fil.Modelo.Enumerados.Accion.AltaUsuarios); //Elimino Altas
         p.QuitarAccion(Fil.Modelo.Enumerados.Accion.BajaUsuarios); //Elimino Bajas
         p.AgregarAccion(Fil.Modelo.Enumerados.Accion.ModificacionUsuarios); //Agrego Modificacion
-        p.Guardar();
+        PerfilHelper.Guardar(p);
 
         //vuelvo a verificar
         aux = null;
@@ -79,7 +79,7 @@ namespace Fil.Modelo.Tests
         Assert.IsTrue(list.Contains(p));
 
         //Elimino el perfil de la base.
-        p.Eliminar();
+        PerfilHelper.Eliminar(p);
 
         //verifico que ya no lo traiga
         aux = null;

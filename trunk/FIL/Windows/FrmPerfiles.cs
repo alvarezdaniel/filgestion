@@ -101,7 +101,7 @@ namespace Windows
                               MessageBoxDefaultButton.Button2) == DialogResult.Yes)
           {
             Perfil p = (Perfil)this.GrvDatos.GetRow(this.GrvDatos.GetSelectedRows()[0]);
-            p.Eliminar();
+            PerfilHelper.Eliminar(p);
             CargarDatos();
           }
         }

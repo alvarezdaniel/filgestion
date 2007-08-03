@@ -37,25 +37,25 @@ namespace Fil.Modelo.Tests
         
         //Creo un par de perfiles y unidades de gestion y se los asigno
         this.ug1 = new UnidadDeGestion("UG1");
-        ug1.Guardar();
+        UnidadDeGestionHelper.Guardar(ug1);
         this.ug2 = new UnidadDeGestion("UG2");
-        ug2.Guardar();
+        UnidadDeGestionHelper.Guardar(ug2);
 
         this.pf1 = new Perfil("Perfil Test 1");
         pf1.AgregarAccion(Fil.Modelo.Enumerados.Accion.ConsultaUsuarios); 
-        pf1.AgregarAccion(Fil.Modelo.Enumerados.Accion.AltaUsuarios); 
-        pf1.Guardar();
+        pf1.AgregarAccion(Fil.Modelo.Enumerados.Accion.AltaUsuarios);
+        PerfilHelper.Guardar(pf1);
         this.pf2 = new Perfil("Perfil Test 2");
         pf1.AgregarAccion(Fil.Modelo.Enumerados.Accion.ConsultaUsuarios); 
-        pf1.AgregarAccion(Fil.Modelo.Enumerados.Accion.ModificacionUsuarios); 
-        pf2.Guardar();
+        pf1.AgregarAccion(Fil.Modelo.Enumerados.Accion.ModificacionUsuarios);
+        PerfilHelper.Guardar(pf2);
 
         usuario.AsignarPerfil(pf1, ug1);
         usuario.AsignarPerfil(pf2, ug1);
         usuario.AsignarPerfil(pf2, ug2);
 
         //Lo guardo
-        usuario.Guardar();
+        UsuarioHelper.Guardar(usuario);
 
         //Recupero el codigo generado
         string id = usuario.Id;
@@ -87,7 +87,7 @@ namespace Fil.Modelo.Tests
         usuario.QuitarPerfil(pf1, ug1);
         usuario.QuitarPerfil(pf2, ug1);
 
-        usuario.Guardar();
+        UsuarioHelper.Eliminar(usuario);
 
         //Busco el usuario
         usuario = null;
@@ -112,7 +112,7 @@ namespace Fil.Modelo.Tests
         Assert.IsTrue(lista.Contains(usuario));
 
         //Borro el usuario
-        usuario.Eliminar();
+        UsuarioHelper.Eliminar(usuario);
 
         //Busco el usuario
         usuario = null;
@@ -122,10 +122,10 @@ namespace Fil.Modelo.Tests
         Assert.IsNull(usuario);
 
         //Elimino las UG's y los perfiles
-        ug1.Eliminar();
-        ug2.Eliminar();
-        pf1.Eliminar();
-        pf2.Eliminar();
+        UnidadDeGestionHelper.Eliminar(ug1);
+        UnidadDeGestionHelper.Eliminar(ug2);
+        PerfilHelper.Eliminar(pf1);
+        PerfilHelper.Eliminar(pf2);
 
         NHibernateManager.CommitTransaction();
       }

@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="Entidades\AccionAsociada.cs" />
     <Compile Include="Entidades\Cliente.cs" />
-    <Compile Include="Entidades\IEntidadPersistible.cs" />
     <Compile Include="Entidades\Localidad.cs" />
     <Compile Include="Entidades\OpcionDeMenu.cs" />
     <Compile Include="Entidades\Pais.cs" />
@@ -75,6 +74,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Enumerados\Enumerados.cs" />
+    <Compile Include="Helpers\BaseHelper.cs" />
     <Compile Include="Helpers\ClienteHelper.cs" />
     <Compile Include="Helpers\LocalidadHelper.cs" />
     <Compile Include="Helpers\OpcionDeMenuHelper.cs" />

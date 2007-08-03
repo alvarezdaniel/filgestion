@@ -6,12 +6,13 @@ using Fil.Modelo.Entidades;
 
 namespace Fil.Modelo.Entidades
 {
-  public class Cliente : IEntidadPersistible
+  public class Cliente
   {
 
 #region Campos
-    private string id;
-    private int autonumerico;
+    
+    private string id = null;
+    private int autonumerico = 0;
     private string codigo;
     private string nombres;
     private string apellidos;
@@ -116,33 +117,6 @@ namespace Fil.Modelo.Entidades
       this.Apellidos = pApellidos;
       this.AnioNacimiento = pAnioNacimiento;
     }
-    #endregion
-
-#region Miembros de IEntidadPersistible
-
-    /// <summary>
-    /// Método exigido por la Interface IEntidadPersistible que guarda al cliente en la base.
-    /// </summary>
-    public void Guardar()
-    {
-      if (this.id == null)
-      {
-        ClienteHelper.Guardar(this);
-      }
-      else
-      {
-        ClienteHelper.Actualizar(this);
-      }
-    }
-
-    /// <summary>
-    /// Método exigido por la Interface IEntidadPersistible que elimina al cliente en la base.
-    /// </summary>
-    public void Eliminar()
-    {
-      ClienteHelper.Eliminar(this);
-    }
-
     #endregion
 
   }

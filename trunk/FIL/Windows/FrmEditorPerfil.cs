@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Fil.Modelo.Entidades;
 using Fil.Modelo.Enumerados;
+using Fil.Modelo.Helpers;
 
 namespace Windows
 {
@@ -126,7 +127,7 @@ namespace Windows
         }
       }
 
-      this.perfil.Guardar();
+      PerfilHelper.Guardar(this.perfil);
       this.Close();
     }
 

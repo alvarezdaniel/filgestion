@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Fil.Modelo.Entidades;
+using Fil.Modelo.Helpers;
 
 namespace Windows
 {
@@ -103,7 +104,7 @@ namespace Windows
         unidadDeGestion.Nombre = TxtNombre.Text;
       }
 
-      this.unidadDeGestion.Guardar();
+      UnidadDeGestionHelper.Guardar(this.unidadDeGestion);
       this.Close();
     }
 

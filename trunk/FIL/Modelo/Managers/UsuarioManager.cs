@@ -6,45 +6,10 @@ using Fil.Modelo.Entidades;
 
 namespace Fil.Modelo.Managers
 {
-  internal abstract class UsuarioManager : BaseManager
+  internal abstract class UsuarioManager : BaseManager<Usuario>
   {
 
-    /// <summary>
-    /// Guarda la instancia del objeto en la base de datos
-    /// </summary>
-    /// <param name="pUsuario">Usuario a guardar</param>
-    internal static void Guardar(Usuario pUsuario)
-    {
-      Guardar<Usuario>(pUsuario);
-    }
-
-    /// <summary>
-    /// Elimina la instancia del objeto de la base de datos
-    /// </summary>
-    /// <param name="pUsuario">Usuario a eliminar</param>
-    internal static void Eliminar(Usuario pUsuario)
-    {
-      Eliminar<Usuario>(pUsuario);
-    }
-
-    /// <summary>
-    /// Obtiene un usuario de la base de datos a partir de su Id
-    /// </summary>
-    /// <param name="id">Id del usuario a recuperar</param>
-    /// <returns>Usuario</returns>
-    internal static Usuario ObtenerPorId(string id)
-    {
-      return ObtenerPorClave<Usuario>("id", id);
-    }
-    
-    /// <summary>
-    /// Obtiene una lista con todos los usuario de la base de datos
-    /// </summary>
-    /// <returns>Lista de Usuarios</returns>
-    internal static IList<Usuario> ObtenerTodos()
-    {
-      return ObtenerTodos<Usuario>();
-    }
+    public const string USUARIO_ID = "id";
 
     /// <summary>
     /// Obtiene un usuario de la base de datos a partir de su Username
