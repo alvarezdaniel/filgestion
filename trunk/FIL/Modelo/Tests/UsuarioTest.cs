@@ -87,7 +87,7 @@ namespace Fil.Modelo.Tests
         usuario.QuitarPerfil(pf1, ug1);
         usuario.QuitarPerfil(pf2, ug1);
 
-        UsuarioHelper.Eliminar(usuario);
+        UsuarioHelper.Guardar(usuario);
 
         //Busco el usuario
         usuario = null;
