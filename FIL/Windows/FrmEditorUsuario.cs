@@ -172,6 +172,7 @@ namespace Windows
     private void CargarPerfiles()
     {
       this.GrdPerfilesAsignados.DataSource = this.perfilesAsignados;
+      this.GrvPerfilesAsignados.RefreshData();
     }
     
     private void GuardarUsuario()
