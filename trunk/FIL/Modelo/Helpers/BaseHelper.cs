@@ -9,6 +9,13 @@ namespace Fil.Modelo.Helpers
   public abstract class BaseHelper<T> 
   {
 
+    public abstract Boolean Validar(object pObj);
+
+    public virtual void GuardarValido(T pObjeto)
+    {
+      BaseHelper<T>.Guardar(pObjeto);
+    }
+
     public static void Guardar(T pObjeto)
     {
       BaseManager<T>.Guardar(pObjeto);

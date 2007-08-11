@@ -19,7 +19,8 @@ namespace Fil.Modelo.Tests
         NHibernateManager.BeginTransaction();
 
         Localidad p = new Localidad("Localidad Test xxxx");
-        LocalidadHelper.Guardar(p);
+        LocalidadHelper lh = new LocalidadHelper();
+        lh.GuardarValido(p);
 
         Localidad Localidad2 = LocalidadHelper.ObtenerPorId(p.Id);
 
