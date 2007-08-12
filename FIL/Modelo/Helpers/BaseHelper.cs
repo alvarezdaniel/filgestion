@@ -9,7 +9,10 @@ namespace Fil.Modelo.Helpers
   public abstract class BaseHelper<T> 
   {
 
-    public abstract Boolean Validar(object pObj);
+    public static Boolean Validar(object pObj)
+    {
+      return true;
+    }
 
     public virtual void GuardarValido(T pObjeto)
     {
