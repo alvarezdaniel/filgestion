@@ -9,10 +9,10 @@ namespace Fil.Modelo.Helpers
   /// <summary>
   /// Esta clase es la encargada de administrar la lógica de negocios de la clase Localidad
   /// </summary>
-  public class LocalidadHelper: BaseHelper<Localidad>
+  public class LocalidadHelper : BaseHelper<Localidad>
   {
 
-    public override Boolean Validar(object pObj)
+    public static new Boolean Validar(object pObj)
     {
       Localidad loc = (Localidad)pObj;
       if (loc.Nombre == null)
@@ -25,7 +25,12 @@ namespace Fil.Modelo.Helpers
     {
       if (Validar(pObjeto))
         base.GuardarValido(pObjeto);
-        //BaseHelper<Localidad>.Guardar(pObjeto);
+    }
+
+    public static new void Guardar(Localidad pObjeto)
+    {
+      if (Validar(pObjeto))
+        LocalidadManager.Guardar(pObjeto);
     }
 
     /// <summary>
