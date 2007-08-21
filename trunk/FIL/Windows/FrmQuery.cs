@@ -212,7 +212,7 @@ namespace Windows
       this.trvMiembrosDeClases.Nodes.Clear();
       if (e.Node.Tag != null)
       {
-        RootClass r = (RootClass)e.Node.Tag;
+        RootClass rc = (RootClass)e.Node.Tag;
         CargarPropiedades(rc);
         this.propertyGrid1.SelectedObject = rc;
       }
