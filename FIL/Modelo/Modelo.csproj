@@ -95,6 +95,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="NHibernateManager.cs" />
+    <Compile Include="NHibernateManagerFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ClienteTest.cs" />
     <Compile Include="Tests\LocalidadTest.cs" />
