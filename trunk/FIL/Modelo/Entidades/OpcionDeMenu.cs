@@ -116,6 +116,19 @@ namespace Fil.Modelo.Entidades
 
 #region "Metodos"
 
+    public override string ToString()
+    {
+      return this.Descripcion;
+    }
+    public override bool Equals(object obj)
+    {
+      return base.Equals(obj);
+    }
+    public override int GetHashCode()
+    {
+      return base.GetHashCode();
+    }
+
 #endregion
 
   }

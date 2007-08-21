@@ -43,6 +43,7 @@ namespace Windows
       this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
       this.menuImageList = new System.Windows.Forms.ImageList(this.components);
       this.mnuABMs = new DevExpress.XtraBars.BarSubItem();
+      this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
       ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
       this.SuspendLayout();
       // 
@@ -62,9 +63,10 @@ namespace Windows
             this.mnuSalir,
             this.mnuAyuda,
             this.barStaticItem1,
-            this.mnuCambiarUsuario});
+            this.mnuCambiarUsuario,
+            this.barButtonItem1});
       this.barManager1.MainMenu = this.MainBar;
-      this.barManager1.MaxItemId = 5;
+      this.barManager1.MaxItemId = 6;
       this.barManager1.StatusBar = this.StatusBar;
       // 
       // MainBar
@@ -86,6 +88,7 @@ namespace Windows
       this.mnuArchivo.Id = 0;
       this.mnuArchivo.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.mnuCambiarUsuario, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.mnuSalir, true)});
       this.mnuArchivo.Name = "mnuArchivo";
       // 
@@ -141,6 +144,13 @@ namespace Windows
       this.mnuABMs.Id = -1;
       this.mnuABMs.Name = "mnuABMs";
       // 
+      // barButtonItem1
+      // 
+      this.barButtonItem1.Caption = "C&ueri Analaiser...";
+      this.barButtonItem1.Id = 5;
+      this.barButtonItem1.Name = "barButtonItem1";
+      this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+      // 
       // MainForm
       // 
       this.ClientSize = new System.Drawing.Size(501, 349);
@@ -175,6 +185,7 @@ namespace Windows
     private DevExpress.XtraBars.BarSubItem mnuABMs;
     private System.Windows.Forms.ImageList menuImageList;
     private DevExpress.XtraBars.BarButtonItem mnuCambiarUsuario;
+    private DevExpress.XtraBars.BarButtonItem barButtonItem1;
 
   }
 }

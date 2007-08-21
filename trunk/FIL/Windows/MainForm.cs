@@ -126,6 +126,13 @@ namespace Windows
       }
     }
 
+    private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+    {
+      FrmQuery frm = new FrmQuery();
+      frm.MdiParent = this;
+      frm.Show();
+    }
+
 #endregion
 
 #region Métodos
@@ -224,8 +231,9 @@ namespace Windows
       LoginForm frm = new LoginForm();
       while (true)
       {
-        if (frm.ShowDialog() == DialogResult.OK)
-        {
+        //if (frm.ShowDialog() == DialogResult.OK)
+        if (true)
+          {
           if (Sistema.IngresarUsuario(frm.Username, frm.Password))
           {
             if (Sistema.UnidadActual == null)
