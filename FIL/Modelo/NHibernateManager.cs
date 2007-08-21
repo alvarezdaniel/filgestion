@@ -302,6 +302,16 @@ namespace Fil.Modelo
       }
     }
 
+    public static ICollection Mapeos
+    {
+      get { return nhConfig.ClassMappings; }
+    }
+
+    public static IList EjecutarQuery(string query)
+    {
+      IQuery qry = NHSession.CreateQuery(query);
+      return qry.List();
+    }
   }
 
 }
