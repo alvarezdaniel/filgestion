@@ -57,7 +57,7 @@ namespace Windows
       node2.Expand();
       namespacesnodes.Add("Modelo", node2);
       node1.Nodes.Add(node2);
-      
+
       this.trvModelo.Nodes.Add(node0);
 
       foreach (RootClass rc in NHibernateManagerFacade.Mapeos)
@@ -180,7 +180,7 @@ namespace Windows
     private static TreeNode AgregarNamespacesFaltantes(Hashtable namespacesnodes, string[] nmsp, int i, TreeNode node)
     {
       //Agergo los namespaces q falten en la rama
-      for (int j = i + 1; j < nmsp.Length-1; j++)
+      for (int j = i + 1; j < nmsp.Length - 1; j++)
       {
         TreeNode newnode = new TreeNode(nmsp[j]);
         newnode.ImageIndex = 1; // Namespace
@@ -258,13 +258,37 @@ namespace Windows
 
     private void toolStripButton1_Click(object sender, EventArgs e)
     {
+      EjecutarQuery();
+    }
+
+    private void EjecutarQuery()
+    {
+      string query = rtbQuery.SelectedText.Trim();
+      if (query == string.Empty)
+      {
+        query = rtbQuery.Text;
+      }
       try
       {
-        this.grdResultados.DataSource = NHibernateManagerFacade.EjecutarQuery(rtbQuery.Text);
+        IList datos = NHibernateManagerFacade.EjecutarQuery(rtbQuery.Text);
+        for (int i = 0; i < datos.Count; i++)
+        {
+          datos[i] = Convert.ChangeType(datos[i], datos[i].GetType());
+        }
+        this.grvResultados.Columns.Clear();
+        this.grdResultados.DataSource = datos;
       }
       catch (Exception ex)
       {
-        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);        
+        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+      }
+    }
+
+    private void rtbQuery_KeyUp(object sender, KeyEventArgs e)
+    {
+      if ((e.KeyCode == Keys.F5) && (e.Alt == false) && (e.Control == false) && (e.Shift == false))
+      {
+        EjecutarQuery();
       }
     }
 
