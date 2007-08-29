@@ -212,6 +212,7 @@ namespace Windows
       this.rtbQuery.Size = new System.Drawing.Size(514, 147);
       this.rtbQuery.TabIndex = 0;
       this.rtbQuery.Text = "";
+      this.rtbQuery.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rtbQuery_KeyUp);
       // 
       // grdResultados
       // 
