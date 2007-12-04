@@ -1,8 +1,0 @@
-= Definición =
-Tipos de documentación jurídicamente aceptadas para identificar a una [http://es.wikipedia.org/wiki/Persona_f%C3%ADsica persona física] o [http://es.wikipedia.org/wiki/Persona_jur%C3%ADdica jurídica].
-
-= Definición para el sistema =
-En principio es la misma que su definición general.
-Se sugiere tomar como tipos de documento los de la tabla de documentos reconocidos por la resolución general 1351, Anexo II de la AFIP.
-Es posible tener que contemplar listas de tipos de documentos legales aceptados por países.
-Según el tipo de documento de que se trate, algunos podrían requerir de algún tipo de validación de cada código o número del mismo.
